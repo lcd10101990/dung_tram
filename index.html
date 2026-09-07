@@ -201,7 +201,73 @@ img{max-width:100%;height:auto}
 <script src="js/config.js"></script>
 <script src="js/app.js"></script>
 <script id="countdown-script">
-(function(){const targets=[{time:new Date('2026-09-14T09:00:00+07:00').getTime(),ids:['cd-bride-days','cd-bride-hours','cd-bride-minutes','cd-bride-seconds'],label:'ngày nhà gái'},{time:new Date('2026-09-20T09:00:00+07:00').getTime(),ids:['cd-groom-days','cd-groom-hours','cd-groom-minutes','cd-groom-seconds'],label:'ngày nhà trai'}];function update(t){const e=t.ids.map(id=>document.getElementById(id));if(e.some(x=>!x))return;let x=t.time-Date.now();if(x<=0){e[0].closest('.countdown-boxes').innerHTML='<div class="countdown-finished" style="grid-column:1/-1">Hôm nay là '+t.label+' ♡</div>';return}const d=Math.floor(x/86400000);x%=86400000;const h=Math.floor(x/3600000);x%=3600000;const m=Math.floor(x/60000);x%=60000;const sec=Math.floor(x/1000);e[0].textContent=d;e[1].textContent=String(h).padStart(2,'0');e[2].textContent=String(m).padStart(2,'0');e[3].textContent=String(sec).padStart(2,'0')}function all(){targets.forEach(update)}all();setInterval(all,1000)})();
+(function(){
+  // Khai báo ngày tháng bằng tham số (Năm, Tháng-1, Ngày, Giờ, Phút, Giây) để tránh lỗi định dạng chuỗi
+  const targets = [
+    {
+      time: new Date(2026, 8, 14, 9, 0, 0).getTime(), // Tháng 9 là số 8 (do tháng bắt đầu từ 0)
+      ids: ['cd-bride-days', 'cd-bride-hours', 'cd-bride-minutes', 'cd-bride-seconds'],
+      label: 'ngày nhà gái'
+    },
+    {
+      time: new Date(2026, 8, 20, 9, 0, 0).getTime(),
+      ids: ['cd-groom-days', 'cd-groom-hours', 'cd-groom-minutes', 'cd-groom-seconds'],
+      label: 'ngày nhà trai'
+    }
+  ];
+
+  const ONE_DAY_MS = 86400000;
+
+  function update(t) {
+    const e = t.ids.map(id => document.getElementById(id));
+    if (e.some(x => !x)) return;
+
+    // Kiểm tra nếu time bị lỗi thì ngưng ngay
+    if (isNaN(t.time)) return;
+
+    const now = Date.now();
+    let diff = t.time - now;
+
+    // 1. Nếu đã qua ngày sự kiện (sau mốc thời gian + 24 tiếng)
+    if (diff < -ONE_DAY_MS) {
+      e[0].textContent = 'Đã';
+      e[1].textContent = 'diễn';
+      e[2].textContent = 'ra';
+      e[3].textContent = '❤️';
+      return;
+    }
+
+    // 2. Nếu đang trong ngày diễn ra sự kiện
+    if (diff <= 0) {
+      e[0].textContent = 'Hôm';
+      e[1].textContent = 'nay';
+      e[2].textContent = 'lễ';
+      e[3].textContent = '♡';
+      return;
+    }
+
+    // 3. Nếu chưa đến ngày -> Đếm ngược bình thường
+    const d = Math.floor(diff / ONE_DAY_MS);
+    diff %= ONE_DAY_MS;
+    const h = Math.floor(diff / 3600000);
+    diff %= 3600000;
+    const m = Math.floor(diff / 60000);
+    diff %= 60000;
+    const sec = Math.floor(diff / 1000);
+
+    e[0].textContent = isNaN(d) ? '0' : d;
+    e[1].textContent = isNaN(h) ? '00' : String(h).padStart(2, '0');
+    e[2].textContent = isNaN(m) ? '00' : String(m).padStart(2, '0');
+    e[3].textContent = isNaN(sec) ? '00' : String(sec).padStart(2, '0');
+  }
+
+  function all() {
+    targets.forEach(update);
+  }
+
+  all();
+  setInterval(all, 1000);
+})();
 </script>
 </body>
 </html>
