@@ -6,6 +6,10 @@ window.WEDDING = {
   dateISO: "2026-09-20T10:30:00+07:00",
   ceremonyTime: "09:00",
   partyTime: "10:30",
+  bridePartyDate: "14.09.2026",
+  bridePartyWeekday: "THỨ HAI",
+  groomPartyDate: "20.09.2026",
+  groomPartyWeekday: "CHỦ NHẬT",
   lunar: "Nhằm ngày 10 tháng 08 năm Bính Ngọ",
 
   groomParent: "Nguyễn Thị Bích",
