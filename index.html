@@ -11,6 +11,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/fix-patch.css">
+<style id="countdown-style">
+.wedding-countdown{padding:70px 20px;text-align:center;background:#faf7f4;position:relative;overflow:hidden}
+.wedding-countdown .countdown-kicker{font:500 12px Montserrat,sans-serif;letter-spacing:.28em;color:#8e756b;text-transform:uppercase}
+.wedding-countdown h2{margin:12px 0 8px;font:500 34px "Cormorant Garamond",serif;color:#493d38}
+.wedding-countdown .countdown-date{font:500 16px Montserrat,sans-serif;letter-spacing:.12em;color:#a66b61;margin-bottom:30px}
+.countdown-boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:570px;margin:0 auto}
+.countdown-box{background:#fff;border:1px solid #e6d6ce;padding:17px 6px;box-shadow:0 8px 25px rgba(90,55,45,.06)}
+.countdown-box strong{display:block;font:500 36px "Cormorant Garamond",serif;color:#9f5f57;line-height:1}
+.countdown-box span{display:block;margin-top:7px;font:500 9px Montserrat,sans-serif;letter-spacing:.16em;color:#8e756b;text-transform:uppercase}
+.countdown-finished{font:500 22px "Cormorant Garamond",serif;color:#9f5f57}
+@media(max-width:480px){.wedding-countdown{padding:55px 15px}.wedding-countdown h2{font-size:30px}.countdown-boxes{gap:6px}.countdown-box{padding:14px 3px}.countdown-box strong{font-size:30px}.countdown-box span{font-size:8px}}
+</style>
 </head>
 <body>
 <div id="preloader"><div class="loader-monogram">D <i>&amp;</i> T</div><div class="loader-bar"></div></div>
@@ -33,6 +45,18 @@
     <div class="hero-line"></div>
     <div class="hero-sub">TRÂN TRỌNG KÍNH MỜI</div>
     <a class="hero-scroll" href="#invite"><span>KÉO XUỐNG</span><b>⌄</b></a>
+  </div>
+</section>
+
+<section class="wedding-countdown" id="countdown">
+  <div class="countdown-kicker">SAVE THE DATE</div>
+  <h2>ĐẾM NGƯỢC ĐẾN NGÀY CƯỚI</h2>
+  <div class="countdown-date">20 · 09 · 2026</div>
+  <div class="countdown-boxes" aria-label="Đếm ngược đến ngày cưới">
+    <div class="countdown-box"><strong id="cd-days">--</strong><span>Ngày</span></div>
+    <div class="countdown-box"><strong id="cd-hours">--</strong><span>Giờ</span></div>
+    <div class="countdown-box"><strong id="cd-minutes">--</strong><span>Phút</span></div>
+    <div class="countdown-box"><strong id="cd-seconds">--</strong><span>Giây</span></div>
   </div>
 </section>
 
@@ -119,5 +143,25 @@
 <footer>DŨNG &amp; TRÂM · 20.09.2026</footer>
 <script src="js/config.js"></script>
 <script src="js/app.js"></script>
+<script id="countdown-script">
+(function(){
+  const target=new Date('2026-09-20T09:00:00+07:00').getTime();
+  const d=document.getElementById('cd-days'),h=document.getElementById('cd-hours'),
+        m=document.getElementById('cd-minutes'),s=document.getElementById('cd-seconds'),
+        box=document.querySelector('.countdown-boxes');
+  if(!d||!h||!m||!s)return;
+  function update(){
+    let x=target-Date.now();
+    if(x<=0){box.innerHTML='<div class="countdown-finished" style="grid-column:1/-1">Hôm nay là ngày trọng đại của Dũng &amp; Trâm ♡</div>';return;}
+    const days=Math.floor(x/86400000);x%=86400000;
+    const hours=Math.floor(x/3600000);x%=3600000;
+    const mins=Math.floor(x/60000);x%=60000;
+    const secs=Math.floor(x/1000);
+    d.textContent=days;h.textContent=String(hours).padStart(2,'0');
+    m.textContent=String(mins).padStart(2,'0');s.textContent=String(secs).padStart(2,'0');
+  }
+  update();setInterval(update,1000);
+})();
+</script>
 </body>
 </html>
