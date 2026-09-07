@@ -10,7 +10,7 @@ window.WEDDING = {
   bridePartyWeekday: "THỨ HAI",
   groomPartyDate: "20.09.2026",
   groomPartyWeekday: "CHỦ NHẬT",
-  lunar: "Nhằm ngày 10 tháng 08 năm Bính Ngọ",
+  lunar: "(Nhằm ngày 10 tháng 08 năm Bính Ngọ)",
 
   groomParent: "Nguyễn Thị Bích",
   groomAddress: "Hẻm 39/11 Trần Khánh Dư <br> TDP 6 · P. An Khê · T. Gia Lai",
@@ -18,9 +18,9 @@ window.WEDDING = {
   brideAddress: "Xóm 1 · T. Mỹ An<br>X. Bình An · T. Gia Lai",
 
   groomPartyTitle: "TƯ GIA NAM",
-  groomPartyAddress: "Hẻm 39/11 - Trần Khánh Dư <br> TDP 6 · Phường An Khê · Tỉnh Gia Lai",
+  groomPartyAddress: "🏠 Hẻm 39/11 - Trần Khánh Dư <br> TDP 6 · Phường An Khê · Tỉnh Gia Lai",
   bridePartyTitle: "LỄ CƯỚI NHÀ GÁI",
-  bridePartyAddress: "Thôn Vân Tường · Xã Bình An · Tỉnh Gia Lai",
+  bridePartyAddress: "💒 Thôn Vân Tường · Xã Bình An · Tỉnh Gia Lai",
 
   // Dán Web App URL của Google Apps Script vào đây sau khi triển khai.
   // Ví dụ: https://script.google.com/macros/s/XXXXXXXX/exec
