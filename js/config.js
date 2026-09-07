@@ -18,9 +18,9 @@ window.WEDDING = {
   brideAddress: "Xóm 1 · T. Mỹ An<br>X. Bình An · T. Gia Lai",
 
   groomPartyTitle: "TƯ GIA NAM",
-  groomPartyAddress: "Hẻm 39/11 Trần Khánh Dư <br> TDP 6 · Phường An Khê · Tỉnh Gia Lai",
+  groomPartyAddress: "Hẻm 39/11 - Trần Khánh Dư <br> TDP 6 · Phường An Khê · Tỉnh Gia Lai",
   bridePartyTitle: "LỄ CƯỚI NHÀ GÁI",
-  bridePartyAddress: "Xóm 1 · T. Mỹ An · X. Bình An · Gia Lai",
+  bridePartyAddress: "Thôn Vân Tường · Xã Bình An · Tỉnh Gia Lai",
 
   // Dán Web App URL của Google Apps Script vào đây sau khi triển khai.
   // Ví dụ: https://script.google.com/macros/s/XXXXXXXX/exec
