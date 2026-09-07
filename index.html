@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/fix-patch.css">
 </head>
 <body>
 <div id="preloader"><div class="loader-monogram">D <i>&amp;</i> T</div><div class="loader-bar"></div></div>
@@ -86,8 +87,8 @@
   <div class="event-wrap">
     <div class="event-art reveal"><div class="art-ring">WEDDING<br><em>DAY</em></div><div class="art-leaf">❧</div></div>
     <div class="event-list">
-      <article class="event-card reveal"><span>TIỆC CƯỚI NHÀ GÁI</span><h3>TƯ GIA NỮ</h3><div class="event-time"><b>10:30</b><small>THỨ HAI<br><strong>14.09.2026</strong></small></div><p data-bride-party-address></p><a id="brideMap" target="_blank" rel="noopener">XEM BẢN ĐỒ ↗</a></article>
-      <article class="event-card reveal"><span>TIỆC CƯỚI NHÀ TRAI</span><h3>TƯ GIA NAM</h3><div class="event-time"><b>10:30</b><small>CHỦ NHẬT<br><strong>20.09.2026</strong></small></div><p data-groom-party-address></p><a id="groomMap" target="_blank" rel="noopener">XEM BẢN ĐỒ ↗</a></article>
+      <article class="event-card reveal"><span>TIỆC CƯỚI NHÀ GÁI</span><h3>TƯ GIA NỮ</h3><div class="event-time"><b>10:30</b><small data-bride-party-date></small></div><p data-bride-party-address></p><a id="brideMap" target="_blank" rel="noopener">XEM BẢN ĐỒ ↗</a></article>
+      <article class="event-card reveal"><span>TIỆC CƯỚI NHÀ TRAI</span><h3>TƯ GIA NAM</h3><div class="event-time"><b>10:30</b><small data-groom-party-date></small></div><p data-groom-party-address></p><a id="groomMap" target="_blank" rel="noopener">XEM BẢN ĐỒ ↗</a></article>
     </div>
   </div>
 </section>
@@ -96,14 +97,13 @@
   <header class="section-heading reveal"><span>WITH LOVE</span><h2>GỬI LỜI CHÚC TỚI CÔ DÂU &amp; CHÚ RỂ</h2><i>⌁ ❀ ⌁</i></header>
   <div class="wish-layout">
     <div class="bank-card reveal"><div class="bank-title">CÔ DÂU</div><h3 data-bride></h3><small>THÔNG TIN CHUYỂN KHOẢN</small><img id="qrImg" class="qr" alt="QR"></div>
-    <form class="wish-form reveal" id="wishForm" method="POST" target="wishFrame">
-      <input type="text" name="name" required maxlength="80" placeholder="Tên của bạn">
+    <form class="wish-form reveal" id="wishForm">
+      <input type="text" name="name" required maxlength="80" autocomplete="name" placeholder="Tên của bạn">
       <textarea name="message" required maxlength="1000" rows="5" placeholder="Lời chúc dành cho Dũng & Trâm..."></textarea>
       <input class="wish-honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button type="submit" id="wishSubmit">GỬI LỜI CHÚC</button>
       <div class="wish-status" id="wishStatus" role="status" aria-live="polite"></div>
     </form>
-    <iframe name="wishFrame" id="wishFrame" class="wish-frame" title="Kết quả gửi lời chúc" aria-hidden="true"></iframe>
   </div>
 </section>
 
