@@ -23,8 +23,8 @@ window.WEDDING = {
   wishEndpoint: "https://script.google.com/macros/s/AKfycbxUXeFVjfIO5bhVEJAn8OHZRzVSc8mAl6qXEMoJ44Dx4mr309nwDwE7ohrrzCi2zj50Zw/exec",
 
   maps: {
-    groom: "https://maps.app.goo.gl/TWqkLzgWMczwbFpS8",
-    bride: "https://maps.app.goo.gl/DZDN6LNYLKD175mTA"
+    groom: "https://maps.app.goo.gl/ncc511DQg4wZ2VqF8",
+    bride: "https://maps.app.goo.gl/RKupAMgJ1dUioid8A"
   },
 
   images: {
