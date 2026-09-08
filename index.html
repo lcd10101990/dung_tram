@@ -38,7 +38,7 @@ img{max-width:100%;height:auto}
 .countdown-event-label,.countdown-label{font-size:clamp(14px,1.3vw,17px)!important}
 .countdown-date{font-size:clamp(16px,1.4vw,19px)!important}
 .countdown-box strong{font-size:clamp(34px,3.5vw,48px)}
-.countdown-box span{font-size:clamp(11px,1vw,13px)!important;letter-spacing:.1em}
+.countdown-box span{font-size:clamp(11px,1.2vw,13px)!important;letter-spacing:.1em}
 .countdown-finished{font-size:clamp(20px,2vw,26px)}
 
 /* STYLES HỘP MỪNG CƯỚI MỚI */
@@ -104,6 +104,53 @@ img{max-width:100%;height:auto}
   text-transform: uppercase;
 }
 
+/* LAYOUT LỜI CHÚC & DANH SÁCH KHÁCH MỜI */
+.wish-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+.wish-list-box {
+  background: #ffffff;
+  border: 1px solid #e6d6ce;
+  border-radius: 16px;
+  padding: 24px;
+  max-height: 580px;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(90,55,45,0.06);
+}
+.wish-list-title {
+  font-family: 'Quicksand', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #493d38;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e6d6ce;
+  text-align: center;
+}
+.wish-item {
+  border-bottom: 1px dashed #e6d6ce;
+  padding: 14px 0;
+}
+.wish-item:last-child { border-bottom: none; }
+.wish-item-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #9f5f57;
+  margin-bottom: 4px;
+}
+.wish-item-msg {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  color: #493d38;
+  line-height: 1.5;
+  white-space: pre-line;
+}
 
 /* MODAL THÔNG TIN MỪNG CƯỚI BANNER/POPUP */
 .bank-modal {
@@ -131,7 +178,6 @@ img{max-width:100%;height:auto}
   position: relative;
   box-shadow: 0 20px 50px rgba(0,0,0,0.2);
   animation: popIn 0.3s ease;
-  /* Căn giữa tất cả phần tử bên trong */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -186,19 +232,19 @@ img{max-width:100%;height:auto}
   padding: 10px;
   background: #fff;
   display: block;
-  margin: 0 auto; /* Đảm bảo căn giữa chính xác */
+  margin: 0 auto;
   box-shadow: 0 4px 15px rgba(0,0,0,0.04);
 }
 
 @media (max-width:900px){
-  .couple-pair,.event-wrap,.wish-layout{gap:28px}
+  .couple-pair,.event-wrap{gap:28px}
   .paper-card{padding:clamp(24px,5vw,50px)!important}
 }
 @media (max-width:700px){
   .section,.section-paper{padding-left:16px;padding-right:16px}
   .section-heading{margin-bottom:28px}
   .section-heading h2{font-size:30px}
-  .couple-pair,.story-grid,.event-wrap,.wish-layout{grid-template-columns:1fr!important}
+  .couple-pair,.story-grid,.event-wrap,.wish-container{grid-template-columns:1fr!important}
   .family-strip{grid-template-columns:1fr!important;gap:16px}
   .countdown-events{grid-template-columns:1fr;gap:16px}
   .countdown-event{padding:24px 14px}
@@ -361,25 +407,35 @@ img{max-width:100%;height:auto}
 
 <section class="wishes section" id="wishes">
   <header class="section-heading reveal"><span>WITH LOVE</span><h2>GỬI LỜI CHÚC TỚI CÔ DÂU &amp; CHÚ RỂ</h2><i>⌁ ❀ ⌁</i></header>
-  <div class="wish-layout">
-    
-    <!-- HỘP MỪNG CƯỚI DẠNG KHUNG NHẤN MỞ POPUP -->
-    <div class="gift-box-card reveal" id="openBankModal">
-      <div class="gift-box-title">Hộp mừng cưới</div>
-      <div class="gift-icon-wrap">
-        <div class="gift-arrow">⬇</div>
-        <div class="gift-envelope">✉️</div>
+  
+  <div class="wish-container">
+    <!-- CỘT BÊN TRÁI: FORM GỬI LỜI CHÚC & HỘP MỪNG CƯỚI -->
+    <div>
+      <form class="wish-form reveal" id="wishForm" style="width: 100%; margin-bottom: 20px;">
+        <input type="text" name="name" required maxlength="80" autocomplete="name" placeholder="Tên của bạn">
+        <textarea name="message" required maxlength="1000" rows="4" placeholder="Lời chúc dành cho Dũng & Trâm..."></textarea>
+        <input class="wish-honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" id="wishSubmit">GỬI LỜI CHÚC</button>
+        <div class="wish-status" id="wishStatus" role="status" aria-live="polite"></div>
+      </form>
+
+      <div class="gift-box-card reveal" id="openBankModal">
+        <div class="gift-box-title">Hộp mừng cưới</div>
+        <div class="gift-icon-wrap">
+          <div class="gift-arrow">⬇</div>
+          <div class="gift-envelope">✉️</div>
+        </div>
+        <button type="button" class="gift-box-btn">GỬI MỪNG CƯỚI</button>
       </div>
-      <button type="button" class="gift-box-btn">GỬI MỪNG CƯỚI</button>
     </div>
 
-    <form class="wish-form reveal" id="wishForm">
-      <input type="text" name="name" required maxlength="80" autocomplete="name" placeholder="Tên của bạn">
-      <textarea name="message" required maxlength="1000" rows="5" placeholder="Lời chúc dành cho Dũng & Trâm..."></textarea>
-      <input class="wish-honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button type="submit" id="wishSubmit">GỬI LỜI CHÚC</button>
-      <div class="wish-status" id="wishStatus" role="status" aria-live="polite"></div>
-    </form>
+    <!-- CỘT BÊN PHẢI: KHUNG HIỂN THỊ LỜI CHÚC TỪ GOOGLE SHEET -->
+    <div class="wish-list-box reveal">
+      <div class="wish-list-title">Lời chúc từ Quan Khách ❤️</div>
+      <div id="wishListBox">
+        <div style="text-align:center; color:#8e756b; font-family:'Montserrat', sans-serif; font-size:13px; padding:20px;">Đang tải danh sách lời chúc...</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -751,6 +807,111 @@ img{max-width:100%;height:auto}
     } else {
       animId = null;
     }
+  }
+})();
+</script>
+
+<!-- SCRIPT GỬI & TẢI LỜI CHÚC TỪ GOOGLE APPS SCRIPT -->
+<script id="google-sheet-wish-script">
+(function() {
+  // THAY LINK GOOGLE APPS SCRIPT CỦA BẠN VÀO ĐÂY (URL kết thúc bằng /exec)
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx6o0V976innjSZZcxAd1oIpnFDJ4I8SoNoNXCDIWx6W4P_BoFedtOeS9nHWRlMcs8N/exec";
+
+  const wishForm = document.getElementById('wishForm');
+  const wishSubmit = document.getElementById('wishSubmit');
+  const wishStatus = document.getElementById('wishStatus');
+  const wishListBox = document.getElementById('wishListBox');
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function(m) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+    });
+  }
+
+  // Tải danh sách lời chúc từ Google Sheet
+  function fetchWishes() {
+    if (!wishListBox) return; // Chỉ kiểm tra nếu không tìm thấy thẻ chứa khung danh sách
+    
+    fetch(GOOGLE_SCRIPT_URL)
+      .then(res => res.json())
+      .then(data => {
+        if (!data || data.length === 0) {
+          wishListBox.innerHTML = '<div style="text-align:center; color:#8e756b; padding:20px;">Chưa có lời chúc nào. Hãy là người đầu tiên gửi lời chúc nhé! ❤️</div>';
+          return;
+        }
+
+        wishListBox.innerHTML = data.map(item => `
+          <div class="wish-item">
+            <div class="wish-item-name">${escapeHtml(item.name)}</div>
+            <div class="wish-item-msg">${escapeHtml(item.message)}</div>
+          </div>
+        `).join('');
+      })
+      .catch(err => {
+        console.error('Lỗi tải lời chúc:', err);
+        wishListBox.innerHTML = '<div style="text-align:center; color:#8e756b; padding:20px;">Không thể tải danh sách lời chúc lúc này.</div>';
+      });
+  }
+  
+  // Gọi tải dữ liệu khi vừa load xong web
+  fetchWishes();
+
+  // Xử lý gửi lời chúc
+  if (wishForm) {
+    wishForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const honeypot = wishForm.querySelector('input[name="website"]');
+      if (honeypot && honeypot.value) return;
+
+      const nameInput = wishForm.querySelector('input[name="name"]');
+      const msgInput = wishForm.querySelector('textarea[name="message"]');
+      if (!nameInput || !msgInput) return;
+
+      const payload = {
+        name: nameInput.value.trim(),
+        message: msgInput.value.trim()
+      };
+
+      if (!payload.name || !payload.message) return;
+
+      if (wishSubmit) {
+        wishSubmit.disabled = true;
+        wishSubmit.textContent = 'ĐANG GỬI...';
+      }
+
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        if (wishStatus) {
+          wishStatus.textContent = '❤️ Cảm ơn bạn đã gửi lời chúc!';
+          wishStatus.style.color = '#9f5f57';
+        }
+        nameInput.value = '';
+        msgInput.value = '';
+
+        // Tải lại danh sách sau 1.5s để cập nhật ngay lời chúc vừa gửi
+        setTimeout(fetchWishes, 1500);
+      })
+      .catch(err => {
+        console.error('Lỗi khi gửi:', err);
+        if (wishStatus) {
+          wishStatus.textContent = '❌ Có lỗi xảy ra, vui lòng thử lại!';
+          wishStatus.style.color = '#d9534f';
+        }
+      })
+      .finally(() => {
+        if (wishSubmit) {
+          wishSubmit.disabled = false;
+          wishSubmit.textContent = 'GỬI LỜI CHÚC';
+        }
+        setTimeout(() => { if (wishStatus) wishStatus.textContent = ''; }, 4000);
+      });
+    });
   }
 })();
 </script>
