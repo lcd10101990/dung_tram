@@ -21,6 +21,7 @@ fill('[data-groom-parent]',W.groomParent);
 fill('[data-bride-parent]',W.brideParent);
 fillHTML('[data-groom-address]',W.groomAddress);
 fillHTML('[data-bride-address]',W.brideAddress);
+fill('[data-lunar0]',W.lunar0);
 fill('[data-lunar]',W.lunar);
 fill('[data-ceremony-time]',W.ceremonyTime);
 fillHTML('[data-groom-party-address]',W.groomPartyAddress);

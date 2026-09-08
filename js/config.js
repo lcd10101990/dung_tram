@@ -10,6 +10,7 @@ window.WEDDING = {
   bridePartyWeekday: "THỨ HAI",
   groomPartyDate: "20.09.2026",
   groomPartyWeekday: "CHỦ NHẬT",
+  lunar0: "(Nhằm ngày 04 tháng 08 năm Bính Ngọ)",
   lunar: "(Nhằm ngày 10 tháng 08 năm Bính Ngọ)",
 
   groomParent: "Nguyễn Thị Bích",
