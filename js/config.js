@@ -21,7 +21,7 @@ window.WEDDING = {
   groomPartyTitle: "TƯ GIA NAM",
   groomPartyAddress: "🏠 Hẻm 39/11 - Trần Khánh Dư <br> TDP 6 · Phường An Khê · Tỉnh Gia Lai",
   bridePartyTitle: "LỄ CƯỚI NHÀ GÁI",
-  bridePartyAddress: "💒 Thôn Vân Tường · Xã Bình An · Tỉnh Gia Lai",
+  bridePartyAddress: "💒 Thôn Vân Tường <br> Xã Bình An · Tỉnh Gia Lai",
 
 
   wishEndpoint: "https://script.google.com/macros/s/AKfycbxUXeFVjfIO5bhVEJAn8OHZRzVSc8mAl6qXEMoJ44Dx4mr309nwDwE7ohrrzCi2zj50Zw/exec",
