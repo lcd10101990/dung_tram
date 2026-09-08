@@ -23,8 +23,7 @@ window.WEDDING = {
   bridePartyTitle: "LỄ CƯỚI NHÀ GÁI",
   bridePartyAddress: "💒 Thôn Vân Tường · Xã Bình An · Tỉnh Gia Lai",
 
-  // Dán Web App URL của Google Apps Script vào đây sau khi triển khai.
-  // Ví dụ: https://script.google.com/macros/s/XXXXXXXX/exec
+
   wishEndpoint: "https://script.google.com/macros/s/AKfycbxUXeFVjfIO5bhVEJAn8OHZRzVSc8mAl6qXEMoJ44Dx4mr309nwDwE7ohrrzCi2zj50Zw/exec",
 
   maps: {
