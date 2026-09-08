@@ -17,7 +17,7 @@
 </style>
 
 <style id="responsive-readability">
-html{font-size:16px;scroll-behavior:smooth}
+html{font-size:16px;scroll-behavior:auto !important;}
 body{overflow-x:hidden}
 img{max-width:100%;height:auto}
 .section,.section-paper{padding-left:clamp(18px,4vw,60px);padding-right:clamp(18px,4vw,60px)}
@@ -260,27 +260,18 @@ img{max-width:100%;height:auto}
     let diff = t.time - now;
 
     if (diff < -ONE_DAY_MS) {
-      e[0].textContent = 'Đã';
-      e[1].textContent = 'diễn';
-      e[2].textContent = 'ra';
-      e[3].textContent = '❤️';
+      e[0].textContent = 'Đã'; e[1].textContent = 'diễn'; e[2].textContent = 'ra'; e[3].textContent = '❤️';
       return;
     }
 
     if (diff <= 0) {
-      e[0].textContent = 'Hôm';
-      e[1].textContent = 'nay';
-      e[2].textContent = 'lễ';
-      e[3].textContent = '♡';
+      e[0].textContent = 'Hôm'; e[1].textContent = 'nay'; e[2].textContent = 'lễ'; e[3].textContent = '♡';
       return;
     }
 
-    const d = Math.floor(diff / ONE_DAY_MS);
-    diff %= ONE_DAY_MS;
-    const h = Math.floor(diff / 3600000);
-    diff %= 3600000;
-    const m = Math.floor(diff / 60000);
-    diff %= 60000;
+    const d = Math.floor(diff / ONE_DAY_MS); diff %= ONE_DAY_MS;
+    const h = Math.floor(diff / 3600000); diff %= 3600000;
+    const m = Math.floor(diff / 60000); diff %= 60000;
     const sec = Math.floor(diff / 1000);
 
     e[0].textContent = isNaN(d) ? '0' : d;
@@ -289,46 +280,23 @@ img{max-width:100%;height:auto}
     e[3].textContent = isNaN(sec) ? '00' : String(sec).padStart(2, '0');
   }
 
-  function all() {
-    targets.forEach(update);
-  }
-
+  function all() { targets.forEach(update); }
   all();
   setInterval(all, 1000);
 })();
 </script>
 
-<!-- CÁNH HOA RƠI TỐI ƯU HÓA GPU DÀNH Cho MOBILE -->
+<!-- CÁNH HOA RƠI TỐI ƯU SIÊU NHẸ -->
 <script id="force-luxury-fx">
 (function() {
   const isMobile = window.innerWidth <= 700;
   const style = document.createElement('style');
-  
-  // Trên điện thoại bỏ hiệu ứng blur/shadow gây tốn GPU
   style.textContent = `
     #forceWeddingFX {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      z-index: 999999 !important;
-      pointer-events: none !important;
-      overflow: hidden !important;
+      position: fixed !important; top: 0 !important; left: 0 !important;
+      width: 100vw !important; height: 100vh !important;
+      z-index: 999999 !important; pointer-events: none !important; overflow: hidden !important;
     }
-    ${!isMobile ? `
-    .fx-glow {
-      position: absolute; width: 50vw; height: 50vw; border-radius: 50%; opacity: 0.12;
-      filter: blur(60px); background: radial-gradient(circle, #e9c6bd 0%, transparent 70%);
-      animation: fxGlowAnim 10s ease-in-out infinite alternate;
-    }
-    .fx-glow-1 { left: -15vw; top: -10vh; }
-    .fx-glow-2 { right: -15vw; bottom: -10vh; animation-delay: -5s; }
-    @keyframes fxGlowAnim {
-      from { transform: scale(0.8) translate(0, 0); }
-      to { transform: scale(1.2) translate(3vw, 2vh); }
-    }
-    ` : ''}
     .fx-p {
       position: absolute; top: -30px; left: var(--x); width: var(--s); height: var(--s);
       opacity: var(--o); animation: fxDropAnim var(--t) linear var(--d) infinite;
@@ -336,15 +304,14 @@ img{max-width:100%;height:auto}
     }
     .fx-p::before {
       content: ""; display: block; width: 100%; height: 100%;
-      border-radius: 70% 30% 65% 35%;
-      background: linear-gradient(135deg, #ffffff 0%, #f7d6d0 100%);
+      border-radius: 70% 30% 65% 35%; background: #f7d6d0;
     }
     .fx-p.leaf::before {
-      border-radius: 100% 0 100% 0; background: linear-gradient(135deg, #e2ebd8 0%, #9cb894 100%);
+      border-radius: 100% 0 100% 0; background: #a3c299;
     }
     @keyframes fxDropAnim {
       0% { transform: translate3d(0, -5vh, 0) rotate(0deg); }
-      100% { transform: translate3d(var(--dx3), 105vh, 0) rotate(360deg); }
+      100% { transform: translate3d(var(--dx), 105vh, 0) rotate(360deg); }
     }
   `;
   document.head.appendChild(style);
@@ -357,28 +324,20 @@ img{max-width:100%;height:auto}
     container.id = 'forceWeddingFX';
     container.setAttribute('aria-hidden', 'true');
 
-    if (!isMobile) {
-      container.innerHTML = '<div class="fx-glow fx-glow-1"></div><div class="fx-glow fx-glow-2"></div>';
-    }
-
-    // Giảm bớt số lượng hạt rơi trên mobile (chỉ 10 hạt) để giảm nhẹ bộ nhớ
-    const count = isMobile ? 10 : 30;
-    const types = ['petal', 'petal', 'leaf'];
+    const count = isMobile ? 8 : 22;
     const r = (a, b) => Math.random() * (b - a) + a;
 
     for (let i = 0; i < count; i++) {
       const p = document.createElement('i');
-      const type = types[Math.floor(Math.random() * types.length)];
-      p.className = 'fx-p ' + type;
+      p.className = 'fx-p ' + (Math.random() > 0.3 ? 'petal' : 'leaf');
       p.style.setProperty('--x', r(0, 95) + 'vw');
-      p.style.setProperty('--s', (type === 'leaf' ? r(10, 14) : r(12, 16)) + 'px');
-      p.style.setProperty('--o', r(0.5, 0.85));
-      p.style.setProperty('--t', r(9, 16) + 's');
-      p.style.setProperty('--d', r(-15, 0) + 's');
-      p.style.setProperty('--dx3', r(-10, 10) + 'vw');
+      p.style.setProperty('--s', r(10, 14) + 'px');
+      p.style.setProperty('--o', r(0.6, 0.85));
+      p.style.setProperty('--t', r(8, 14) + 's');
+      p.style.setProperty('--d', r(-12, 0) + 's');
+      p.style.setProperty('--dx', r(-8, 8) + 'vw');
       container.appendChild(p);
     }
-
     document.body.appendChild(container);
   }
 
@@ -390,7 +349,7 @@ img{max-width:100%;height:auto}
 })();
 </script>
 
-<!-- BỘ CUỘN TRANG PHÂN TÁCH TỐC ĐỘ RIÊNG CHO MOBILE VÀ PC -->
+<!-- AUTO SCROLL NỘI SUY (LERP) CHUẨN TƯƠNG THÍCH MỌI THIẾT BỊ -->
 <script id="auto-music-script">
 (function() {
   if ('scrollRestoration' in history) {
@@ -412,49 +371,57 @@ img{max-width:100%;height:auto}
   const preloader = document.getElementById('preloader');
   const btnOpen = document.getElementById('btnOpenWeddingCard');
 
-  let scrollAnimationFrame = null;
+  let isAutoScrolling = false;
+  let targetScroll = 0;
+  let currentScroll = 0;
+  let animReq = null;
 
   function stopAutoScroll() {
-    if (scrollAnimationFrame) {
-      cancelAnimationFrame(scrollAnimationFrame);
-      scrollAnimationFrame = null;
+    isAutoScrolling = false;
+    if (animReq) {
+      cancelAnimationFrame(animReq);
+      animReq = null;
     }
     window.removeEventListener('wheel', stopAutoScroll);
     window.removeEventListener('touchstart', stopAutoScroll);
     window.removeEventListener('pointerdown', stopAutoScroll);
-    window.removeEventListener('keydown', stopAutoScroll);
   }
 
-  function autoScrollToBottom(pixelsPerSecond) {
-    const startPosition = window.pageYOffset;
-    const targetPosition = document.documentElement.scrollHeight - window.innerHeight;
-    const distance = targetPosition - startPosition;
+  function smoothScrollLoop() {
+    if (!isAutoScrolling) return;
 
-    if (distance <= 0) return;
+    const maxScroll = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight
+    ) - window.innerHeight;
 
-    const duration = (distance / pixelsPerSecond) * 1000;
-    let startTime = null;
+    const speed = window.innerWidth <= 700 ? 1.8 : 1.2;
+    targetScroll += speed;
+
+    if (targetScroll >= maxScroll) {
+      targetScroll = maxScroll;
+      stopAutoScroll();
+    }
+
+    currentScroll += (targetScroll - currentScroll) * 0.1;
+    window.scrollTo(0, currentScroll);
+
+    if (isAutoScrolling) {
+      animReq = requestAnimationFrame(smoothScrollLoop);
+    }
+  }
+
+  function startSmoothAutoScroll() {
+    stopAutoScroll();
+    isAutoScrolling = true;
+    currentScroll = window.pageYOffset || document.documentElement.scrollTop || 0;
+    targetScroll = currentScroll;
 
     window.addEventListener('wheel', stopAutoScroll, { passive: true });
     window.addEventListener('touchstart', stopAutoScroll, { passive: true });
     window.addEventListener('pointerdown', stopAutoScroll, { passive: true });
-    window.addEventListener('keydown', stopAutoScroll, { passive: true });
 
-    function animation(currentTime) {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
-      
-      window.scrollTo(0, startPosition + (distance * progress));
-
-      if (timeElapsed < duration) {
-        scrollAnimationFrame = requestAnimationFrame(animation);
-      } else {
-        stopAutoScroll();
-      }
-    }
-
-    scrollAnimationFrame = requestAnimationFrame(animation);
+    animReq = requestAnimationFrame(smoothScrollLoop);
   }
 
   if (btnOpen) {
@@ -470,20 +437,12 @@ img{max-width:100%;height:auto}
       }).catch(err => console.log("Lỗi phát nhạc:", err));
 
       if (preloader) {
-        preloader.style.transition = 'opacity 0.6s ease, visibility 0.6s';
+        preloader.style.transition = 'opacity 0.5s ease, visibility 0.5s';
         preloader.style.opacity = '0';
-        setTimeout(() => preloader.remove(), 600);
+        setTimeout(() => preloader.remove(), 500);
       }
 
-      // ĐIỀU CHỈNH TỐC ĐỘ TỰ ĐỘNG THEO THIẾT BỊ:
-      // Mobile (chiều dài trang rất dài): Tăng tốc độ lên 150px/s để lướt vừa mắt, không bị chậm rè rè
-      // PC: Giữ tốc độ 70px/s
-      const isMobile = window.innerWidth <= 700;
-      const speed = isMobile ? 150 : 70;
-
-      setTimeout(() => {
-        autoScrollToBottom(speed);
-      }, 400);
+      setTimeout(startSmoothAutoScroll, 400);
     });
   }
 
@@ -505,13 +464,13 @@ img{max-width:100%;height:auto}
 })();
 </script>
 
-<!-- CANVAS PHÁO HOA TỐI ƯU LẶP ĐỂ KHÔNG BỊ GIẬT MÀN HÌNH -->
+<!-- CANVAS PHÁO HOA TỐI ƯU BỘ NHỚ -->
 <canvas id="fireworksCanvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999999;"></canvas>
 
 <script id="touch-fireworks-script">
 (function() {
   const canvas = document.getElementById('fireworksCanvas');
-  const ctx = canvas.getContext('2d', { alpha: true });
+  const ctx = canvas.getContext('2d');
   let particles = [];
   let animId = null;
 
@@ -529,20 +488,16 @@ img{max-width:100%;height:auto}
       this.x = x;
       this.y = y;
       this.color = colors[Math.floor(Math.random() * colors.length)];
-      this.radius = Math.random() * 2.5 + 1;
+      this.radius = Math.random() * 2 + 1;
       const angle = Math.random() * Math.PI * 2;
-      const speed = Math.random() * 5 + 2;
+      const speed = Math.random() * 4 + 1.5;
       this.vx = Math.cos(angle) * speed;
       this.vy = Math.sin(angle) * speed;
       this.alpha = 1;
       this.decay = Math.random() * 0.03 + 0.02;
-      this.gravity = 0.15;
     }
 
     update() {
-      this.vx *= 0.95;
-      this.vy *= 0.95;
-      this.vy += this.gravity;
       this.x += this.vx;
       this.y += this.vy;
       this.alpha -= this.decay;
@@ -557,25 +512,21 @@ img{max-width:100%;height:auto}
     }
   }
 
-  function createBurst(x, y, count) {
+  function createBurst(x, y) {
+    const count = window.innerWidth <= 700 ? 10 : 20;
     for (let i = 0; i < count; i++) {
       particles.push(new Particle(x, y));
     }
-    if (!animId) {
-      animate();
-    }
+    if (!animId) animate();
   }
 
   function handlePointer(e) {
-    const isMobile = window.innerWidth <= 700;
-    const particleCount = isMobile ? 12 : 22; // Giảm số lượng hạt pháo hoa khi chạm trên mobile
-
     if (e.touches) {
       for (let i = 0; i < e.touches.length; i++) {
-        createBurst(e.touches[i].clientX, e.touches[i].clientY, particleCount);
+        createBurst(e.touches[i].clientX, e.touches[i].clientY);
       }
     } else {
-      createBurst(e.clientX, e.clientY, particleCount);
+      createBurst(e.clientX, e.clientY);
     }
   }
 
@@ -596,7 +547,7 @@ img{max-width:100%;height:auto}
     if (particles.length > 0) {
       animId = requestAnimationFrame(animate);
     } else {
-      animId = null; // Tự động dừng Loop Canvas khi không còn pháo hoa -> Tiết kiệm 100% pin & RAM
+      animId = null;
     }
   }
 })();
