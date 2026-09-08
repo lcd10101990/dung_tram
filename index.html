@@ -78,10 +78,16 @@ img{max-width:100%;height:auto}
 }
 </style>
 
-
 </head>
 <body>
-<div id="preloader"><div class="loader-monogram">D <i>&amp;</i> T</div><div class="loader-bar"></div></div>
+<!-- MÀN HÌNH MỞ THIỆP CHUẨN MEHAPPY -->
+<div id="preloader" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#faf7f4;z-index:9999999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;box-sizing:border-box;">
+  <div style="font-family:'Dancing Script',cursive;font-size:45px;color:#9f5f57;margin-bottom:10px;">Dũng &amp; Trâm</div>
+  <div style="font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:0.25em;color:#8e756b;margin-bottom:30px;text-transform:uppercase;">Save The Date · 20.09.2026</div>
+  <button id="btnOpenCard" style="background:#9f5f57;color:#ffffff;border:none;padding:15px 36px;border-radius:50px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.15em;cursor:pointer;box-shadow:0 8px 25px rgba(159,95,87,0.35);transition:transform 0.2s ease;">
+    ✉️ MỞ THIỆP CƯỚI
+  </button>
+</div>
 <button class="floating menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 <button class="floating music-toggle" id="musicToggle" aria-label="Nhạc">♪</button>
 <nav class="drawer" id="drawer">
@@ -213,10 +219,9 @@ img{max-width:100%;height:auto}
 <script src="js/app.js"></script>
 <script id="countdown-script">
 (function(){
-  // Khai báo ngày tháng bằng tham số (Năm, Tháng-1, Ngày, Giờ, Phút, Giây) để tránh lỗi định dạng chuỗi
   const targets = [
     {
-      time: new Date(2026, 8, 14, 9, 0, 0).getTime(), // Tháng 9 là số 8 (do tháng bắt đầu từ 0)
+      time: new Date(2026, 8, 14, 9, 0, 0).getTime(),
       ids: ['cd-bride-days', 'cd-bride-hours', 'cd-bride-minutes', 'cd-bride-seconds'],
       label: 'ngày nhà gái'
     },
@@ -232,14 +237,11 @@ img{max-width:100%;height:auto}
   function update(t) {
     const e = t.ids.map(id => document.getElementById(id));
     if (e.some(x => !x)) return;
-
-    // Kiểm tra nếu time bị lỗi thì ngưng ngay
     if (isNaN(t.time)) return;
 
     const now = Date.now();
     let diff = t.time - now;
 
-    // 1. Nếu đã qua ngày sự kiện (sau mốc thời gian + 24 tiếng)
     if (diff < -ONE_DAY_MS) {
       e[0].textContent = 'Đã';
       e[1].textContent = 'diễn';
@@ -248,7 +250,6 @@ img{max-width:100%;height:auto}
       return;
     }
 
-    // 2. Nếu đang trong ngày diễn ra sự kiện
     if (diff <= 0) {
       e[0].textContent = 'Hôm';
       e[1].textContent = 'nay';
@@ -257,7 +258,6 @@ img{max-width:100%;height:auto}
       return;
     }
 
-    // 3. Nếu chưa đến ngày -> Đếm ngược bình thường
     const d = Math.floor(diff / ONE_DAY_MS);
     diff %= ONE_DAY_MS;
     const h = Math.floor(diff / 3600000);
@@ -281,11 +281,9 @@ img{max-width:100%;height:auto}
 })();
 </script>
 
-
 <!-- BỘ HIỆU ỨNG ÉP CHẠY TỰ ĐỘNG 100% -->
 <script id="force-luxury-fx">
 (function() {
-  // 1. Tự động chèn CSS trực tiếp để tránh bị CSS bên ngoài đè
   const style = document.createElement('style');
   style.textContent = `
     #forceWeddingFX {
@@ -352,7 +350,6 @@ img{max-width:100%;height:auto}
       from { transform: rotate(-30deg) scale(0.85); }
       to { transform: rotate(30deg) scale(1.1); }
     }
-    /* Animate các ornament hiện có trên trang */
     .ornament-top, .ornament-bottom {
       display: inline-block !important;
       animation: fxSwing 4s ease-in-out infinite alternate !important;
@@ -372,7 +369,6 @@ img{max-width:100%;height:auto}
   `;
   document.head.appendChild(style);
 
-  // 2. Tạo khung chứa hiệu ứng
   function runFX() {
     let container = document.getElementById('forceWeddingFX');
     if (container) container.remove();
@@ -381,10 +377,8 @@ img{max-width:100%;height:auto}
     container.id = 'forceWeddingFX';
     container.setAttribute('aria-hidden', 'true');
 
-    // Chèn 2 vùng sáng
     container.innerHTML = '<div class="fx-glow fx-glow-1"></div><div class="fx-glow fx-glow-2"></div>';
 
-    // Tính số lượng hạt (Mobile 18, Desktop 38)
     const count = window.innerWidth <= 700 ? 18 : 38;
     const types = ['petal', 'petal', 'petal', 'leaf', 'spark'];
     const r = (a, b) => Math.random() * (b - a) + a;
@@ -412,6 +406,72 @@ img{max-width:100%;height:auto}
     document.addEventListener('DOMContentLoaded', runFX);
   } else {
     runFX();
+  }
+})();
+</script>
+
+<!-- BỘ TỰ ĐỘNG PHÁT NHẠC ĐỒNG BỘ 100% -->
+<script id="auto-music-script">
+(function() {
+  // 1. Quản lý duy nhất 1 Audil Element
+  let audio = document.getElementById('weddingAudio');
+  if (!audio) {
+    audio = document.createElement('audio');
+    audio.id = 'weddingAudio';
+    audio.src = 'music/wedding.mp3'; 
+    audio.loop = true;
+    audio.preload = 'auto';
+    document.body.appendChild(audio);
+  }
+
+  const musicBtn = document.getElementById('musicToggle');
+  const preloader = document.getElementById('preloader');
+
+  // 2. Chuyển Preloader thành Màn hình Mở Thiệp
+  if (preloader) {
+    preloader.style.cssText = "position:fixed;top:0;left:0;width:100vw;height:100vh;background:#faf7f4;z-index:9999999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;box-sizing:border-box;";
+    preloader.innerHTML = `
+      <div style="font-family:'Dancing Script',serif;font-size:48px;color:#9f5f57;margin-bottom:8px;">Dũng & Trâm</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:0.25em;color:#8e756b;margin-bottom:32px;text-transform:uppercase;">Save The Date · 20.09.2026</div>
+      <button id="btnOpenWeddingCard" style="background:#9f5f57;color:#ffffff;border:none;padding:16px 38px;border-radius:50px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.15em;cursor:pointer;box-shadow:0 8px 25px rgba(159,95,87,0.35);">
+        ✉️ MỞ THIỆP CƯỚI
+      </button>
+    `;
+
+    document.getElementById('btnOpenWeddingCard').addEventListener('click', function(e) {
+      e.stopPropagation();
+      
+      // Phát nhạc từ điểm hiện tại
+      audio.play().then(() => {
+        if (musicBtn) {
+          musicBtn.classList.add('playing');
+          musicBtn.textContent = 'Ⅱ';
+        }
+      }).catch(err => console.log("Lỗi nhạc:", err));
+
+      preloader.style.transition = 'opacity 0.6s ease, visibility 0.6s';
+      preloader.style.opacity = '0';
+      setTimeout(() => preloader.remove(), 600);
+    });
+  }
+
+  // 3. Xử lý duy nhất cho nút Bật/Tắt nhạc (#musicToggle)
+  if (musicBtn) {
+    musicBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (audio.paused) {
+        // Tiếp tục phát đoạn nhạc đang dừng (không phát lại từ đầu)
+        audio.play().then(() => {
+          musicBtn.classList.add('playing');
+          musicBtn.textContent = 'Ⅱ';
+        });
+      } else {
+        // Chỉ tạm dừng (pause), không reset currentTime
+        audio.pause();
+        musicBtn.classList.remove('playing');
+        musicBtn.textContent = '♪';
+      }
+    });
   }
 })();
 </script>
