@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Montserrat:wght@300;400;500;600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/fix-patch.css">
+
 <style id="countdown-style">
 .wedding-countdown{padding:70px 20px;text-align:center;background:#faf7f4;position:relative;overflow:hidden}.wedding-countdown .countdown-kicker{font:500 12px Montserrat,sans-serif;letter-spacing:.28em;color:#8e756b;text-transform:uppercase}.wedding-countdown h2{margin:12px 0 35px;font:500 34px "Quicksand",serif;color:#493d38}.countdown-events{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;max-width:1150px;margin:0 auto}.countdown-event{background:rgba(255,255,255,.55);border:1px solid #e6d6ce;padding:28px 22px;box-shadow:0 8px 25px rgba(90,55,45,.06)}.countdown-label{font:600 13px Montserrat,sans-serif;letter-spacing:.18em;color:#8e756b;text-transform:uppercase}.countdown-date{font:500 17px Montserrat,sans-serif;letter-spacing:.12em;color:#a66b61;margin:10px 0 24px}.countdown-boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.countdown-box{background:#fff;border:1px solid #e6d6ce;padding:17px 6px}.countdown-box strong{display:block;font:500 36px "Quicksand",serif;color:#9f5f57;line-height:1}.countdown-box span{display:block;margin-top:7px;font:500 9px Montserrat,sans-serif;letter-spacing:.16em;color:#8e756b;text-transform:uppercase}.countdown-finished{font:500 22px "Quicksand",serif;color:#9f5f57}@media(max-width:700px){.countdown-events{grid-template-columns:1fr}.wedding-countdown{padding:55px 15px}.wedding-countdown h2{font-size:30px}.countdown-boxes{gap:6px}.countdown-box{padding:14px 3px}.countdown-box strong{font-size:30px}}
 </style>
@@ -23,7 +24,7 @@ img{max-width:100%;height:auto}
 .section,.section-paper{padding-left:clamp(18px,4vw,60px);padding-right:clamp(18px,4vw,60px)}
 .section-heading h2{font-size:clamp(30px,4vw,46px);line-height:1.12}
 .section-heading span,.section-heading i{font-size:clamp(12px,1.2vw,14px)}
-.tiny-heading,.person-role,.ceremony-label,.roman,.parents small,.family-strip span,.event-card>span,.bank-card small{font-size:clamp(12px,1.15vw,14px)!important;line-height:1.5;letter-spacing:.12em}
+.tiny-heading,.person-role,.ceremony-label,.roman,.parents small,.family-strip span,.event-card>span{font-size:clamp(12px,1.15vw,14px)!important;line-height:1.5;letter-spacing:.12em}
 .parents p,.family-strip small,.person p,.story-copy p,.event-card p,.thanks-inner p{font-size:clamp(15px,1.25vw,18px)!important;line-height:1.65}
 .parents strong,.family-strip b{font-size:clamp(16px,1.5vw,20px)!important}
 .story-copy h3,.event-card h3{font-size:clamp(22px,2.2vw,30px);line-height:1.2}
@@ -39,6 +40,156 @@ img{max-width:100%;height:auto}
 .countdown-box strong{font-size:clamp(34px,3.5vw,48px)}
 .countdown-box span{font-size:clamp(11px,1vw,13px)!important;letter-spacing:.1em}
 .countdown-finished{font-size:clamp(20px,2vw,26px)}
+
+/* STYLES HỘP MỪNG CƯỚI MỚI */
+.gift-box-card {
+  background: #ffffff;
+  border: 1px solid #e6d6ce;
+  border-radius: 16px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(90,55,45,0.06);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.gift-box-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(90,55,45,0.12);
+}
+.gift-box-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 38px;
+  color: #493d38;
+  margin-bottom: 20px;
+}
+.gift-icon-wrap {
+  position: relative;
+  width: 140px;
+  height: 120px;
+  margin: 10px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gift-envelope {
+  font-size: 80px;
+  line-height: 1;
+  filter: drop-shadow(0 8px 15px rgba(159,95,87,0.25));
+}
+.gift-arrow {
+  position: absolute;
+  top: -10px;
+  font-size: 28px;
+  color: #e91e63;
+  animation: bounceArrow 1.5s infinite;
+}
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+.gift-box-btn {
+  background: #9f5f57;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+
+/* MODAL THÔNG TIN MỪNG CƯỚI BANNER/POPUP */
+.bank-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 9999999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.bank-modal.active {
+  display: flex;
+}
+.bank-modal-content {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 420px;
+  width: 100%;
+  padding: 35px 24px 30px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  animation: popIn 0.3s ease;
+  /* Căn giữa tất cả phần tử bên trong */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.bank-modal-close {
+  position: absolute;
+  top: 15px; right: 20px;
+  font-size: 28px;
+  color: #8e756b;
+  cursor: pointer;
+  line-height: 1;
+}
+.bank-modal-role {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: #8e756b;
+  text-transform: uppercase;
+}
+.bank-modal-name {
+  font-family: 'Quicksand', serif;
+  font-size: 28px;
+  color: #493d38;
+  margin: 6px 0 12px;
+}
+.bank-modal-info {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: #8e756b;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.bank-modal-acc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #9f5f57;
+  margin-bottom: 20px;
+}
+.bank-modal-qr {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 16px;
+  border: 1px solid #e6d6ce;
+  padding: 10px;
+  background: #fff;
+  display: block;
+  margin: 0 auto; /* Đảm bảo căn giữa chính xác */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
 @media (max-width:900px){
   .couple-pair,.event-wrap,.wish-layout{gap:28px}
   .paper-card{padding:clamp(24px,5vw,50px)!important}
@@ -58,7 +209,7 @@ img{max-width:100%;height:auto}
   .parents p{font-size:15px!important}
   .story-item,.story-item.reverse{grid-template-columns:1fr!important}
   .event-card{padding:24px 18px!important}
-  .bank-card,.wish-form{width:100%!important}
+  .wish-form{width:100%!important}
 }
 @media (max-width:480px){
   body{font-size:16px}
@@ -211,7 +362,17 @@ img{max-width:100%;height:auto}
 <section class="wishes section" id="wishes">
   <header class="section-heading reveal"><span>WITH LOVE</span><h2>GỬI LỜI CHÚC TỚI CÔ DÂU &amp; CHÚ RỂ</h2><i>⌁ ❀ ⌁</i></header>
   <div class="wish-layout">
-    <div class="bank-card reveal"><div class="bank-title">CÔ DÂU</div><h3 data-bride></h3><small>THÔNG TIN MỪNG CƯỚI<br>MB BANK: 0335983739</small><img id="qrImg" class="qr" alt="QR"></div>
+    
+    <!-- HỘP MỪNG CƯỚI DẠNG KHUNG NHẤN MỞ POPUP -->
+    <div class="gift-box-card reveal" id="openBankModal">
+      <div class="gift-box-title">Hộp mừng cưới</div>
+      <div class="gift-icon-wrap">
+        <div class="gift-arrow">⬇</div>
+        <div class="gift-envelope">✉️</div>
+      </div>
+      <button type="button" class="gift-box-btn">GỬI MỪNG CƯỚI</button>
+    </div>
+
     <form class="wish-form reveal" id="wishForm">
       <input type="text" name="name" required maxlength="80" autocomplete="name" placeholder="Tên của bạn">
       <textarea name="message" required maxlength="1000" rows="5" placeholder="Lời chúc dành cho Dũng & Trâm..."></textarea>
@@ -221,6 +382,18 @@ img{max-width:100%;height:auto}
     </form>
   </div>
 </section>
+
+<!-- POPUP HIỂN THỊ THÔNG TIN CHUYỂN KHỎAN VÀ MÃ QR -->
+<div class="bank-modal" id="bankModal">
+  <div class="bank-modal-content">
+    <span class="bank-modal-close" id="closeBankModal">&times;</span>
+    <div class="bank-modal-role">CÔ DÂU</div>
+    <div class="bank-modal-name" data-bride>Nguyễn Thị Cúc Trâm</div>
+    <div class="bank-modal-info">THÔNG TIN MỪNG CƯỚI</div>
+    <div class="bank-modal-acc">MB BANK: 0335983739</div>
+    <img id="qrImg" class="bank-modal-qr" alt="Mã QR Chuyển khoản">
+  </div>
+</div>
 
 <section class="thanks section-paper">
   <div class="thanks-inner reveal">
@@ -235,6 +408,35 @@ img{max-width:100%;height:auto}
 
 <script src="js/config.js"></script>
 <script src="js/app.js"></script>
+
+<!-- SCRIPT BẬT/TẮT POPUP MỪNG CƯỚI -->
+<script id="bank-modal-script">
+(function() {
+  const openBtn = document.getElementById('openBankModal');
+  const modal = document.getElementById('bankModal');
+  const closeBtn = document.getElementById('closeBankModal');
+
+  if (openBtn && modal) {
+    openBtn.addEventListener('click', function() {
+      modal.classList.add('active');
+    });
+  }
+
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', function() {
+      modal.classList.remove('active');
+    });
+  }
+
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
+  }
+})();
+</script>
 
 <script id="countdown-script">
 (function(){
