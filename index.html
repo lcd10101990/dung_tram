@@ -17,7 +17,6 @@
 </style>
 
 <style id="responsive-readability">
-/* Readability + responsive layout improvements */
 html{font-size:16px;scroll-behavior:smooth}
 body{overflow-x:hidden}
 img{max-width:100%;height:auto}
@@ -78,10 +77,9 @@ img{max-width:100%;height:auto}
   .story-copy p,.person p,.event-card p,.thanks-inner p{font-size:16px!important}
 }
 </style>
-
 </head>
 <body>
-<!-- MÀN HÌNH MỞ THIỆP CHỐNG LẬT FONT -->
+
 <div id="preloader" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#faf7f4;z-index:9999999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;box-sizing:border-box;">
   <div id="preloaderTitle" style="font-family:'Dancing Script', 'Great Vibes', 'Brush Script MT', cursive; font-size:48px; color:#9f5f57; margin-bottom:8px; line-height:1.2; opacity:0; transition:opacity 0.25s ease;">
     Dũng &amp; Trâm
@@ -152,7 +150,6 @@ img{max-width:100%;height:auto}
       <div><small>NHÀ GÁI</small><strong data-bride-parent></strong><p data-bride-address></p></div>
     </div>
     <div class="tiny-heading">TRÂN TRỌNG BÁO TIN</div>
-	
 	<h1>LỄ VU QUY<br><em>CỦA CON CHÚNG TÔI</em></h1>
     <div class="couple-names"><span data-bride></span><b>♡</b><span data-groom></span></div>
     <div class="roman">TRƯỞNG NỮ &nbsp; ♡ &nbsp; TRƯỞNG NAM</div>
@@ -244,13 +241,11 @@ img{max-width:100%;height:auto}
   const targets = [
     {
       time: new Date(2026, 8, 14, 9, 0, 0).getTime(),
-      ids: ['cd-bride-days', 'cd-bride-hours', 'cd-bride-minutes', 'cd-bride-seconds'],
-      label: 'ngày nhà gái'
+      ids: ['cd-bride-days', 'cd-bride-hours', 'cd-bride-minutes', 'cd-bride-seconds']
     },
     {
       time: new Date(2026, 8, 20, 9, 0, 0).getTime(),
-      ids: ['cd-groom-days', 'cd-groom-hours', 'cd-groom-minutes', 'cd-groom-seconds'],
-      label: 'ngày nhà trai'
+      ids: ['cd-groom-days', 'cd-groom-hours', 'cd-groom-minutes', 'cd-groom-seconds']
     }
   ];
 
@@ -303,10 +298,13 @@ img{max-width:100%;height:auto}
 })();
 </script>
 
-<!-- BỘ HIỆU ỨNG CÁNH HOA / BỤI VÀNG RƠI -->
+<!-- CÁNH HOA RƠI TỐI ƯU HÓA GPU DÀNH Cho MOBILE -->
 <script id="force-luxury-fx">
 (function() {
+  const isMobile = window.innerWidth <= 700;
   const style = document.createElement('style');
+  
+  // Trên điện thoại bỏ hiệu ứng blur/shadow gây tốn GPU
   style.textContent = `
     #forceWeddingFX {
       position: fixed !important;
@@ -318,14 +316,10 @@ img{max-width:100%;height:auto}
       pointer-events: none !important;
       overflow: hidden !important;
     }
+    ${!isMobile ? `
     .fx-glow {
-      position: absolute;
-      width: 50vw;
-      height: 50vw;
-      border-radius: 50%;
-      opacity: 0.15;
-      filter: blur(60px);
-      background: radial-gradient(circle, #e9c6bd 0%, transparent 70%);
+      position: absolute; width: 50vw; height: 50vw; border-radius: 50%; opacity: 0.12;
+      filter: blur(60px); background: radial-gradient(circle, #e9c6bd 0%, transparent 70%);
       animation: fxGlowAnim 10s ease-in-out infinite alternate;
     }
     .fx-glow-1 { left: -15vw; top: -10vh; }
@@ -334,59 +328,23 @@ img{max-width:100%;height:auto}
       from { transform: scale(0.8) translate(0, 0); }
       to { transform: scale(1.2) translate(3vw, 2vh); }
     }
+    ` : ''}
     .fx-p {
-      position: absolute;
-      top: -30px;
-      left: var(--x);
-      width: var(--s);
-      height: var(--s);
-      opacity: var(--o);
-      animation: fxDropAnim var(--t) linear var(--d) infinite;
+      position: absolute; top: -30px; left: var(--x); width: var(--s); height: var(--s);
+      opacity: var(--o); animation: fxDropAnim var(--t) linear var(--d) infinite;
+      will-change: transform;
     }
     .fx-p::before {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 100%;
+      content: ""; display: block; width: 100%; height: 100%;
       border-radius: 70% 30% 65% 35%;
       background: linear-gradient(135deg, #ffffff 0%, #f7d6d0 100%);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      animation: fxSpinAnim var(--spin) ease-in-out infinite alternate;
     }
     .fx-p.leaf::before {
-      border-radius: 100% 0 100% 0;
-      background: linear-gradient(135deg, #e2ebd8 0%, #9cb894 100%);
-    }
-    .fx-p.spark::before {
-      border-radius: 50%;
-      background: #fff5cc;
-      box-shadow: 0 0 8px #ffe680;
+      border-radius: 100% 0 100% 0; background: linear-gradient(135deg, #e2ebd8 0%, #9cb894 100%);
     }
     @keyframes fxDropAnim {
       0% { transform: translate3d(0, -5vh, 0) rotate(0deg); }
-      30% { transform: translate3d(var(--dx1), 30vh, 0) rotate(120deg); }
-      60% { transform: translate3d(var(--dx2), 65vh, 0) rotate(240deg); }
-      100% { transform: translate3d(var(--dx3), 110vh, 0) rotate(400deg); }
-    }
-    @keyframes fxSpinAnim {
-      from { transform: rotate(-30deg) scale(0.85); }
-      to { transform: rotate(30deg) scale(1.1); }
-    }
-    .ornament-top, .ornament-bottom {
-      display: inline-block !important;
-      animation: fxSwing 4s ease-in-out infinite alternate !important;
-    }
-    .thanks-flower {
-      display: inline-block !important;
-      animation: fxPulse 3.5s ease-in-out infinite alternate !important;
-    }
-    @keyframes fxSwing {
-      from { transform: rotate(-4deg) translateY(0); }
-      to { transform: rotate(4deg) translateY(-5px); }
-    }
-    @keyframes fxPulse {
-      from { transform: scale(0.95) rotate(-3deg); }
-      to { transform: scale(1.08) rotate(3deg); }
+      100% { transform: translate3d(var(--dx3), 105vh, 0) rotate(360deg); }
     }
   `;
   document.head.appendChild(style);
@@ -399,25 +357,25 @@ img{max-width:100%;height:auto}
     container.id = 'forceWeddingFX';
     container.setAttribute('aria-hidden', 'true');
 
-    container.innerHTML = '<div class="fx-glow fx-glow-1"></div><div class="fx-glow fx-glow-2"></div>';
+    if (!isMobile) {
+      container.innerHTML = '<div class="fx-glow fx-glow-1"></div><div class="fx-glow fx-glow-2"></div>';
+    }
 
-    const count = window.innerWidth <= 700 ? 18 : 38;
-    const types = ['petal', 'petal', 'petal', 'leaf', 'spark'];
+    // Giảm bớt số lượng hạt rơi trên mobile (chỉ 10 hạt) để giảm nhẹ bộ nhớ
+    const count = isMobile ? 10 : 30;
+    const types = ['petal', 'petal', 'leaf'];
     const r = (a, b) => Math.random() * (b - a) + a;
 
     for (let i = 0; i < count; i++) {
       const p = document.createElement('i');
       const type = types[Math.floor(Math.random() * types.length)];
       p.className = 'fx-p ' + type;
-      p.style.setProperty('--x', r(-2, 102) + 'vw');
-      p.style.setProperty('--s', (type === 'spark' ? r(3, 5) : type === 'leaf' ? r(10, 15) : r(12, 18)) + 'px');
-      p.style.setProperty('--o', type === 'spark' ? r(0.4, 0.8) : r(0.5, 0.9));
-      p.style.setProperty('--t', r(10, 20) + 's');
-      p.style.setProperty('--d', r(-20, 0) + 's');
-      p.style.setProperty('--spin', r(2, 5) + 's');
-      p.style.setProperty('--dx1', r(-8, 8) + 'vw');
-      p.style.setProperty('--dx2', r(-12, 12) + 'vw');
-      p.style.setProperty('--dx3', r(-15, 15) + 'vw');
+      p.style.setProperty('--x', r(0, 95) + 'vw');
+      p.style.setProperty('--s', (type === 'leaf' ? r(10, 14) : r(12, 16)) + 'px');
+      p.style.setProperty('--o', r(0.5, 0.85));
+      p.style.setProperty('--t', r(9, 16) + 's');
+      p.style.setProperty('--d', r(-15, 0) + 's');
+      p.style.setProperty('--dx3', r(-10, 10) + 'vw');
       container.appendChild(p);
     }
 
@@ -432,10 +390,9 @@ img{max-width:100%;height:auto}
 })();
 </script>
 
-<!-- BỘ TỰ ĐỘNG PHÁT NHẠC VÀ TỰ ĐỘNG CUỘN ĐỒNG BỘ TỐC ĐỘ -->
+<!-- BỘ CUỘN TRANG PHÂN TÁCH TỐC ĐỘ RIÊNG CHO MOBILE VÀ PC -->
 <script id="auto-music-script">
 (function() {
-  // 1. Tắt tính năng tự nhớ vị trí cuộn của trình duyệt khi Refresh (F5)
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
@@ -457,7 +414,6 @@ img{max-width:100%;height:auto}
 
   let scrollAnimationFrame = null;
 
-  // Hàm dừng cuộn tự động khi người dùng tương tác
   function stopAutoScroll() {
     if (scrollAnimationFrame) {
       cancelAnimationFrame(scrollAnimationFrame);
@@ -469,15 +425,13 @@ img{max-width:100%;height:auto}
     window.removeEventListener('keydown', stopAutoScroll);
   }
 
-  // Hàm tự động cuộn dựa trên TỐC ĐỘ (pixel/giây)
-  function autoScrollToBottom(pixelsPerSecond = 70) {
+  function autoScrollToBottom(pixelsPerSecond) {
     const startPosition = window.pageYOffset;
     const targetPosition = document.documentElement.scrollHeight - window.innerHeight;
     const distance = targetPosition - startPosition;
 
     if (distance <= 0) return;
 
-    // Tính duration động theo độ dài thực tế của trang trên thiết bị
     const duration = (distance / pixelsPerSecond) * 1000;
     let startTime = null;
 
@@ -506,11 +460,8 @@ img{max-width:100%;height:auto}
   if (btnOpen) {
     btnOpen.addEventListener('click', function(e) {
       e.stopPropagation();
-      
-      // Reset về đỉnh trang trước khi chạy
       window.scrollTo(0, 0);
       
-      // Phát nhạc
       audio.play().then(() => {
         if (musicBtn) {
           musicBtn.classList.add('playing');
@@ -518,16 +469,20 @@ img{max-width:100%;height:auto}
         }
       }).catch(err => console.log("Lỗi phát nhạc:", err));
 
-      // Ẩn preloader
       if (preloader) {
         preloader.style.transition = 'opacity 0.6s ease, visibility 0.6s';
         preloader.style.opacity = '0';
         setTimeout(() => preloader.remove(), 600);
       }
 
-      // Tự cuộn mượt xuống cuối (Tốc độ 70px/s chuẩn trên cả PC & Mobile)
+      // ĐIỀU CHỈNH TỐC ĐỘ TỰ ĐỘNG THEO THIẾT BỊ:
+      // Mobile (chiều dài trang rất dài): Tăng tốc độ lên 150px/s để lướt vừa mắt, không bị chậm rè rè
+      // PC: Giữ tốc độ 70px/s
+      const isMobile = window.innerWidth <= 700;
+      const speed = isMobile ? 150 : 70;
+
       setTimeout(() => {
-        autoScrollToBottom(70);
+        autoScrollToBottom(speed);
       }, 400);
     });
   }
@@ -550,14 +505,15 @@ img{max-width:100%;height:auto}
 })();
 </script>
 
-<!-- CANVAS PHÁO HOA KHI CHẠM / CLICK -->
+<!-- CANVAS PHÁO HOA TỐI ƯU LẶP ĐỂ KHÔNG BỊ GIẬT MÀN HÌNH -->
 <canvas id="fireworksCanvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999999;"></canvas>
 
 <script id="touch-fireworks-script">
 (function() {
   const canvas = document.getElementById('fireworksCanvas');
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d', { alpha: true });
   let particles = [];
+  let animId = null;
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -566,26 +522,26 @@ img{max-width:100%;height:auto}
   window.addEventListener('resize', resizeCanvas);
   resizeCanvas();
 
-  const colors = ['#9f5f57', '#e9c6bd', '#d4af37', '#ffffff', '#f7d6d0', '#ffd700'];
+  const colors = ['#9f5f57', '#e9c6bd', '#d4af37', '#ffffff', '#ffd700'];
 
   class Particle {
     constructor(x, y) {
       this.x = x;
       this.y = y;
       this.color = colors[Math.floor(Math.random() * colors.length)];
-      this.radius = Math.random() * 3 + 1.5;
+      this.radius = Math.random() * 2.5 + 1;
       const angle = Math.random() * Math.PI * 2;
-      const speed = Math.random() * 6 + 2;
+      const speed = Math.random() * 5 + 2;
       this.vx = Math.cos(angle) * speed;
       this.vy = Math.sin(angle) * speed;
       this.alpha = 1;
-      this.decay = Math.random() * 0.025 + 0.015;
-      this.gravity = 0.12;
+      this.decay = Math.random() * 0.03 + 0.02;
+      this.gravity = 0.15;
     }
 
     update() {
-      this.vx *= 0.96;
-      this.vy *= 0.96;
+      this.vx *= 0.95;
+      this.vy *= 0.95;
       this.vy += this.gravity;
       this.x += this.vx;
       this.y += this.vy;
@@ -593,31 +549,33 @@ img{max-width:100%;height:auto}
     }
 
     draw() {
-      ctx.save();
       ctx.globalAlpha = Math.max(this.alpha, 0);
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
       ctx.fillStyle = this.color;
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = this.color;
       ctx.fill();
-      ctx.restore();
     }
   }
 
-  function createBurst(x, y, count = 24) {
+  function createBurst(x, y, count) {
     for (let i = 0; i < count; i++) {
       particles.push(new Particle(x, y));
+    }
+    if (!animId) {
+      animate();
     }
   }
 
   function handlePointer(e) {
+    const isMobile = window.innerWidth <= 700;
+    const particleCount = isMobile ? 12 : 22; // Giảm số lượng hạt pháo hoa khi chạm trên mobile
+
     if (e.touches) {
       for (let i = 0; i < e.touches.length; i++) {
-        createBurst(e.touches[i].clientX, e.touches[i].clientY, 18);
+        createBurst(e.touches[i].clientX, e.touches[i].clientY, particleCount);
       }
     } else {
-      createBurst(e.clientX, e.clientY, 24);
+      createBurst(e.clientX, e.clientY, particleCount);
     }
   }
 
@@ -635,10 +593,12 @@ img{max-width:100%;height:auto}
       }
     }
     
-    requestAnimationFrame(animate);
+    if (particles.length > 0) {
+      animId = requestAnimationFrame(animate);
+    } else {
+      animId = null; // Tự động dừng Loop Canvas khi không còn pháo hoa -> Tiết kiệm 100% pin & RAM
+    }
   }
-
-  animate();
 })();
 </script>
 
