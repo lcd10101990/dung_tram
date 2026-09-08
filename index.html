@@ -1,555 +1,986 @@
 <!doctype html>
 <html lang="vi">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#faf7f4">
-<meta name="description" content="Thiệp cưới Dũng & Trâm — 20.09.2026">
-<title>Dũng & Trâm — 20.09.2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Montserrat:wght@300;400;500;600&family=Quicksand:wght@400;500;600&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Montserrat:wght@300;400;500;600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/fix-patch.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#faf7f4">
+  <meta name="description" content="Thiệp cưới Dũng & Trâm — 20.09.2026">
+  <title>Dũng & Trâm — 20.09.2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Montserrat:wght@300;400;500;600&family=Quicksand:wght@400;500;600&display=swap">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Montserrat:wght@300;400;500;600&family=Quicksand:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fix-patch.css">
 
-<style id="countdown-style">
-.wedding-countdown{padding:70px 20px;text-align:center;background:#faf7f4;position:relative;overflow:hidden}.wedding-countdown .countdown-kicker{font:500 12px Montserrat,sans-serif;letter-spacing:.28em;color:#8e756b;text-transform:uppercase}.wedding-countdown h2{margin:12px 0 35px;font:500 34px "Quicksand",serif;color:#493d38}.countdown-events{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;max-width:1150px;margin:0 auto}.countdown-event{background:rgba(255,255,255,.55);border:1px solid #e6d6ce;padding:28px 22px;box-shadow:0 8px 25px rgba(90,55,45,.06)}.countdown-label{font:600 13px Montserrat,sans-serif;letter-spacing:.18em;color:#8e756b;text-transform:uppercase}.countdown-date{font:500 17px Montserrat,sans-serif;letter-spacing:.12em;color:#a66b61;margin:10px 0 24px}.countdown-boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.countdown-box{background:#fff;border:1px solid #e6d6ce;padding:17px 6px}.countdown-box strong{display:block;font:500 36px "Quicksand",serif;color:#9f5f57;line-height:1}.countdown-box span{display:block;margin-top:7px;font:500 9px Montserrat,sans-serif;letter-spacing:.16em;color:#8e756b;text-transform:uppercase}.countdown-finished{font:500 22px "Quicksand",serif;color:#9f5f57}@media(max-width:700px){.countdown-events{grid-template-columns:1fr}.wedding-countdown{padding:55px 15px}.wedding-countdown h2{font-size:30px}.countdown-boxes{gap:6px}.countdown-box{padding:14px 3px}.countdown-box strong{font-size:30px}}
-</style>
+  <style id="countdown-style">
+    .wedding-countdown {
+      padding: 70px 20px;
+      text-align: center;
+      background: #faf7f4;
+      position: relative;
+      overflow: hidden
+    }
 
-<style id="responsive-readability">
-html{font-size:16px;scroll-behavior:auto !important;}
-body{overflow-x:hidden}
-img{max-width:100%;height:auto}
-.section,.section-paper{padding-left:clamp(18px,4vw,60px);padding-right:clamp(18px,4vw,60px)}
-.section-heading h2{font-size:clamp(30px,4vw,46px);line-height:1.12}
-.section-heading span,.section-heading i{font-size:clamp(12px,1.2vw,14px)}
-.tiny-heading,.person-role,.ceremony-label,.roman,.parents small,.family-strip span,.event-card>span{font-size:clamp(12px,1.15vw,14px)!important;line-height:1.5;letter-spacing:.12em}
-.parents p,.family-strip small,.person p,.story-copy p,.event-card p,.thanks-inner p{font-size:clamp(15px,1.25vw,18px)!important;line-height:1.65}
-.parents strong,.family-strip b{font-size:clamp(16px,1.5vw,20px)!important}
-.story-copy h3,.event-card h3{font-size:clamp(22px,2.2vw,30px);line-height:1.2}
-.event-time b{font-size:clamp(28px,3vw,40px)}
-.event-time small{font-size:clamp(13px,1.2vw,16px)}
-.wish-form input,.wish-form textarea{font-size:16px!important;line-height:1.5}
-.wish-form button{font-size:14px!important;min-height:48px}
-.drawer a{font-size:16px!important;padding:12px 0}
-.hero-sub,.hero-save{font-size:clamp(12px,1.2vw,15px)!important}
-.countdown-events{width:min(100%,1150px)}
-.countdown-event-label,.countdown-label{font-size:clamp(14px,1.3vw,17px)!important}
-.countdown-date{font-size:clamp(16px,1.4vw,19px)!important}
-.countdown-box strong{font-size:clamp(34px,3.5vw,48px)}
-.countdown-box span{font-size:clamp(11px,1.2vw,13px)!important;letter-spacing:.1em}
-.countdown-finished{font-size:clamp(20px,2vw,26px)}
+    .wedding-countdown .countdown-kicker {
+      font: 500 12px Montserrat, sans-serif;
+      letter-spacing: .28em;
+      color: #8e756b;
+      text-transform: uppercase
+    }
 
-/* STYLES HỘP MỪNG CƯỚI MỚI */
-.gift-box-card {
-  background: #ffffff;
-  border: 1px solid #e6d6ce;
-  border-radius: 16px;
-  padding: 35px 25px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(90,55,45,0.06);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.gift-box-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(90,55,45,0.12);
-}
-.gift-box-title {
-  font-family: 'Dancing Script', cursive;
-  font-size: 38px;
-  color: #493d38;
-  margin-bottom: 20px;
-}
-.gift-icon-wrap {
-  position: relative;
-  width: 140px;
-  height: 120px;
-  margin: 10px 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.gift-envelope {
-  font-size: 80px;
-  line-height: 1;
-  filter: drop-shadow(0 8px 15px rgba(159,95,87,0.25));
-}
-.gift-arrow {
-  position: absolute;
-  top: -10px;
-  font-size: 28px;
-  color: #e91e63;
-  animation: bounceArrow 1.5s infinite;
-}
-@keyframes bounceArrow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
-}
-.gift-box-btn {
-  background: #9f5f57;
-  color: #fff;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
+    .wedding-countdown h2 {
+      margin: 12px 0 35px;
+      font: 500 34px "Quicksand", serif;
+      color: #493d38
+    }
 
-/* LAYOUT LỜI CHÚC & DANH SÁCH KHÁCH MỜI */
-.wish-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  max-width: 1100px;
-  margin: 0 auto;
-  align-items: start;
-}
-.wish-list-box {
-  background: #ffffff;
-  border: 1px solid #e6d6ce;
-  border-radius: 16px;
-  padding: 24px;
-  max-height: 580px;
-  overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(90,55,45,0.06);
-}
-.wish-list-title {
-  font-family: 'Quicksand', serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: #493d38;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #e6d6ce;
-  text-align: center;
-}
-.wish-item {
-  border-bottom: 1px dashed #e6d6ce;
-  padding: 14px 0;
-}
-.wish-item:last-child { border-bottom: none; }
-.wish-item-name {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: #9f5f57;
-  margin-bottom: 4px;
-}
-.wish-item-msg {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 15px;
-  color: #493d38;
-  line-height: 1.5;
-  white-space: pre-line;
-}
+    .countdown-events {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      max-width: 1150px;
+      margin: 0 auto
+    }
 
-/* MODAL THÔNG TIN MỪNG CƯỚI BANNER/POPUP */
-.bank-modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(4px);
-  z-index: 9999999;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
-}
-.bank-modal.active {
-  display: flex;
-}
-.bank-modal-content {
-  background: #ffffff;
-  border-radius: 20px;
-  max-width: 420px;
-  width: 100%;
-  padding: 35px 24px 30px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-  animation: popIn 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-@keyframes popIn {
-  from { transform: scale(0.85); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-.bank-modal-close {
-  position: absolute;
-  top: 15px; right: 20px;
-  font-size: 28px;
-  color: #8e756b;
-  cursor: pointer;
-  line-height: 1;
-}
-.bank-modal-role {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.25em;
-  color: #8e756b;
-  text-transform: uppercase;
-}
-.bank-modal-name {
-  font-family: 'Quicksand', serif;
-  font-size: 28px;
-  color: #493d38;
-  margin: 6px 0 12px;
-}
-.bank-modal-info {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.12em;
-  color: #8e756b;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-.bank-modal-acc {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: #9f5f57;
-  margin-bottom: 20px;
-}
-.bank-modal-qr {
-  width: 220px;
-  height: 220px;
-  object-fit: contain;
-  border-radius: 16px;
-  border: 1px solid #e6d6ce;
-  padding: 10px;
-  background: #fff;
-  display: block;
-  margin: 0 auto;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-}
+    .countdown-event {
+      background: rgba(255, 255, 255, .55);
+      border: 1px solid #e6d6ce;
+      padding: 28px 22px;
+      box-shadow: 0 8px 25px rgba(90, 55, 45, .06)
+    }
 
-@media (max-width:900px){
-  .couple-pair,.event-wrap{gap:28px}
-  .paper-card{padding:clamp(24px,5vw,50px)!important}
-}
-@media (max-width:700px){
-  .section,.section-paper{padding-left:16px;padding-right:16px}
-  .section-heading{margin-bottom:28px}
-  .section-heading h2{font-size:30px}
-  .couple-pair,.story-grid,.event-wrap,.wish-container{grid-template-columns:1fr!important}
-  .family-strip{grid-template-columns:1fr!important;gap:16px}
-  .countdown-events{grid-template-columns:1fr;gap:16px}
-  .countdown-event{padding:24px 14px}
-  .countdown-box{min-width:0;padding:16px 4px}
-  .countdown-box strong{font-size:32px}
-  .countdown-box span{font-size:10px!important}
-  .parents{gap:22px!important}
-  .parents p{font-size:15px!important}
-  .story-item,.story-item.reverse{grid-template-columns:1fr!important}
-  .event-card{padding:24px 18px!important}
-  .wish-form{width:100%!important}
-}
-@media (max-width:480px){
-  body{font-size:16px}
-  .hero-copy{padding:0 18px}
-  .hero-script{font-size:clamp(48px,14vw,72px)!important}
-  .countdown-kicker{font-size:11px!important;letter-spacing:.18em!important}
-  .wedding-countdown h2{font-size:29px!important}
-  .countdown-boxes{gap:5px}
-  .countdown-box{padding:13px 2px}
-  .countdown-box strong{font-size:29px}
-  .countdown-box span{font-size:9px!important}
-  .parents{grid-template-columns:1fr!important}
-  .couple-names{font-size:clamp(28px,9vw,42px)!important}
-  .date-lockup b{font-size:clamp(32px,10vw,46px)!important}
-  .section-heading h2{font-size:28px}
-  .story-copy p,.person p,.event-card p,.thanks-inner p{font-size:16px!important}
-}
-</style>
+    .countdown-label {
+      font: 600 13px Montserrat, sans-serif;
+      letter-spacing: .18em;
+      color: #8e756b;
+      text-transform: uppercase
+    }
+
+    .countdown-date {
+      font: 500 17px Montserrat, sans-serif;
+      letter-spacing: .12em;
+      color: #a66b61;
+      margin: 10px 0 24px
+    }
+
+    .countdown-boxes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px
+    }
+
+    .countdown-box {
+      background: #fff;
+      border: 1px solid #e6d6ce;
+      padding: 17px 6px
+    }
+
+    .countdown-box strong {
+      display: block;
+      font: 500 36px "Quicksand", serif;
+      color: #9f5f57;
+      line-height: 1
+    }
+
+    .countdown-box span {
+      display: block;
+      margin-top: 7px;
+      font: 500 9px Montserrat, sans-serif;
+      letter-spacing: .16em;
+      color: #8e756b;
+      text-transform: uppercase
+    }
+
+    .countdown-finished {
+      font: 500 22px "Quicksand", serif;
+      color: #9f5f57
+    }
+
+    @media(max-width:700px) {
+      .countdown-events {
+        grid-template-columns: 1fr
+      }
+
+      .wedding-countdown {
+        padding: 55px 15px
+      }
+
+      .wedding-countdown h2 {
+        font-size: 30px
+      }
+
+      .countdown-boxes {
+        gap: 6px
+      }
+
+      .countdown-box {
+        padding: 14px 3px
+      }
+
+      .countdown-box strong {
+        font-size: 30px
+      }
+    }
+  </style>
+
+  <style id="responsive-readability">
+    html {
+      font-size: 16px;
+      scroll-behavior: auto !important;
+    }
+
+    body {
+      overflow-x: hidden
+    }
+
+    img {
+      max-width: 100%;
+      height: auto
+    }
+
+    .section,
+    .section-paper {
+      padding-left: clamp(18px, 4vw, 60px);
+      padding-right: clamp(18px, 4vw, 60px)
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.12
+    }
+
+    .section-heading span,
+    .section-heading i {
+      font-size: clamp(12px, 1.2vw, 14px)
+    }
+
+    .tiny-heading,
+    .person-role,
+    .ceremony-label,
+    .roman,
+    .parents small,
+    .family-strip span,
+    .event-card>span {
+      font-size: clamp(12px, 1.15vw, 14px) !important;
+      line-height: 1.5;
+      letter-spacing: .12em
+    }
+
+    .parents p,
+    .family-strip small,
+    .person p,
+    .story-copy p,
+    .event-card p,
+    .thanks-inner p {
+      font-size: clamp(15px, 1.25vw, 18px) !important;
+      line-height: 1.65
+    }
+
+    .parents strong,
+    .family-strip b {
+      font-size: clamp(16px, 1.5vw, 20px) !important
+    }
+
+    .story-copy h3,
+    .event-card h3 {
+      font-size: clamp(22px, 2.2vw, 30px);
+      line-height: 1.2
+    }
+
+    .event-time b {
+      font-size: clamp(28px, 3vw, 40px)
+    }
+
+    .event-time small {
+      font-size: clamp(13px, 1.2vw, 16px)
+    }
+
+    .wish-form input,
+    .wish-form textarea {
+      font-size: 16px !important;
+      line-height: 1.5
+    }
+
+    .wish-form button {
+      font-size: 14px !important;
+      min-height: 48px
+    }
+
+    .drawer a {
+      font-size: 16px !important;
+      padding: 12px 0
+    }
+
+    .hero-sub,
+    .hero-save {
+      font-size: clamp(12px, 1.2vw, 15px) !important
+    }
+
+    .countdown-events {
+      width: min(100%, 1150px)
+    }
+
+    .countdown-event-label,
+    .countdown-label {
+      font-size: clamp(14px, 1.3vw, 17px) !important
+    }
+
+    .countdown-date {
+      font-size: clamp(16px, 1.4vw, 19px) !important
+    }
+
+    .countdown-box strong {
+      font-size: clamp(34px, 3.5vw, 48px)
+    }
+
+    .countdown-box span {
+      font-size: clamp(11px, 1.2vw, 13px) !important;
+      letter-spacing: .1em
+    }
+
+    .countdown-finished {
+      font-size: clamp(20px, 2vw, 26px)
+    }
+
+    .gift-box-card {
+      background: #ffffff;
+      border: 1px solid #e6d6ce;
+      border-radius: 16px;
+      padding: 35px 25px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(90, 55, 45, 0.06);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gift-box-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(90, 55, 45, 0.12);
+    }
+
+    .gift-box-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 38px;
+      color: #493d38;
+      margin-bottom: 20px;
+    }
+
+    .gift-icon-wrap {
+      position: relative;
+      width: 140px;
+      height: 120px;
+      margin: 10px 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gift-envelope {
+      font-size: 80px;
+      line-height: 1;
+      filter: drop-shadow(0 8px 15px rgba(159, 95, 87, 0.25));
+    }
+
+    .gift-arrow {
+      position: absolute;
+      top: -10px;
+      font-size: 28px;
+      color: #e91e63;
+      animation: bounceArrow 1.5s infinite;
+    }
+
+    @keyframes bounceArrow {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(8px);
+      }
+    }
+
+    .gift-box-btn {
+      background: #9f5f57;
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+      .wish-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .wish-list-box {
+      background: #ffffff;
+      border: 1px solid #e6d6ce;
+      border-radius: 16px;
+      padding: 24px;
+      max-height: 580px;
+      overflow-y: auto;
+      box-shadow: 0 10px 30px rgba(90, 55, 45, 0.06);
+    }
+
+    .wish-list-title {
+      font-family: 'Quicksand', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #493d38;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e6d6ce;
+      text-align: center;
+    }
+
+    .wish-item {
+      border-bottom: 1px dashed #e6d6ce;
+      padding: 14px 0;
+    }
+
+    .wish-item:last-child {
+      border-bottom: none;
+    }
+
+    .wish-item-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #9f5f57;
+      margin-bottom: 4px;
+    }
+
+    .wish-item-msg {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 15px;
+      color: #493d38;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+
+      .bank-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 9999999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .bank-modal.active {
+      display: flex;
+    }
+
+    .bank-modal-content {
+      background: #ffffff;
+      border-radius: 20px;
+      max-width: 420px;
+      width: 100%;
+      padding: 35px 24px 30px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+      animation: popIn 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .bank-modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 28px;
+      color: #8e756b;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .bank-modal-role {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      color: #8e756b;
+      text-transform: uppercase;
+    }
+
+    .bank-modal-name {
+      font-family: 'Quicksand', serif;
+      font-size: 28px;
+      color: #493d38;
+      margin: 6px 0 12px;
+    }
+
+    .bank-modal-info {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      color: #8e756b;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .bank-modal-acc {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #9f5f57;
+      margin-bottom: 20px;
+    }
+
+    .bank-modal-qr {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      border-radius: 16px;
+      border: 1px solid #e6d6ce;
+      padding: 10px;
+      background: #fff;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    }
+
+    @media (max-width:900px) {
+
+      .couple-pair,
+      .event-wrap {
+        gap: 28px
+      }
+
+      .paper-card {
+        padding: clamp(24px, 5vw, 50px) !important
+      }
+    }
+
+    @media (max-width:700px) {
+
+      .section,
+      .section-paper {
+        padding-left: 16px;
+        padding-right: 16px
+      }
+
+      .section-heading {
+        margin-bottom: 28px
+      }
+
+      .section-heading h2 {
+        font-size: 30px
+      }
+
+      .couple-pair,
+      .story-grid,
+      .event-wrap,
+      .wish-container {
+        grid-template-columns: 1fr !important
+      }
+
+      .family-strip {
+        grid-template-columns: 1fr !important;
+        gap: 16px
+      }
+
+      .countdown-events {
+        grid-template-columns: 1fr;
+        gap: 16px
+      }
+
+      .countdown-event {
+        padding: 24px 14px
+      }
+
+      .countdown-box {
+        min-width: 0;
+        padding: 16px 4px
+      }
+
+      .countdown-box strong {
+        font-size: 32px
+      }
+
+      .countdown-box span {
+        font-size: 10px !important
+      }
+
+      .parents {
+        gap: 22px !important
+      }
+
+      .parents p {
+        font-size: 15px !important
+      }
+
+      .story-item,
+      .story-item.reverse {
+        grid-template-columns: 1fr !important
+      }
+
+      .event-card {
+        padding: 24px 18px !important
+      }
+
+      .wish-form {
+        width: 100% !important
+      }
+    }
+
+    @media (max-width:480px) {
+      body {
+        font-size: 16px
+      }
+
+      .hero-copy {
+        padding: 0 18px
+      }
+
+      .hero-script {
+        font-size: clamp(48px, 14vw, 72px) !important
+      }
+
+      .countdown-kicker {
+        font-size: 11px !important;
+        letter-spacing: .18em !important
+      }
+
+      .wedding-countdown h2 {
+        font-size: 29px !important
+      }
+
+      .countdown-boxes {
+        gap: 5px
+      }
+
+      .countdown-box {
+        padding: 13px 2px
+      }
+
+      .countdown-box strong {
+        font-size: 29px
+      }
+
+      .countdown-box span {
+        font-size: 9px !important
+      }
+
+      .parents {
+        grid-template-columns: 1fr !important
+      }
+
+      .couple-names {
+        font-size: clamp(28px, 9vw, 42px) !important
+      }
+
+      .date-lockup b {
+        font-size: clamp(32px, 10vw, 46px) !important
+      }
+
+      .section-heading h2 {
+        font-size: 28px
+      }
+
+      .story-copy p,
+      .person p,
+      .event-card p,
+      .thanks-inner p {
+        font-size: 16px !important
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div id="preloader" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#faf7f4;z-index:9999999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;box-sizing:border-box;">
-  <div id="preloaderTitle" style="font-family:'Dancing Script', 'Great Vibes', 'Brush Script MT', cursive; font-size:48px; color:#9f5f57; margin-bottom:8px; line-height:1.2; opacity:0; transition:opacity 0.25s ease;">
-    Dũng &amp; Trâm
-  </div>
-  <div style="font-family:'Montserrat', sans-serif; font-size:12px; letter-spacing:0.25em; color:#8e756b; margin-bottom:32px; text-transform:uppercase;">
-    Save The Date · 20.09.2026
-  </div>
-  <button id="btnOpenWeddingCard" style="background:#9f5f57; color:#ffffff; border:none; padding:16px 38px; border-radius:50px; font-family:'Montserrat', sans-serif; font-size:13px; font-weight:600; letter-spacing:0.15em; cursor:pointer; box-shadow:0 8px 25px rgba(159,95,87,0.35); transition:transform 0.2s ease;">
-    ✉️ MỞ THIỆP CƯỚI
-  </button>
-</div>
-
-<script>
-  if (document.fonts) {
-    document.fonts.ready.then(function() {
-      const title = document.getElementById('preloaderTitle');
-      if (title) title.style.opacity = '1';
-    });
-  } else {
-    window.addEventListener('load', function() {
-      const title = document.getElementById('preloaderTitle');
-      if (title) title.style.opacity = '1';
-    });
-  }
-</script>
-
-<button class="floating menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
-<button class="floating music-toggle" id="musicToggle" aria-label="Nhạc">♪</button>
-<nav class="drawer" id="drawer">
-  <a href="#home">Trang đầu</a><a href="#invite">Thiệp mời</a><a href="#couple">Chúng tôi cưới</a>
-  <a href="#story">Câu chuyện</a><a href="#gallery">Album</a><a href="#events">Sự kiện</a><a href="#wishes">Lời chúc</a>
-</nav>
-
-<section class="hero" id="home">
-  <img id="heroImg" class="hero-image" alt="">
-  <div class="hero-wash"></div>
-  <div class="hero-vignette"></div>
-  <div class="hero-copy">
-    <div class="hero-save">SAVE THE DATE</div>
-    <div class="hero-date" data-date></div>
-    <div class="hero-script" data-short-names></div>
-    <div class="hero-line"></div>
-    <div class="hero-sub">TRÂN TRỌNG KÍNH MỜI</div>
-    <a class="hero-scroll" href="#invite"><span>KÉO XUỐNG</span><b>⌄</b></a>
-  </div>
-</section>
-
-<section class="wedding-countdown" id="countdown">
-  <div class="countdown-kicker">SAVE THE DATE</div>
-  <h2>ĐẾM NGƯỢC NGÀY TRỌNG ĐẠI</h2>
-  <div class="countdown-events">
-    <div class="countdown-event">
-      <div class="countdown-label">NGÀY VU QUY</div><div class="countdown-date">14 · 09 · 2026</div>
-      <div class="countdown-boxes"><div class="countdown-box"><strong id="cd-bride-days">--</strong><span>Ngày</span></div><div class="countdown-box"><strong id="cd-bride-hours">--</strong><span>Giờ</span></div><div class="countdown-box"><strong id="cd-bride-minutes">--</strong><span>Phút</span></div><div class="countdown-box"><strong id="cd-bride-seconds">--</strong><span>Giây</span></div></div>
+  <div id="preloader"
+    style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#faf7f4;z-index:9999999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;box-sizing:border-box;">
+    <div id="preloaderTitle"
+      style="font-family:'Dancing Script', 'Great Vibes', 'Brush Script MT', cursive; font-size:48px; color:#9f5f57; margin-bottom:8px; line-height:1.2; opacity:0; transition:opacity 0.25s ease;">
+      Dũng &amp; Trâm
     </div>
-    <div class="countdown-event">
-      <div class="countdown-label">NGÀY THÀNH HÔN</div><div class="countdown-date">20 · 09 · 2026</div>
-      <div class="countdown-boxes"><div class="countdown-box"><strong id="cd-groom-days">--</strong><span>Ngày</span></div><div class="countdown-box"><strong id="cd-groom-hours">--</strong><span>Giờ</span></div><div class="countdown-box"><strong id="cd-groom-minutes">--</strong><span>Phút</span></div><div class="countdown-box"><strong id="cd-groom-seconds">--</strong><span>Giây</span></div></div>
+    <div
+      style="font-family:'Montserrat', sans-serif; font-size:12px; letter-spacing:0.25em; color:#8e756b; margin-bottom:32px; text-transform:uppercase;">
+      Save The Date · 20.09.2026
     </div>
+    <button id="btnOpenWeddingCard"
+      style="background:#9f5f57; color:#ffffff; border:none; padding:16px 38px; border-radius:50px; font-family:'Montserrat', sans-serif; font-size:13px; font-weight:600; letter-spacing:0.15em; cursor:pointer; box-shadow:0 8px 25px rgba(159,95,87,0.35); transition:transform 0.2s ease;">
+      ✉️ MỞ THIỆP CƯỚI
+    </button>
   </div>
-</section>
 
-<section class="invite section-paper" id="invite">
-  <div class="paper-card reveal">
-    <div class="ornament-top">❦</div>
-    <div class="parents">
-      <div><small>NHÀ TRAI</small><strong data-groom-parent></strong><p data-groom-address></p></div>
-      <div><small>NHÀ GÁI</small><strong data-bride-parent></strong><p data-bride-address></p></div>
+  <script>
+    if (document.fonts) {
+      document.fonts.ready.then(function () {
+        const title = document.getElementById('preloaderTitle');
+        if (title) title.style.opacity = '1';
+      });
+    } else {
+      window.addEventListener('load', function () {
+        const title = document.getElementById('preloaderTitle');
+        if (title) title.style.opacity = '1';
+      });
+    }
+  </script>
+
+  <button class="floating menu-toggle" id="menuToggle"
+    aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="floating music-toggle" id="musicToggle" aria-label="Nhạc">♪</button>
+  <nav class="drawer" id="drawer">
+    <a href="#home">Trang đầu</a><a href="#invite">Thiệp mời</a><a href="#couple">Chúng tôi cưới</a>
+    <a href="#story">Câu chuyện</a><a href="#gallery">Album</a><a href="#events">Sự kiện</a><a href="#wishes">Lời
+      chúc</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <img id="heroImg" class="hero-image" alt="">
+    <div class="hero-wash"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-copy">
+      <div class="hero-save">SAVE THE DATE</div>
+      <div class="hero-date" data-date></div>
+      <div class="hero-script" data-short-names></div>
+      <div class="hero-line"></div>
+      <div class="hero-sub">TRÂN TRỌNG KÍNH MỜI</div>
+      <a class="hero-scroll" href="#invite"><span>KÉO XUỐNG</span><b>⌄</b></a>
     </div>
-    <div class="tiny-heading">TRÂN TRỌNG BÁO TIN</div>
-	<h1>LỄ VU QUY<br><em>CỦA CON CHÚNG TÔI</em></h1>
-    <div class="couple-names"><span data-bride></span><b>♡</b><span data-groom></span></div>
-    <div class="roman">TRƯỞNG NỮ &nbsp; ♡ &nbsp; TRƯỞNG NAM</div>
-    <div class="rule"></div>
-    <div class="ceremony-label">HÔN LỄ ĐƯỢC CỬ HÀNH TẠI TƯ GIA NỮ</div>
-    <div class="date-lockup"><span data-ceremony-time></span><b>14/09</b><span>2026</span></div>
-    <div class="lunar0" data-lunar0></div>
-    <div class="ornament-bottom">❦</div>
-	<div class="rule"></div>
-    <h1>LỄ THÀNH HÔN<br><em>CỦA CON CHÚNG TÔI</em></h1>
-    <div class="couple-names"><span data-groom></span><b>♡</b><span data-bride></span></div>
-    <div class="roman">TRƯỞNG NAM &nbsp; ♡ &nbsp; TRƯỞNG NỮ</div>
-    <div class="rule"></div>
-    <div class="ceremony-label">HÔN LỄ ĐƯỢC CỬ HÀNH TẠI TƯ GIA NAM</div>
-    <div class="date-lockup"><span data-ceremony-time></span><b>20/09</b><span>2026</span></div>
-    <div class="lunar" data-lunar></div>
-    <div class="ornament-bottom">❦</div>
-  </div>
-</section>
+  </section>
 
-<section class="couple section" id="couple">
-  <header class="section-heading reveal"><span>OUR STORY</span><h2>CHÚNG TÔI CƯỚI</h2><i>⌁ ❀ ⌁</i></header>
-  <div class="couple-pair">
-    <article class="person reveal"><div class="polaroid"><img id="groomImg" alt="Chú rể"></div><div class="person-role">CHÚ RỂ</div><h3 data-groom></h3><p>Người đàn ông may mắn khi gặp được người con gái mà mình muốn cùng đi hết quãng đường còn lại.</p></article>
-    <article class="person reveal"><div class="polaroid tilt-right"><img id="brideImg" alt="Cô dâu"></div><div class="person-role">CÔ DÂU</div><h3 data-bride></h3><p>Cảm ơn anh đã đến, ở lại và cùng em viết tiếp câu chuyện mang tên gia đình.</p></article>
-  </div>
-  <div class="family-strip reveal">
-    <div><span>CHA MẸ NHÀ TRAI</span><b data-groom-parent></b><small>An Khê · Gia Lai</small></div>
-    <div><span>CHA MẸ NHÀ GÁI</span><b data-bride-parent></b><small>Bình An · Gia Lai</small></div>
-  </div>
-</section>
-
-<section class="story section-paper" id="story">
-  <header class="section-heading reveal"><span>MEMORIES</span><h2>CÂU CHUYỆN TÌNH YÊU</h2><i>⌁ ❀ ⌁</i></header>
-  <div class="story-grid">
-    <article class="story-item reveal"><div class="story-photo"><img id="story1"></div><div class="story-copy"><span>01</span><h3>LẦN ĐẦU GẶP GỠ</h3><p>Một cuộc gặp tưởng như bình thường lại trở thành điểm bắt đầu cho một hành trình rất đặc biệt.</p></div></article>
-    <article class="story-item reverse reveal"><div class="story-photo"><img id="story2"></div><div class="story-copy"><span>02</span><h3>HẸN HÒ</h3><p>Từ những câu chuyện nhỏ, chúng tôi dần nhận ra mình muốn có nhau trong những ngày phía trước.</p></div></article>
-    <article class="story-item reveal"><div class="story-photo"><img id="story3"></div><div class="story-copy"><span>03</span><h3>NGÀY TA YÊU NHAU</h3><p>Không cần một khoảnh khắc quá lớn lao. Chỉ cần cả hai cùng tin rằng sau này vẫn sẽ chọn nắm tay nhau.</p></div></article>
-    <article class="story-item reverse reveal"><div class="story-photo"><img id="story4"></div><div class="story-copy"><span>04</span><h3>VỀ CHUNG MỘT NHÀ</h3><p>20.09.2026 — một dấu mốc để bắt đầu chương mới, bình dị nhưng thật đẹp.</p></div></article>
-  </div>
-</section>
-
-<section class="gallery section" id="gallery">
-  <header class="section-heading reveal"><span>OUR MEMORIES</span><h2>ALBUM ẢNH CƯỚI</h2><i>⌁ ❀ ⌁</i></header>
-  <div class="gallery-grid" id="galleryGrid"></div>
-</section>
-
-<section class="events section-paper" id="events">
-  <header class="section-heading reveal"><span>THE BIG DAY</span><h2>SỰ KIỆN</h2><i>⌁ ❀ ⌁</i></header>
-  <div class="event-wrap">
-    <div class="event-art reveal"><div class="art-ring">WEDDING<br><em>DAY</em></div><div class="art-leaf">❧</div></div>
-    <div class="event-list">
-      <article class="event-card reveal"><span>TIỆC CƯỚI NHÀ GÁI</span><h3>Nhà hàng tiệc cưới <br> THANH CHƯƠNG</h3><div class="event-time"><b>🕥10:30</b><small data-bride-party-date></small></div><p data-bride-party-address></p><a id="brideMap" target="_blank" rel="noopener">🌏XEM BẢN ĐỒ ↗</a></article>
-      <article class="event-card reveal"><span>TIỆC CƯỚI NHÀ TRAI</span><h3>TƯ GIA NAM</h3><div class="event-time"><b>🕥10:30</b><small data-groom-party-date></small></div><p data-groom-party-address></p><a id="groomMap" target="_blank" rel="noopener">🌏XEM BẢN ĐỒ ↗</a></article>
-    </div>
-  </div>
-</section>
-
-<section class="wishes section" id="wishes">
-  <header class="section-heading reveal"><span>WITH LOVE</span><h2>GỬI LỜI CHÚC TỚI CÔ DÂU &amp; CHÚ RỂ</h2><i>⌁ ❀ ⌁</i></header>
-  
-  <div class="wish-container">
-    <!-- CỘT BÊN TRÁI: FORM GỬI LỜI CHÚC & HỘP MỪNG CƯỚI -->
-    <div>
-      <form class="wish-form reveal" id="wishForm" style="width: 100%; margin-bottom: 20px;">
-        <input type="text" name="name" required maxlength="80" autocomplete="name" placeholder="Tên của bạn">
-        <textarea name="message" required maxlength="1000" rows="4" placeholder="Lời chúc dành cho Dũng & Trâm..."></textarea>
-        <input class="wish-honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button type="submit" id="wishSubmit">GỬI LỜI CHÚC</button>
-        <div class="wish-status" id="wishStatus" role="status" aria-live="polite"></div>
-      </form>
-
-      <div class="gift-box-card reveal" id="openBankModal">
-        <div class="gift-box-title">Hộp mừng cưới</div>
-        <div class="gift-icon-wrap">
-          <div class="gift-arrow">⬇</div>
-          <div class="gift-envelope">✉️</div>
+  <section class="wedding-countdown" id="countdown">
+    <div class="countdown-kicker">SAVE THE DATE</div>
+    <h2>ĐẾM NGƯỢC NGÀY TRỌNG ĐẠI</h2>
+    <div class="countdown-events">
+      <div class="countdown-event">
+        <div class="countdown-label">NGÀY VU QUY</div>
+        <div class="countdown-date">14 · 09 · 2026</div>
+        <div class="countdown-boxes">
+          <div class="countdown-box"><strong id="cd-bride-days">--</strong><span>Ngày</span></div>
+          <div class="countdown-box"><strong id="cd-bride-hours">--</strong><span>Giờ</span></div>
+          <div class="countdown-box"><strong id="cd-bride-minutes">--</strong><span>Phút</span></div>
+          <div class="countdown-box"><strong id="cd-bride-seconds">--</strong><span>Giây</span></div>
         </div>
-        <button type="button" class="gift-box-btn">GỬI MỪNG CƯỚI</button>
+      </div>
+      <div class="countdown-event">
+        <div class="countdown-label">NGÀY THÀNH HÔN</div>
+        <div class="countdown-date">20 · 09 · 2026</div>
+        <div class="countdown-boxes">
+          <div class="countdown-box"><strong id="cd-groom-days">--</strong><span>Ngày</span></div>
+          <div class="countdown-box"><strong id="cd-groom-hours">--</strong><span>Giờ</span></div>
+          <div class="countdown-box"><strong id="cd-groom-minutes">--</strong><span>Phút</span></div>
+          <div class="countdown-box"><strong id="cd-groom-seconds">--</strong><span>Giây</span></div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- CỘT BÊN PHẢI: KHUNG HIỂN THỊ LỜI CHÚC TỪ GOOGLE SHEET -->
-    <div class="wish-list-box reveal">
-      <div class="wish-list-title">Lời chúc từ Quan Khách ❤️</div>
-      <div id="wishListBox">
-        <div style="text-align:center; color:#8e756b; font-family:'Montserrat', sans-serif; font-size:13px; padding:20px;">Đang tải danh sách lời chúc...</div>
+  <section class="invite section-paper" id="invite">
+    <div class="paper-card reveal">
+      <div class="ornament-top">❦</div>
+      <div class="parents">
+        <div><small>NHÀ TRAI</small><strong data-groom-parent></strong>
+          <p data-groom-address></p>
+        </div>
+        <div><small>NHÀ GÁI</small><strong data-bride-parent></strong>
+          <p data-bride-address></p>
+        </div>
+      </div>
+      <div class="tiny-heading">TRÂN TRỌNG BÁO TIN</div>
+      <h1>LỄ VU QUY<br><em>CỦA CON CHÚNG TÔI</em></h1>
+      <div class="couple-names"><span data-bride></span><b>♡</b><span data-groom></span></div>
+      <div class="roman">TRƯỞNG NỮ &nbsp; ♡ &nbsp; TRƯỞNG NAM</div>
+      <div class="rule"></div>
+      <div class="ceremony-label">HÔN LỄ ĐƯỢC CỬ HÀNH TẠI TƯ GIA NỮ</div>
+      <div class="date-lockup"><span data-ceremony-time></span><b>14/09</b><span>2026</span></div>
+      <div class="lunar0" data-lunar0></div>
+      <div class="ornament-bottom">❦</div>
+      <div class="rule"></div>
+      <h1>LỄ THÀNH HÔN<br><em>CỦA CON CHÚNG TÔI</em></h1>
+      <div class="couple-names"><span data-groom></span><b>♡</b><span data-bride></span></div>
+      <div class="roman">TRƯỞNG NAM &nbsp; ♡ &nbsp; TRƯỞNG NỮ</div>
+      <div class="rule"></div>
+      <div class="ceremony-label">HÔN LỄ ĐƯỢC CỬ HÀNH TẠI TƯ GIA NAM</div>
+      <div class="date-lockup"><span data-ceremony-time></span><b>20/09</b><span>2026</span></div>
+      <div class="lunar" data-lunar></div>
+      <div class="ornament-bottom">❦</div>
+    </div>
+  </section>
+
+  <section class="couple section" id="couple">
+    <header class="section-heading reveal"><span>OUR STORY</span>
+      <h2>CHÚNG TÔI CƯỚI</h2><i>⌁ ❀ ⌁</i>
+    </header>
+    <div class="couple-pair">
+      <article class="person reveal">
+        <div class="polaroid"><img id="groomImg" alt="Chú rể"></div>
+        <div class="person-role">CHÚ RỂ</div>
+        <h3 data-groom></h3>
+        <p>Người đàn ông may mắn khi gặp được người con gái mà mình muốn cùng đi hết quãng đường còn lại.</p>
+      </article>
+      <article class="person reveal">
+        <div class="polaroid tilt-right"><img id="brideImg" alt="Cô dâu"></div>
+        <div class="person-role">CÔ DÂU</div>
+        <h3 data-bride></h3>
+        <p>Cảm ơn anh đã đến, ở lại và cùng em viết tiếp câu chuyện mang tên gia đình.</p>
+      </article>
+    </div>
+    <div class="family-strip reveal">
+      <div><span>CHA MẸ NHÀ TRAI</span><b data-groom-parent></b><small>An Khê · Gia Lai</small></div>
+      <div><span>CHA MẸ NHÀ GÁI</span><b data-bride-parent></b><small>Bình An · Gia Lai</small></div>
+    </div>
+  </section>
+
+  <section class="story section-paper" id="story">
+    <header class="section-heading reveal"><span>MEMORIES</span>
+      <h2>CÂU CHUYỆN TÌNH YÊU</h2><i>⌁ ❀ ⌁</i>
+    </header>
+    <div class="story-grid">
+      <article class="story-item reveal">
+        <div class="story-photo"><img id="story1"></div>
+        <div class="story-copy"><span>01</span>
+          <h3>LẦN ĐẦU GẶP GỠ</h3>
+          <p>Một cuộc gặp tưởng như bình thường lại trở thành điểm bắt đầu cho một hành trình rất đặc biệt.</p>
+        </div>
+      </article>
+      <article class="story-item reverse reveal">
+        <div class="story-photo"><img id="story2"></div>
+        <div class="story-copy"><span>02</span>
+          <h3>HẸN HÒ</h3>
+          <p>Từ những câu chuyện nhỏ, chúng tôi dần nhận ra mình muốn có nhau trong những ngày phía trước.</p>
+        </div>
+      </article>
+      <article class="story-item reveal">
+        <div class="story-photo"><img id="story3"></div>
+        <div class="story-copy"><span>03</span>
+          <h3>NGÀY TA YÊU NHAU</h3>
+          <p>Không cần một khoảnh khắc quá lớn lao. Chỉ cần cả hai cùng tin rằng sau này vẫn sẽ chọn nắm tay nhau.</p>
+        </div>
+      </article>
+      <article class="story-item reverse reveal">
+        <div class="story-photo"><img id="story4"></div>
+        <div class="story-copy"><span>04</span>
+          <h3>VỀ CHUNG MỘT NHÀ</h3>
+          <p>20.09.2026 — một dấu mốc để bắt đầu chương mới, bình dị nhưng thật đẹp.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="gallery section" id="gallery">
+    <header class="section-heading reveal"><span>OUR MEMORIES</span>
+      <h2>ALBUM ẢNH CƯỚI</h2><i>⌁ ❀ ⌁</i>
+    </header>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+
+  <section class="events section-paper" id="events">
+    <header class="section-heading reveal"><span>THE BIG DAY</span>
+      <h2>SỰ KIỆN</h2><i>⌁ ❀ ⌁</i>
+    </header>
+    <div class="event-wrap">
+      <div class="event-art reveal">
+        <div class="art-ring">WEDDING<br><em>DAY</em></div>
+        <div class="art-leaf">❧</div>
+      </div>
+      <div class="event-list">
+        <article class="event-card reveal"><span>TIỆC CƯỚI NHÀ GÁI</span>
+          <h3>Nhà hàng tiệc cưới <br> THANH CHƯƠNG</h3>
+          <div class="event-time"><b>🕥10:30</b><small data-bride-party-date></small></div>
+          <p data-bride-party-address></p><a id="brideMap" target="_blank" rel="noopener">🌏XEM BẢN ĐỒ ↗</a>
+        </article>
+        <article class="event-card reveal"><span>TIỆC CƯỚI NHÀ TRAI</span>
+          <h3>TƯ GIA NAM</h3>
+          <div class="event-time"><b>🕥10:30</b><small data-groom-party-date></small></div>
+          <p data-groom-party-address></p><a id="groomMap" target="_blank" rel="noopener">🌏XEM BẢN ĐỒ ↗</a>
+        </article>
       </div>
     </div>
+  </section>
+
+  <section class="wishes section" id="wishes">
+    <header class="section-heading reveal"><span>WITH LOVE</span>
+      <h2>GỬI LỜI CHÚC TỚI CÔ DÂU &amp; CHÚ RỂ</h2><i>⌁ ❀ ⌁</i>
+    </header>
+
+    <div class="wish-container">
+      <div>
+        <form class="wish-form reveal" id="wishForm" style="width: 100%; margin-bottom: 20px;">
+          <input type="text" name="name" required maxlength="80" autocomplete="name" placeholder="Tên của bạn">
+          <textarea name="message" required maxlength="1000" rows="4"
+            placeholder="Lời chúc dành cho Dũng & Trâm..."></textarea>
+          <input class="wish-honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" id="wishSubmit">GỬI LỜI CHÚC</button>
+          <div class="wish-status" id="wishStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <div class="wish-list-box reveal">
+        <div class="wish-list-title">Lời chúc từ Quan Khách ❤️</div>
+        <div id="wishListBox">
+          <div
+            style="text-align:center; color:#8e756b; font-family:'Montserrat', sans-serif; font-size:13px; padding:20px;">
+            Đang tải danh sách lời chúc...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width: 450px; margin: 40px auto 0;">
+    <div class="gift-box-card reveal" id="openBankModal">
+      <div class="gift-box-title">Hộp mừng cưới</div>
+      <div class="gift-icon-wrap">
+        <div class="gift-arrow">⬇</div>
+        <div class="gift-envelope">✉️</div>
+      </div>
+      <button type="button" class="gift-box-btn">GỬI MỪNG CƯỚI</button>
+    </div>
   </div>
-</section>
 
-<!-- POPUP HIỂN THỊ THÔNG TIN CHUYỂN KHỎAN VÀ MÃ QR -->
-<div class="bank-modal" id="bankModal">
-  <div class="bank-modal-content">
-    <span class="bank-modal-close" id="closeBankModal">&times;</span>
-    <div class="bank-modal-role">CÔ DÂU</div>
-    <div class="bank-modal-name" data-bride>Nguyễn Thị Cúc Trâm</div>
-    <div class="bank-modal-info">THÔNG TIN MỪNG CƯỚI</div>
-    <div class="bank-modal-acc">MB BANK: 0335983739</div>
-    <img id="qrImg" class="bank-modal-qr" alt="Mã QR Chuyển khoản">
+  <div class="bank-modal" id="bankModal">
+    <div class="bank-modal-content">
+      <span class="bank-modal-close" id="closeBankModal">&times;</span>
+      <div class="bank-modal-role">CÔ DÂU</div>
+      <div class="bank-modal-name" data-bride>Nguyễn Thị Cúc Trâm</div>
+      <div class="bank-modal-info">THÔNG TIN MỪNG CƯỚI</div>
+      <div class="bank-modal-acc">MB BANK: 0335983739</div>
+      <img id="qrImg" class="bank-modal-qr" alt="Mã QR Chuyển khoản">
+    </div>
   </div>
-</div>
 
-<section class="thanks section-paper">
-  <div class="thanks-inner reveal">
-    <div class="thanks-flower">❀</div>
-    <div class="thanks-script">Thank You!!!</div>
-    <p>Sự hiện diện của quý khách là niềm vinh dự và niềm vui lớn đối với gia đình chúng tôi.</p>
-    <div class="thanks-names" data-short-names></div>
-    <div class="thanks-date" data-date></div>
-  </div>
-</section>
-<footer>DŨNG &amp; TRÂM · 20.09.2026</footer>
+  <section class="thanks section-paper">
+    <div class="thanks-inner reveal">
+      <div class="thanks-flower">❀</div>
+      <div class="thanks-script">Thank You!!!</div>
+      <p>Sự hiện diện của quý khách là niềm vinh dự và niềm vui lớn đối với gia đình chúng tôi.</p>
+      <div class="thanks-names" data-short-names></div>
+      <div class="thanks-date" data-date></div>
+    </div>
+  </section>
+  <footer>DŨNG &amp; TRÂM · 20.09.2026</footer>
 
-<script src="js/config.js"></script>
-<script src="js/app.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
 
-<!-- SCRIPT BẬT/TẮT POPUP MỪNG CƯỚI -->
-<script id="bank-modal-script">
-(function() {
-  const openBtn = document.getElementById('openBankModal');
-  const modal = document.getElementById('bankModal');
-  const closeBtn = document.getElementById('closeBankModal');
+  <script id="bank-modal-script">
+    (function () {
+      const openBtn = document.getElementById('openBankModal');
+      const modal = document.getElementById('bankModal');
+      const closeBtn = document.getElementById('closeBankModal');
 
-  if (openBtn && modal) {
-    openBtn.addEventListener('click', function() {
-      modal.classList.add('active');
-    });
-  }
-
-  if (closeBtn && modal) {
-    closeBtn.addEventListener('click', function() {
-      modal.classList.remove('active');
-    });
-  }
-
-  if (modal) {
-    modal.addEventListener('click', function(e) {
-      if (e.target === modal) {
-        modal.classList.remove('active');
+      if (openBtn && modal) {
+        openBtn.addEventListener('click', function () {
+          modal.classList.add('active');
+        });
       }
-    });
-  }
-})();
-</script>
 
-<script id="countdown-script">
-(function(){
-  const targets = [
-    {
-      time: new Date(2026, 8, 14, 9, 0, 0).getTime(),
-      ids: ['cd-bride-days', 'cd-bride-hours', 'cd-bride-minutes', 'cd-bride-seconds']
-    },
-    {
-      time: new Date(2026, 8, 20, 9, 0, 0).getTime(),
-      ids: ['cd-groom-days', 'cd-groom-hours', 'cd-groom-minutes', 'cd-groom-seconds']
-    }
-  ];
+      if (closeBtn && modal) {
+        closeBtn.addEventListener('click', function () {
+          modal.classList.remove('active');
+        });
+      }
 
-  const ONE_DAY_MS = 86400000;
+      if (modal) {
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) {
+            modal.classList.remove('active');
+          }
+        });
+      }
+    })();
+  </script>
 
-  function update(t) {
-    const e = t.ids.map(id => document.getElementById(id));
-    if (e.some(x => !x)) return;
-    if (isNaN(t.time)) return;
+  <script id="countdown-script">
+    (function () {
+      const targets = [
+        {
+          time: new Date(2026, 8, 14, 9, 0, 0).getTime(),
+          ids: ['cd-bride-days', 'cd-bride-hours', 'cd-bride-minutes', 'cd-bride-seconds']
+        },
+        {
+          time: new Date(2026, 8, 20, 9, 0, 0).getTime(),
+          ids: ['cd-groom-days', 'cd-groom-hours', 'cd-groom-minutes', 'cd-groom-seconds']
+        }
+      ];
 
-    const now = Date.now();
-    let diff = t.time - now;
+      const ONE_DAY_MS = 86400000;
 
-    if (diff < -ONE_DAY_MS) {
-      e[0].textContent = 'Đã'; e[1].textContent = 'diễn'; e[2].textContent = 'ra'; e[3].textContent = '❤️';
-      return;
-    }
+      function update(t) {
+        const e = t.ids.map(id => document.getElementById(id));
+        if (e.some(x => !x)) return;
+        if (isNaN(t.time)) return;
 
-    if (diff <= 0) {
-      e[0].textContent = 'Hôm'; e[1].textContent = 'nay'; e[2].textContent = 'lễ'; e[3].textContent = '♡';
-      return;
-    }
+        const now = Date.now();
+        let diff = t.time - now;
 
-    const d = Math.floor(diff / ONE_DAY_MS); diff %= ONE_DAY_MS;
-    const h = Math.floor(diff / 3600000); diff %= 3600000;
-    const m = Math.floor(diff / 60000); diff %= 60000;
-    const sec = Math.floor(diff / 1000);
+        if (diff < -ONE_DAY_MS) {
+          e[0].textContent = 'Đã'; e[1].textContent = 'diễn'; e[2].textContent = 'ra'; e[3].textContent = '❤️';
+          return;
+        }
 
-    e[0].textContent = isNaN(d) ? '0' : d;
-    e[1].textContent = isNaN(h) ? '00' : String(h).padStart(2, '0');
-    e[2].textContent = isNaN(m) ? '00' : String(m).padStart(2, '0');
-    e[3].textContent = isNaN(sec) ? '00' : String(sec).padStart(2, '0');
-  }
+        if (diff <= 0) {
+          e[0].textContent = 'Hôm'; e[1].textContent = 'nay'; e[2].textContent = 'lễ'; e[3].textContent = '♡';
+          return;
+        }
 
-  function all() { targets.forEach(update); }
-  all();
-  setInterval(all, 1000);
-})();
-</script>
+        const d = Math.floor(diff / ONE_DAY_MS); diff %= ONE_DAY_MS;
+        const h = Math.floor(diff / 3600000); diff %= 3600000;
+        const m = Math.floor(diff / 60000); diff %= 60000;
+        const sec = Math.floor(diff / 1000);
 
-<!-- CÁNH HOA RƠI TỐI ƯU SIÊU NHẸ -->
-<script id="force-luxury-fx">
-(function() {
-  const isMobile = window.innerWidth <= 700;
-  const style = document.createElement('style');
-  style.textContent = `
+        e[0].textContent = isNaN(d) ? '0' : d;
+        e[1].textContent = isNaN(h) ? '00' : String(h).padStart(2, '0');
+        e[2].textContent = isNaN(m) ? '00' : String(m).padStart(2, '0');
+        e[3].textContent = isNaN(sec) ? '00' : String(sec).padStart(2, '0');
+      }
+
+      function all() { targets.forEach(update); }
+      all();
+      setInterval(all, 1000);
+    })();
+  </script>
+
+  <script id="force-luxury-fx">
+    (function () {
+      const isMobile = window.innerWidth <= 700;
+      const style = document.createElement('style');
+      style.textContent = `
     #forceWeddingFX {
       position: fixed !important; top: 0 !important; left: 0 !important;
       width: 100vw !important; height: 100vh !important;
@@ -572,349 +1003,336 @@ img{max-width:100%;height:auto}
       100% { transform: translate3d(var(--dx), 105vh, 0) rotate(360deg); }
     }
   `;
-  document.head.appendChild(style);
+      document.head.appendChild(style);
 
-  function runFX() {
-    let container = document.getElementById('forceWeddingFX');
-    if (container) container.remove();
+      function runFX() {
+        let container = document.getElementById('forceWeddingFX');
+        if (container) container.remove();
 
-    container = document.createElement('div');
-    container.id = 'forceWeddingFX';
-    container.setAttribute('aria-hidden', 'true');
+        container = document.createElement('div');
+        container.id = 'forceWeddingFX';
+        container.setAttribute('aria-hidden', 'true');
 
-    const count = isMobile ? 8 : 22;
-    const r = (a, b) => Math.random() * (b - a) + a;
+        const count = isMobile ? 8 : 22;
+        const r = (a, b) => Math.random() * (b - a) + a;
 
-    for (let i = 0; i < count; i++) {
-      const p = document.createElement('i');
-      p.className = 'fx-p ' + (Math.random() > 0.3 ? 'petal' : 'leaf');
-      p.style.setProperty('--x', r(0, 95) + 'vw');
-      p.style.setProperty('--s', r(10, 14) + 'px');
-      p.style.setProperty('--o', r(0.6, 0.85));
-      p.style.setProperty('--t', r(8, 14) + 's');
-      p.style.setProperty('--d', r(-12, 0) + 's');
-      p.style.setProperty('--dx', r(-8, 8) + 'vw');
-      container.appendChild(p);
-    }
-    document.body.appendChild(container);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', runFX);
-  } else {
-    runFX();
-  }
-})();
-</script>
-
-<!-- AUTO SCROLL NỘI SUY (LERP) CHUẨN TƯƠNG THÍCH MỌI THIẾT BỊ -->
-<script id="auto-music-script">
-(function() {
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-  window.scrollTo(0, 0);
-
-  let audio = document.getElementById('weddingAudio');
-  if (!audio) {
-    audio = document.createElement('audio');
-    audio.id = 'weddingAudio';
-    audio.src = 'music/wedding.mp3'; 
-    audio.loop = true;
-    audio.preload = 'auto';
-    document.body.appendChild(audio);
-  }
-
-  const musicBtn = document.getElementById('musicToggle');
-  const preloader = document.getElementById('preloader');
-  const btnOpen = document.getElementById('btnOpenWeddingCard');
-
-  let isAutoScrolling = false;
-  let targetScroll = 0;
-  let currentScroll = 0;
-  let animReq = null;
-
-  function stopAutoScroll() {
-    isAutoScrolling = false;
-    if (animReq) {
-      cancelAnimationFrame(animReq);
-      animReq = null;
-    }
-    window.removeEventListener('wheel', stopAutoScroll);
-    window.removeEventListener('touchstart', stopAutoScroll);
-    window.removeEventListener('pointerdown', stopAutoScroll);
-  }
-
-  function smoothScrollLoop() {
-    if (!isAutoScrolling) return;
-
-    const maxScroll = Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight
-    ) - window.innerHeight;
-
-    const speed = window.innerWidth <= 700 ? 1.8 : 1.2;
-    targetScroll += speed;
-
-    if (targetScroll >= maxScroll) {
-      targetScroll = maxScroll;
-      stopAutoScroll();
-    }
-
-    currentScroll += (targetScroll - currentScroll) * 0.1;
-    window.scrollTo(0, currentScroll);
-
-    if (isAutoScrolling) {
-      animReq = requestAnimationFrame(smoothScrollLoop);
-    }
-  }
-
-  function startSmoothAutoScroll() {
-    stopAutoScroll();
-    isAutoScrolling = true;
-    currentScroll = window.pageYOffset || document.documentElement.scrollTop || 0;
-    targetScroll = currentScroll;
-
-    window.addEventListener('wheel', stopAutoScroll, { passive: true });
-    window.addEventListener('touchstart', stopAutoScroll, { passive: true });
-    window.addEventListener('pointerdown', stopAutoScroll, { passive: true });
-
-    animReq = requestAnimationFrame(smoothScrollLoop);
-  }
-
-  if (btnOpen) {
-    btnOpen.addEventListener('click', function(e) {
-      e.stopPropagation();
-      window.scrollTo(0, 0);
-      
-      audio.play().then(() => {
-        if (musicBtn) {
-          musicBtn.classList.add('playing');
-          musicBtn.textContent = 'Ⅱ';
+        for (let i = 0; i < count; i++) {
+          const p = document.createElement('i');
+          p.className = 'fx-p ' + (Math.random() > 0.3 ? 'petal' : 'leaf');
+          p.style.setProperty('--x', r(0, 95) + 'vw');
+          p.style.setProperty('--s', r(10, 14) + 'px');
+          p.style.setProperty('--o', r(0.6, 0.85));
+          p.style.setProperty('--t', r(8, 14) + 's');
+          p.style.setProperty('--d', r(-12, 0) + 's');
+          p.style.setProperty('--dx', r(-8, 8) + 'vw');
+          container.appendChild(p);
         }
-      }).catch(err => console.log("Lỗi phát nhạc:", err));
-
-      if (preloader) {
-        preloader.style.transition = 'opacity 0.5s ease, visibility 0.5s';
-        preloader.style.opacity = '0';
-        setTimeout(() => preloader.remove(), 500);
+        document.body.appendChild(container);
       }
 
-      setTimeout(startSmoothAutoScroll, 400);
-    });
-  }
-
-  if (musicBtn) {
-    musicBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      if (audio.paused) {
-        audio.play().then(() => {
-          musicBtn.classList.add('playing');
-          musicBtn.textContent = 'Ⅱ';
-        });
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', runFX);
       } else {
-        audio.pause();
-        musicBtn.classList.remove('playing');
-        musicBtn.textContent = '♪';
+        runFX();
       }
-    });
-  }
-})();
-</script>
+    })();
+  </script>
 
-<!-- CANVAS PHÁO HOA TỐI ƯU BỘ NHỚ -->
-<canvas id="fireworksCanvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999999;"></canvas>
-
-<script id="touch-fireworks-script">
-(function() {
-  const canvas = document.getElementById('fireworksCanvas');
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  let animId = null;
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
-
-  const colors = ['#9f5f57', '#e9c6bd', '#d4af37', '#ffffff', '#ffd700'];
-
-  class Particle {
-    constructor(x, y) {
-      this.x = x;
-      this.y = y;
-      this.color = colors[Math.floor(Math.random() * colors.length)];
-      this.radius = Math.random() * 2 + 1;
-      const angle = Math.random() * Math.PI * 2;
-      const speed = Math.random() * 4 + 1.5;
-      this.vx = Math.cos(angle) * speed;
-      this.vy = Math.sin(angle) * speed;
-      this.alpha = 1;
-      this.decay = Math.random() * 0.03 + 0.02;
-    }
-
-    update() {
-      this.x += this.vx;
-      this.y += this.vy;
-      this.alpha -= this.decay;
-    }
-
-    draw() {
-      ctx.globalAlpha = Math.max(this.alpha, 0);
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = this.color;
-      ctx.fill();
-    }
-  }
-
-  function createBurst(x, y) {
-    const count = window.innerWidth <= 700 ? 10 : 20;
-    for (let i = 0; i < count; i++) {
-      particles.push(new Particle(x, y));
-    }
-    if (!animId) animate();
-  }
-
-  function handlePointer(e) {
-    if (e.touches) {
-      for (let i = 0; i < e.touches.length; i++) {
-        createBurst(e.touches[i].clientX, e.touches[i].clientY);
+  <script id="auto-music-script">
+    (function () {
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
       }
-    } else {
-      createBurst(e.clientX, e.clientY);
-    }
-  }
+      window.scrollTo(0, 0);
 
-  window.addEventListener('pointerdown', handlePointer, { passive: true });
-  window.addEventListener('touchstart', handlePointer, { passive: true });
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    for (let i = particles.length - 1; i >= 0; i--) {
-      particles[i].update();
-      particles[i].draw();
-      if (particles[i].alpha <= 0) {
-        particles.splice(i, 1);
+      let audio = document.getElementById('weddingAudio');
+      if (!audio) {
+        audio = document.createElement('audio');
+        audio.id = 'weddingAudio';
+        audio.src = 'music/wedding.mp3';
+        audio.loop = true;
+        audio.preload = 'auto';
+        document.body.appendChild(audio);
       }
-    }
-    
-    if (particles.length > 0) {
-      animId = requestAnimationFrame(animate);
-    } else {
-      animId = null;
-    }
-  }
-})();
-</script>
 
-<!-- SCRIPT GỬI & TẢI LỜI CHÚC TỪ GOOGLE APPS SCRIPT -->
-<script id="google-sheet-wish-script">
-(function() {
-  // THAY LINK GOOGLE APPS SCRIPT CỦA BẠN VÀO ĐÂY (URL kết thúc bằng /exec)
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx6o0V976innjSZZcxAd1oIpnFDJ4I8SoNoNXCDIWx6W4P_BoFedtOeS9nHWRlMcs8N/exec";
+      const musicBtn = document.getElementById('musicToggle');
+      const preloader = document.getElementById('preloader');
+      const btnOpen = document.getElementById('btnOpenWeddingCard');
 
-  const wishForm = document.getElementById('wishForm');
-  const wishSubmit = document.getElementById('wishSubmit');
-  const wishStatus = document.getElementById('wishStatus');
-  const wishListBox = document.getElementById('wishListBox');
+      let isAutoScrolling = false;
+      let targetScroll = 0;
+      let currentScroll = 0;
+      let animReq = null;
 
-  function escapeHtml(str) {
-    return String(str).replace(/[&<>"']/g, function(m) {
-      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
-    });
-  }
+      function stopAutoScroll() {
+        isAutoScrolling = false;
+        if (animReq) {
+          cancelAnimationFrame(animReq);
+          animReq = null;
+        }
+        window.removeEventListener('wheel', stopAutoScroll);
+        window.removeEventListener('touchstart', stopAutoScroll);
+        window.removeEventListener('pointerdown', stopAutoScroll);
+      }
 
-  // Tải danh sách lời chúc từ Google Sheet
-  function fetchWishes() {
-    if (!wishListBox) return; // Chỉ kiểm tra nếu không tìm thấy thẻ chứa khung danh sách
-    
-    fetch(GOOGLE_SCRIPT_URL)
-      .then(res => res.json())
-      .then(data => {
-        if (!data || data.length === 0) {
-          wishListBox.innerHTML = '<div style="text-align:center; color:#8e756b; padding:20px;">Chưa có lời chúc nào. Hãy là người đầu tiên gửi lời chúc nhé! ❤️</div>';
-          return;
+      function smoothScrollLoop() {
+        if (!isAutoScrolling) return;
+
+        const maxScroll = Math.max(
+          document.body.scrollHeight,
+          document.documentElement.scrollHeight
+        ) - window.innerHeight;
+
+        const speed = window.innerWidth <= 700 ? 1.8 : 1.2;
+        targetScroll += speed;
+
+        if (targetScroll >= maxScroll) {
+          targetScroll = maxScroll;
+          stopAutoScroll();
         }
 
-        wishListBox.innerHTML = data.map(item => `
+        currentScroll += (targetScroll - currentScroll) * 0.1;
+        window.scrollTo(0, currentScroll);
+
+        if (isAutoScrolling) {
+          animReq = requestAnimationFrame(smoothScrollLoop);
+        }
+      }
+
+      function startSmoothAutoScroll() {
+        stopAutoScroll();
+        isAutoScrolling = true;
+        currentScroll = window.pageYOffset || document.documentElement.scrollTop || 0;
+        targetScroll = currentScroll;
+
+        window.addEventListener('wheel', stopAutoScroll, { passive: true });
+        window.addEventListener('touchstart', stopAutoScroll, { passive: true });
+        window.addEventListener('pointerdown', stopAutoScroll, { passive: true });
+
+        animReq = requestAnimationFrame(smoothScrollLoop);
+      }
+
+      if (btnOpen) {
+        btnOpen.addEventListener('click', function (e) {
+          e.stopPropagation();
+          window.scrollTo(0, 0);
+
+          audio.play().then(() => {
+            if (musicBtn) {
+              musicBtn.classList.add('playing');
+              musicBtn.textContent = 'Ⅱ';
+            }
+          }).catch(err => console.log("Lỗi phát nhạc:", err));
+
+          if (preloader) {
+            preloader.style.transition = 'opacity 0.5s ease, visibility 0.5s';
+            preloader.style.opacity = '0';
+            setTimeout(() => preloader.remove(), 500);
+          }
+
+          setTimeout(startSmoothAutoScroll, 400);
+        });
+      }
+
+      if (musicBtn) {
+        musicBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          if (audio.paused) {
+            audio.play().then(() => {
+              musicBtn.classList.add('playing');
+              musicBtn.textContent = 'Ⅱ';
+            });
+          } else {
+            audio.pause();
+            musicBtn.classList.remove('playing');
+            musicBtn.textContent = '♪';
+          }
+        });
+      }
+    })();
+  </script>
+
+  <canvas id="fireworksCanvas"
+    style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999999;"></canvas>
+
+  <script id="touch-fireworks-script">
+    (function () {
+      const canvas = document.getElementById('fireworksCanvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let animId = null;
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      const colors = ['#9f5f57', '#e9c6bd', '#d4af37', '#ffffff', '#ffd700'];
+
+      class Particle {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+          this.color = colors[Math.floor(Math.random() * colors.length)];
+          this.radius = Math.random() * 2 + 1;
+          const angle = Math.random() * Math.PI * 2;
+          const speed = Math.random() * 4 + 1.5;
+          this.vx = Math.cos(angle) * speed;
+          this.vy = Math.sin(angle) * speed;
+          this.alpha = 1;
+          this.decay = Math.random() * 0.03 + 0.02;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.alpha -= this.decay;
+        }
+
+        draw() {
+          ctx.globalAlpha = Math.max(this.alpha, 0);
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        }
+      }
+
+      function createBurst(x, y) {
+        const count = window.innerWidth <= 700 ? 10 : 20;
+        for (let i = 0; i < count; i++) {
+          particles.push(new Particle(x, y));
+        }
+        if (!animId) animate();
+      }
+
+      function handlePointer(e) {
+        if (e.touches) {
+          for (let i = 0; i < e.touches.length; i++) {
+            createBurst(e.touches[i].clientX, e.touches[i].clientY);
+          }
+        } else {
+          createBurst(e.clientX, e.clientY);
+        }
+      }
+
+      window.addEventListener('pointerdown', handlePointer, { passive: true });
+      window.addEventListener('touchstart', handlePointer, { passive: true });
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = particles.length - 1; i >= 0; i--) {
+          particles[i].update();
+          particles[i].draw();
+          if (particles[i].alpha <= 0) {
+            particles.splice(i, 1);
+          }
+        }
+
+        if (particles.length > 0) {
+          animId = requestAnimationFrame(animate);
+        } else {
+          animId = null;
+        }
+      }
+    })();
+  </script>
+
+  <script id="google-sheet-wish-script">
+    (function () {
+      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykbxmDXyaA811kMys6O7QxkIFSZkkMjuiLDdFgH1qjU-eWDZJkHE0yXpD-cEE1cXd5Fg/exec";
+      const wishForm = document.getElementById('wishForm');
+      const wishSubmit = document.getElementById('wishSubmit');
+      const wishStatus = document.getElementById('wishStatus');
+      const wishListBox = document.getElementById('wishListBox');
+      function escapeHtml(str) {
+        return String(str).replace(/[&<>"']/g, function (m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+        });
+      }
+
+      function fetchWishes() {
+        if (!wishListBox) return; 
+        fetch(GOOGLE_SCRIPT_URL)
+          .then(res => res.json())
+          .then(data => {
+            if (!data || data.length === 0) {
+              wishListBox.innerHTML = '<div style="text-align:center; color:#8e756b; padding:20px;">Chưa có lời chúc nào. Hãy là người đầu tiên gửi lời chúc nhé! ❤️</div>';
+              return;
+            }
+
+            wishListBox.innerHTML = data.map(item => `
           <div class="wish-item">
             <div class="wish-item-name">${escapeHtml(item.name)}</div>
             <div class="wish-item-msg">${escapeHtml(item.message)}</div>
           </div>
         `).join('');
-      })
-      .catch(err => {
-        console.error('Lỗi tải lời chúc:', err);
-        wishListBox.innerHTML = '<div style="text-align:center; color:#8e756b; padding:20px;">Không thể tải danh sách lời chúc lúc này.</div>';
-      });
-  }
-  
-  // Gọi tải dữ liệu khi vừa load xong web
-  fetchWishes();
-
-  // Xử lý gửi lời chúc
-  if (wishForm) {
-    wishForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const honeypot = wishForm.querySelector('input[name="website"]');
-      if (honeypot && honeypot.value) return;
-
-      const nameInput = wishForm.querySelector('input[name="name"]');
-      const msgInput = wishForm.querySelector('textarea[name="message"]');
-      if (!nameInput || !msgInput) return;
-
-      const payload = {
-        name: nameInput.value.trim(),
-        message: msgInput.value.trim()
-      };
-
-      if (!payload.name || !payload.message) return;
-
-      if (wishSubmit) {
-        wishSubmit.disabled = true;
-        wishSubmit.textContent = 'ĐANG GỬI...';
+          })
+          .catch(err => {
+            console.error('Lỗi tải lời chúc:', err);
+            wishListBox.innerHTML = '<div style="text-align:center; color:#8e756b; padding:20px;">Không thể tải danh sách lời chúc lúc này.</div>';
+          });
       }
 
-      fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      })
-      .then(() => {
-        if (wishStatus) {
-          wishStatus.textContent = '❤️ Cảm ơn bạn đã gửi lời chúc!';
-          wishStatus.style.color = '#9f5f57';
-        }
-        nameInput.value = '';
-        msgInput.value = '';
+      fetchWishes();
 
-        // Tải lại danh sách sau 1.5s để cập nhật ngay lời chúc vừa gửi
-        setTimeout(fetchWishes, 1500);
-      })
-      .catch(err => {
-        console.error('Lỗi khi gửi:', err);
-        if (wishStatus) {
-          wishStatus.textContent = '❌ Có lỗi xảy ra, vui lòng thử lại!';
-          wishStatus.style.color = '#d9534f';
-        }
-      })
-      .finally(() => {
-        if (wishSubmit) {
-          wishSubmit.disabled = false;
-          wishSubmit.textContent = 'GỬI LỜI CHÚC';
-        }
-        setTimeout(() => { if (wishStatus) wishStatus.textContent = ''; }, 4000);
-      });
-    });
-  }
-})();
-</script>
+      if (wishForm) {
+        wishForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const honeypot = wishForm.querySelector('input[name="website"]');
+          if (honeypot && honeypot.value) return;
+          const nameInput = wishForm.querySelector('input[name="name"]');
+          const msgInput = wishForm.querySelector('textarea[name="message"]');
+          if (!nameInput || !msgInput) return;
+          const payload = {
+            name: nameInput.value.trim(),
+            message: msgInput.value.trim()
+          };
+
+          if (!payload.name || !payload.message) return;
+
+          if (wishSubmit) {
+            wishSubmit.disabled = true;
+            wishSubmit.textContent = 'ĐANG GỬI...';
+          }
+
+          fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          })
+            .then(() => {
+              if (wishStatus) {
+                wishStatus.textContent = '❤️ Cảm ơn bạn đã gửi lời chúc!';
+                wishStatus.style.color = '#9f5f57';
+              }
+              nameInput.value = '';
+              msgInput.value = '';
+              setTimeout(fetchWishes, 1500);
+            })
+            .catch(err => {
+              console.error('Lỗi khi gửi:', err);
+              if (wishStatus) {
+                wishStatus.textContent = '❌ Có lỗi xảy ra, vui lòng thử lại!';
+                wishStatus.style.color = '#d9534f';
+              }
+            })
+            .finally(() => {
+              if (wishSubmit) {
+                wishSubmit.disabled = false;
+                wishSubmit.textContent = 'GỬI LỜI CHÚC';
+              }
+              setTimeout(() => { if (wishStatus) wishStatus.textContent = ''; }, 4000);
+            });
+        });
+      }
+    })();
+  </script>
 
 </body>
+
 </html>
