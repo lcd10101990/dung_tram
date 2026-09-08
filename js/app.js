@@ -51,18 +51,9 @@ W.images.gallery.forEach((src,i)=>{
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.1});
 $$('.reveal').forEach(e=>observer.observe(e));
 
-setTimeout(()=>$('#preloader').remove(),700);
-
 const drawer=$('#drawer');
 $('#menuToggle').addEventListener('click',()=>drawer.classList.toggle('open'));
 $$('.drawer a').forEach(a=>a.addEventListener('click',()=>drawer.classList.remove('open')));
-
-let audio=null, playing=false;
-$('#musicToggle').addEventListener('click',()=>{
-  if(!audio) audio=new Audio('music/wedding.mp3'),audio.loop=true;
-  if(!playing){audio.play().then(()=>{playing=true;$('#musicToggle').textContent='Ⅱ'}).catch(()=>alert('Thêm file music/wedding.mp3 rồi bấm lại.'))}
-  else{audio.pause();playing=false;$('#musicToggle').textContent='♪'}
-});
 
 // ===== GỬI LỜI CHÚC ONLINE =====
 const wishForm=$('#wishForm');
