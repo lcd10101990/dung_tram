@@ -896,6 +896,7 @@ footer {
 
 \n
 
+/* ===== Lời chúc online — Google Apps Script ===== */
 .wish-honeypot {
   position: absolute !important;
   left: -9999px !important;
@@ -935,6 +936,7 @@ footer {
   pointer-events: none
 }
 
+/* Tạo hiệu ứng xoay tròn 360 độ liên tục */
 @keyframes spinRing {
   from {
     transform: rotate(0deg);
@@ -945,11 +947,85 @@ footer {
   }
 }
 
+/* Áp dụng hiệu ứng vào thẻ chứa chữ WEDDING DAY */
+/* Ban đầu đĩa đứng yên */
 .art-ring {
   animation: spinRing 15s linear infinite;
   animation-play-state: paused;
+  /* Tạm dừng xoay */
 }
 
+/* Khi nhạc chạy (khi nút musicToggle có class 'playing') thì đĩa mới xoay */
 body:has(#musicToggle.playing) .art-ring {
   animation-play-state: running;
+}
+
+/* Khai báo animation đung đưa / rung lắc nhẹ */
+@keyframes softFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-4px) rotate(0.8deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(4px) rotate(-0.8deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+/* Áp dụng vào ảnh Polaroid (Chú rể / Cô dâu) và ảnh Story */
+.polaroid, 
+.story-photo, 
+.gallery-grid img {
+  animation: softFloat 5s ease-in-out infinite;
+  will-change: transform; /* Tối ưu độ mượt cho di động */
+}
+
+/* Đảo nhịp cho các khung ảnh chẵn để không bị lắc cùng lúc */
+.polaroid.tilt-right,
+.story-item.reverse .story-photo,
+.gallery-grid img:nth-child(even) {
+  animation-delay: -2.5s; /* Chạy lệch pha 2.5 giây */
+  animation-direction: reverse;
+}
+
+/* Animation rung lắc ngẫu nhiên base */
+@keyframes randomJiggle {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(var(--dx1, -3px), var(--dy1, -4px)) rotate(var(--r1, 1deg));
+  }
+  50% {
+    transform: translate(var(--dx2, 3px), var(--dy2, 2px)) rotate(var(--r2, -1deg));
+  }
+  75% {
+    transform: translate(var(--dx3, -2px), var(--dy3, 4px)) rotate(var(--r3, 0.8deg));
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* Các lớp ảnh sẽ áp dụng rung lắc */
+.polaroid, 
+.story-photo, 
+.gallery-grid img {
+  animation: randomJiggle var(--duration, 4s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  will-change: transform;
+}
+
+/* Dừng lắc khi rê chuột vào (tùy chọn) */
+.polaroid:hover, 
+.story-photo:hover, 
+.gallery-grid img:hover {
+  animation-play-state: paused;
 }
