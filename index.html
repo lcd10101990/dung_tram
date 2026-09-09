@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="vi">
-<!-- BẠN XEM GÌ TRONG NÀY? -->
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -247,6 +247,7 @@
       font-size: clamp(20px, 2vw, 26px)
     }
 
+    /* STYLES HỘP MỪNG CƯỚI MỚI */
     .gift-box-card {
       background: #ffffff;
       border: 1px solid #e6d6ce;
@@ -323,7 +324,8 @@
       text-transform: uppercase;
     }
 
-      .wish-container {
+    /* LAYOUT LỜI CHÚC & DANH SÁCH KHÁCH MỜI */
+    .wish-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 30px;
@@ -378,7 +380,8 @@
       white-space: pre-line;
     }
 
-      .bank-modal {
+    /* MODAL THÔNG TIN MỪNG CƯỚI BANNER/POPUP */
+    .bank-modal {
       display: none;
       position: fixed;
       top: 0;
@@ -836,7 +839,7 @@
 
   <section class="wishes section" id="wishes">
     <header class="section-heading reveal"><span>WITH LOVE</span>
-      <h2>GỬI LỜI CHÚC TỚI<br> CÔ DÂU &amp; CHÚ RỂ</h2><i>⌁ ❀ ⌁</i>
+      <h2>GỬI LỜI CHÚC TỚI CÔ DÂU &amp; CHÚ RỂ</h2><i>⌁ ❀ ⌁</i>
     </header>
 
     <div class="wish-container">
@@ -1152,6 +1155,46 @@
     })();
   </script>
 
+  <script id="pause-on-tab-change">
+    (function () {
+      let wasPlayingBeforeHide = false;
+
+      document.addEventListener('visibilitychange', function () {
+        const audio = document.getElementById('weddingAudio');
+        const musicBtn = document.getElementById('musicToggle');
+
+        if (document.hidden) {
+          if (audio && !audio.paused) {
+            wasPlayingBeforeHide = true;
+            audio.pause();
+            if (musicBtn) {
+              musicBtn.classList.remove('playing');
+              musicBtn.textContent = '♪';
+            }
+          }
+          window.dispatchEvent(new Event('wheel'));
+        } else {
+          if (wasPlayingBeforeHide && audio) {
+            const resumeAudio = function () {
+              audio.play().then(() => {
+                if (musicBtn) {
+                  musicBtn.classList.add('playing');
+                  musicBtn.textContent = 'Ⅱ';
+                }
+              }).catch(() => { });
+
+              window.removeEventListener('pointerdown', resumeAudio);
+              window.removeEventListener('scroll', resumeAudio);
+            };
+
+            window.addEventListener('pointerdown', resumeAudio, { once: true });
+            window.addEventListener('scroll', resumeAudio, { once: true });
+          }
+        }
+      });
+    })();
+  </script>
+
   <canvas id="fireworksCanvas"
     style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999999;"></canvas>
 
@@ -1255,21 +1298,24 @@
       }
 
       function fetchWishes() {
-        if (!wishListBox) return; 
-        fetch(GOOGLE_SCRIPT_URL)
+        if (!wishListBox) return;
+        fetch(GOOGLE_SCRIPT_URL, {
+          method: 'GET',
+          redirect: 'follow'
+        })
           .then(res => res.json())
           .then(data => {
-            if (!data || data.length === 0) {
+            if (!Array.isArray(data) || data.length === 0) {
               wishListBox.innerHTML = '<div style="text-align:center; color:#8e756b; padding:20px;">Chưa có lời chúc nào. Hãy là người đầu tiên gửi lời chúc nhé! ❤️</div>';
               return;
             }
 
             wishListBox.innerHTML = data.map(item => `
-          <div class="wish-item">
-            <div class="wish-item-name">${escapeHtml(item.name)}</div>
-            <div class="wish-item-msg">${escapeHtml(item.message)}</div>
-          </div>
-        `).join('');
+            <div class="wish-item">
+              <div class="wish-item-name">${escapeHtml(item.name || 'Khách mời')}</div>
+              <div class="wish-item-msg">${escapeHtml(item.message || '')}</div>
+            </div>
+          `).join('');
           })
           .catch(err => {
             console.error('Lỗi tải lời chúc:', err);
@@ -1277,16 +1323,23 @@
           });
       }
 
-      fetchWishes();
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fetchWishes);
+      } else {
+        fetchWishes();
+      }
 
       if (wishForm) {
         wishForm.addEventListener('submit', function (e) {
           e.preventDefault();
+
           const honeypot = wishForm.querySelector('input[name="website"]');
           if (honeypot && honeypot.value) return;
+
           const nameInput = wishForm.querySelector('input[name="name"]');
           const msgInput = wishForm.querySelector('textarea[name="message"]');
           if (!nameInput || !msgInput) return;
+
           const payload = {
             name: nameInput.value.trim(),
             message: msgInput.value.trim()
@@ -1302,7 +1355,7 @@
           fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify(payload)
           })
             .then(() => {
