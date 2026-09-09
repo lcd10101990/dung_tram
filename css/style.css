@@ -896,7 +896,6 @@ footer {
 
 \n
 
-/* ===== Lời chúc online — Google Apps Script ===== */
 .wish-honeypot {
   position: absolute !important;
   left: -9999px !important;
@@ -936,7 +935,7 @@ footer {
   pointer-events: none
 }
 
-/* Tạo hiệu ứng xoay tròn 360 độ liên tục */
+
 @keyframes spinRing {
   from {
     transform: rotate(0deg);
@@ -947,15 +946,14 @@ footer {
   }
 }
 
-/* Áp dụng hiệu ứng vào thẻ chứa chữ WEDDING DAY */
-/* Ban đầu đĩa đứng yên */
+
 .art-ring {
   animation: spinRing 15s linear infinite;
   animation-play-state: paused;
   /* Tạm dừng xoay */
 }
 
-/* Khi nhạc chạy (khi nút musicToggle có class 'playing') thì đĩa mới xoay */
+
 body:has(#musicToggle.playing) .art-ring {
   animation-play-state: running;
 }
@@ -979,7 +977,7 @@ body:has(#musicToggle.playing) .art-ring {
   }
 }
 
-/* Áp dụng vào ảnh Polaroid (Chú rể / Cô dâu) và ảnh Story */
+
 .polaroid, 
 .story-photo, 
 .gallery-grid img {
@@ -987,7 +985,7 @@ body:has(#musicToggle.playing) .art-ring {
   will-change: transform; /* Tối ưu độ mượt cho di động */
 }
 
-/* Đảo nhịp cho các khung ảnh chẵn để không bị lắc cùng lúc */
+
 .polaroid.tilt-right,
 .story-item.reverse .story-photo,
 .gallery-grid img:nth-child(even) {
@@ -995,7 +993,7 @@ body:has(#musicToggle.playing) .art-ring {
   animation-direction: reverse;
 }
 
-/* Animation rung lắc ngẫu nhiên base */
+
 @keyframes randomJiggle {
   0% {
     transform: translate(0, 0) rotate(0deg);
@@ -1014,7 +1012,7 @@ body:has(#musicToggle.playing) .art-ring {
   }
 }
 
-/* Các lớp ảnh sẽ áp dụng rung lắc */
+
 .polaroid, 
 .story-photo, 
 .gallery-grid img {
@@ -1023,7 +1021,7 @@ body:has(#musicToggle.playing) .art-ring {
   will-change: transform;
 }
 
-/* Dừng lắc khi rê chuột vào (tùy chọn) */
+
 .polaroid:hover, 
 .story-photo:hover, 
 .gallery-grid img:hover {
