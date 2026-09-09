@@ -55,7 +55,6 @@ const drawer=$('#drawer');
 $('#menuToggle').addEventListener('click',()=>drawer.classList.toggle('open'));
 $$('.drawer a').forEach(a=>a.addEventListener('click',()=>drawer.classList.remove('open')));
 
-// ===== GỬI LỜI CHÚC ONLINE =====
 const wishForm=$('#wishForm');
 const wishStatus=$('#wishStatus');
 const wishSubmit=$('#wishSubmit');
@@ -103,8 +102,6 @@ if(wishForm){
         redirect:'follow'
       });
 
-      // Apps Script Web App normally completes the POST even though no-cors
-      // prevents reading its response body. Treat a completed fetch as success.
       setWishStatus(`💌 Cảm ơn ${name}! Lời chúc đã được gửi đến Dũng & Trâm.`,'success');
       wishForm.reset();
     }catch(err){
