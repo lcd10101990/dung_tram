@@ -16,7 +16,8 @@
     rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/fix-patch.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
   <style id="countdown-style">
     .wedding-countdown {
       padding: 70px 20px;
@@ -1158,11 +1159,9 @@
   <script id="pause-on-tab-change">
     (function () {
       let wasPlayingBeforeHide = false;
-
       document.addEventListener('visibilitychange', function () {
         const audio = document.getElementById('weddingAudio');
         const musicBtn = document.getElementById('musicToggle');
-
         if (document.hidden) {
           if (audio && !audio.paused) {
             wasPlayingBeforeHide = true;
@@ -1172,6 +1171,7 @@
               musicBtn.textContent = '♪';
             }
           }
+
           window.dispatchEvent(new Event('wheel'));
         } else {
           if (wasPlayingBeforeHide && audio) {
@@ -1291,6 +1291,7 @@
       const wishSubmit = document.getElementById('wishSubmit');
       const wishStatus = document.getElementById('wishStatus');
       const wishListBox = document.getElementById('wishListBox');
+
       function escapeHtml(str) {
         return String(str).replace(/[&<>"']/g, function (m) {
           return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
@@ -1299,6 +1300,7 @@
 
       function fetchWishes() {
         if (!wishListBox) return;
+
         fetch(GOOGLE_SCRIPT_URL, {
           method: 'GET',
           redirect: 'follow'
@@ -1386,6 +1388,37 @@
     })();
   </script>
 
+  <script id="random-jiggle-script">
+    (function () {
+      function applyRandomJiggle() {
+
+        const targets = document.querySelectorAll('.polaroid, .story-photo, .gallery-grid img');
+        const getRandom = (min, max) => Math.random() * (max - min) + min;
+
+        targets.forEach(el => {
+          const duration = getRandom(3.5, 6.5).toFixed(2) + 's';
+          const delay = getRandom(0, 4).toFixed(2) + 's';
+
+          el.style.setProperty('--dx1', getRandom(-4, 4).toFixed(1) + 'px');
+          el.style.setProperty('--dy1', getRandom(-4, 4).toFixed(1) + 'px');
+          el.style.setProperty('--dx2', getRandom(-4, 4).toFixed(1) + 'px');
+          el.style.setProperty('--dy2', getRandom(-4, 4).toFixed(1) + 'px');
+          el.style.setProperty('--dx3', getRandom(-4, 4).toFixed(1) + 'px');
+          el.style.setProperty('--dy3', getRandom(-4, 4).toFixed(1) + 'px');
+
+          el.style.setProperty('--r1', getRandom(-1.2, 1.2).toFixed(2) + 'deg');
+          el.style.setProperty('--r2', getRandom(-1.2, 1.2).toFixed(2) + 'deg');
+          el.style.setProperty('--r3', getRandom(-1.2, 1.2).toFixed(2) + 'deg');
+
+          el.style.setProperty('--duration', duration);
+          el.style.setProperty('--delay', delay);
+        });
+      }
+      window.addEventListener('load', () => {
+        setTimeout(applyRandomJiggle, 800);
+      });
+    })();
+  </script>
 </body>
 
 </html>
