@@ -729,56 +729,26 @@ body.card-opened .floating {
   z-index: 999990 !important;
 }
 /* --- HIỆU ỨNG TRƯỢT HIỆN KHI CUỘN TRANG --- */
-/* Trượt từ trái vào */
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-100px);
-  transition: opacity 2.1s ease-out, transform 2.1s ease-out;
-  will-change: opacity, transform;
-}
 
-/* Trượt từ phải vào */
-.reveal-right {
-  opacity: 0;
-  transform: translateX(100px);
-  transition: opacity 2.1s ease-out, transform 1.8s ease-out;
-  will-change: opacity, transform;
-}
-
-/* Trượt từ trên xuống */
-.reveal-top {
-  opacity: 0;
-  transform: translateY(-80px);
-  transition: opacity 2.1s ease-out, transform 1.8s ease-out;
-  will-change: opacity, transform;
-}
-
-/* Trượt từ dưới lên */
-.reveal-bottom {
-  opacity: 0;
-  transform: translateY(80px);
-  transition: opacity 2.1s ease-out, transform 1.8s ease-out;
-  will-change: opacity, transform;
-}
-
-/* Tối ưu GPU & hiệu ứng trượt mượt không bị lag */
+/* Tối ưu hiệu ứng: Trượt xa hơn (60px) & chậm mềm mại hơn (1.0s) */
 .reveal-left,
 .reveal-right,
 .reveal-top,
 .reveal-bottom {
   opacity: 0;
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: opacity 1.0s cubic-bezier(0.25, 1, 0.5, 1), 
+              transform 1.0s cubic-bezier(0.25, 1, 0.5, 1) !important;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
-.reveal-left { transform: translate3d(-25px, 0, 0); }
-.reveal-right { transform: translate3d(25px, 0, 0); }
-.reveal-top { transform: translate3d(0, -25px, 0); }
-.reveal-bottom { transform: translate3d(0, 25px, 0); }
+/* Khoảng cách trượt mở rộng ra 60px để thấy rõ đường đi */
+.reveal-left   { transform: translate3d(-60px, 0, 0); }
+.reveal-right  { transform: translate3d(60px, 0, 0); }
+.reveal-top    { transform: translate3d(0, -60px, 0); }
+.reveal-bottom { transform: translate3d(0, 60px, 0); }
 
-/* Khi cuộn tới nơi -> Dùng translate3d để ép chip đồ họa chạy mượt */
+/* Khi cuộn tới nơi -> Trượt mượt về vị trí chuẩn */
 .reveal-left.active,
 .reveal-right.active,
 .reveal-top.active,
@@ -786,6 +756,7 @@ body.card-opened .floating {
   opacity: 1 !important;
   transform: translate3d(0, 0, 0) !important;
 }
+
 
 
     /* Chặn tràn lề toàn trang (sửa lỗi che marquee khi cuộn) */
