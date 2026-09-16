@@ -711,7 +711,7 @@
 .floating {
   opacity: 0 !important;
   pointer-events: none !important;
-  bottom: 42px !important; /* <--- ĐÃ HẠ XUỐNG 40PX ĐỂ NÚT NẰM SÁT CHỮ TRUỢT */
+  bottom: 43px !important; 
   z-index: 9999999 !important;
   transition: opacity 0.3s ease;
 }
@@ -724,9 +724,32 @@ body.card-opened .floating {
   pointer-events: auto !important;
 }
 
-/* Hạ z-index thanh trượt xuống để không che nút */
+
 .marquee-wrapper {
   z-index: 999990 !important;
+}
+/* --- HIỆU ỨNG TRƯỢT HIỆN KHI CUỘN TRANG --- */
+/* Trượt từ trái vào */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+/* Trượt từ phải vào */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+/* Khi lướt tới nơi -> Hiện rõ và trở về vị trí gốc */
+.reveal-left.active,
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
 }
 
   </style>
@@ -1559,6 +1582,23 @@ document.body.classList.add('card-opened');
       <span> SAVE THE DATE • LÊ CHUNG DŨNG & NGUYỄN THỊ CÚC TRÂM • 20.09.2026 • RẤT HÂN HẠNH ĐƯỢC ĐÓN TIẾP QUÝ KHÁCH </span>
     </div>
   </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const reveals = document.querySelectorAll(".reveal-left, .reveal-right");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, {
+      threshold: 0.15 // Khi thẻ xuất hiện 15% trên màn hình thì chạy hiệu ứng
+    });
+
+    reveals.forEach(el => observer.observe(el));
+  });
+</script>
 
 </body>
 </html>
