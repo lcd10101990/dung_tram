@@ -661,13 +661,19 @@
 }
 
     .marquee-wrapper {
-  width: 100%;
+/* --- CHỮ TRUỢT CỐ ĐỊNH Ở DƯỚI MÀN HÌNH --- */
+.marquee-wrapper {
+  position: fixed;        /* Cố định vị trí so với khung hình */
+  bottom: 0;              /* Dính chặt vào mép dưới màn hình */
+  left: 0;                /* Trải dài từ lề trái */
+  width: 100%;            /* Phủ kín toàn bộ chiều ngang */
+  z-index: 9999;          /* Đảm bảo luôn nổi lên trên cùng của tất cả element */
   overflow: hidden;
   background: #9f5f57;
   color: #ffffff;
-  padding: 12px 0;
+  padding: 10px 0;
   white-space: nowrap;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15); /* Đổ bóng nhẹ lên trên cho nổi bật */
 }
 
 .marquee-content {
@@ -689,6 +695,7 @@
   0% { transform: translate3d(0, 0, 0); }
   100% { transform: translate3d(-50%, 0, 0); }
 }
+
 
   </style>
 </head>
