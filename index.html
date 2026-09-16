@@ -1615,27 +1615,28 @@ document.body.classList.add('card-opened');
   </div>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const reveals = document.querySelectorAll(".reveal-left, .reveal-right, .reveal-top, .reveal-bottom");
+  const reveals = document.querySelectorAll(".reveal-left, .reveal-right, .reveal-top, .reveal-bottom");
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        requestAnimationFrame(() => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          } else {
-            if (entry.boundingClientRect.top > window.innerHeight || entry.boundingClientRect.bottom < 0) {
-              entry.target.classList.remove("active");
-            }
-          }
-        });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      requestAnimationFrame(() => {
+        if (entry.isIntersecting) {
+          // Vào tầm mắt -> Thêm class để trượt
+          entry.target.classList.add("active");
+        } else {
+          // Ra khỏi tầm mắt -> Xóa class ngay lập tức để sẵn sàng cho lần cuộn tới
+          entry.target.classList.remove("active");
+        }
       });
-    }, {
-      threshold: 0.25,
-      rootMargin: "-120px 0px -120px 0px"//Bị chặn 120px ở mép trên và 120px ở mép dưới
     });
-
-    reveals.forEach(el => observer.observe(el));
+  }, {
+    threshold: 0.3,
+    rootMargin: "-50px 0px -80px 0px" // Khoảng lề hợp lý giúp nhận diện chính xác cả 2 chiều cuộn
   });
+
+  reveals.forEach(el => observer.observe(el));
+});
+
 </script>
 </body>
 </html>
