@@ -761,14 +761,32 @@ body.card-opened .floating {
   will-change: opacity, transform;
 }
 
-/* Khi cuộn tới nơi -> Trở về vị trí chuẩn */
+/* Tối ưu GPU & hiệu ứng trượt mượt không bị lag */
+.reveal-left,
+.reveal-right,
+.reveal-top,
+.reveal-bottom {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.reveal-left { transform: translate3d(-25px, 0, 0); }
+.reveal-right { transform: translate3d(25px, 0, 0); }
+.reveal-top { transform: translate3d(0, -25px, 0); }
+.reveal-bottom { transform: translate3d(0, 25px, 0); }
+
+/* Khi cuộn tới nơi -> Dùng translate3d để ép chip đồ họa chạy mượt */
 .reveal-left.active,
 .reveal-right.active,
 .reveal-top.active,
 .reveal-bottom.active {
-  opacity: 1;
-  transform: translate(0, 0);
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
 }
+
 
     /* Chặn tràn lề toàn trang (sửa lỗi che marquee khi cuộn) */
     html, body {
@@ -1626,31 +1644,27 @@ document.body.classList.add('card-opened');
   </div>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-  const reveals = document.querySelectorAll(".reveal-left, .reveal-right, .reveal-top, .reveal-bottom");
+    const reveals = document.querySelectorAll(".reveal-left, .reveal-right, .reveal-top, .reveal-bottom");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Khi cuộn tới nơi -> Thêm class active để chạy hiệu ứng
-        entry.target.classList.add("active");
-      } else {
-        // Khi cuộn ra khỏi màn hình -> Gỡ class active để sẵn sàng trượt lại
-        entry.target.classList.remove("active");
-      }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        requestAnimationFrame(() => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          } else {
+            if (entry.boundingClientRect.top > window.innerHeight || entry.boundingClientRect.bottom < 0) {
+              entry.target.classList.remove("active");
+            }
+          }
+        });
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -40px 0px"
     });
-  }, {
-    threshold: 0.25,
-    rootMargin: "0px 0px -50px 0px"
+
+    reveals.forEach(el => observer.observe(el));
   });
-
-  reveals.forEach(el => observer.observe(el));
-});
-
 </script>
-
 </body>
-</html>
-
-</body>
-
 </html>
