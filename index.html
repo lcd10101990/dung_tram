@@ -705,20 +705,30 @@
     transform: translateX(-50%);
   }
 }
-    /* Đặt 2 nút Menu và Nhạc nằm nổi lên phía trên thanh chữ trượt */
-    .menu-toggle,
-    .music-toggle,
-    .floating,
-    #menuToggle,
-    #musicToggle {
-      bottom: 55px !important;    /* Nâng vị trí 2 nút lên trên thanh trượt */
-      z-index: 9999999 !important; /* Đảm bảo nổi lên trên cùng */
-    }
+    /* Mặc định ẩn 2 nút Menu và Nhạc ở màn cover */
+#menuToggle,
+#musicToggle,
+.floating {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  bottom: 55px !important;
+  z-index: 9999999 !important;
+  transition: opacity 0.3s ease;
+}
 
-    /* Hạ z-index của marquee xuống để không đè lên nút */
-    .marquee-wrapper {
-      z-index: 999990 !important;
-    }
+/* Chỉ hiện 2 nút khi thiệp đã được mở */
+body.card-opened #menuToggle,
+body.card-opened #musicToggle,
+body.card-opened .floating {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Hạ z-index thanh trượt xuống để không che nút */
+.marquee-wrapper {
+  z-index: 999990 !important;
+}
+
 
   </style>
 </head>
@@ -1244,7 +1254,7 @@
         btnOpen.addEventListener('click', function (e) {
           e.stopPropagation();
           window.scrollTo(0, 0);
-
+document.body.classList.add('card-opened');
           audio.play().then(() => {
             if (musicBtn) {
               musicBtn.classList.add('playing');
