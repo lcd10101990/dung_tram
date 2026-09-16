@@ -1612,7 +1612,8 @@ document.body.classList.add('card-opened');
         }
       });
     }, {
-      threshold: 0.15 // Khi thẻ xuất hiện 15% trên màn hình thì chạy hiệu ứng
+      threshold: 0.35, // Khi thẻ xuất hiện 35% trên màn hình thì chạy hiệu ứng
+    rootMargin: "0px 0px -80px 0px" // Bắt buộc phần tử phải cuộn vượt lên khỏi đáy màn hình 80px mới trượt vào
     });
 
     reveals.forEach(el => observer.observe(el));
