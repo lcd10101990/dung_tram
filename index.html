@@ -439,14 +439,6 @@
       line-height: 1;
     }
 
-    .bank-modal-role {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      letter-spacing: 0.25em;
-      color: #8e756b;
-      text-transform: uppercase;
-    }
-
     .bank-modal-name {
       font-family: 'Quicksand', serif;
       font-size: 28px;
@@ -629,6 +621,45 @@
         font-size: 16px !important
       }
     }
+    /* Styling thanh Tab Cô Dâu / Chú Rể */
+.bank-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e6d6ce;
+  width: 100%;
+  justify-content: center;
+}
+
+.bank-tab-btn {
+  background: none;
+  border: none;
+  padding: 8px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #8e756b;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.3s ease;
+}
+
+.bank-tab-btn.active {
+  color: #9f5f57;
+  border-bottom-color: #9f5f57;
+}
+
+.bank-tab-content {
+  display: none;
+  width: 100%;
+}
+
+.bank-tab-content.active {
+  display: block;
+}
+
   </style>
 </head>
 
@@ -877,15 +908,34 @@
   </div>
 
   <div class="bank-modal" id="bankModal">
-    <div class="bank-modal-content">
-      <span class="bank-modal-close" id="closeBankModal">&times;</span>
-      <div class="bank-modal-role">CÔ DÂU</div>
+  <div class="bank-modal-content">
+    <span class="bank-modal-close" id="closeBankModal">&times;</span>
+    
+    <!-- Thanh chuyển tab Cô Dâu / Chú Rể -->
+    <div class="bank-tabs">
+      <button type="button" class="bank-tab-btn active" data-tab="bride">CÔ DÂU</button>
+      <button type="button" class="bank-tab-btn" data-tab="groom">CHÚ RỂ</button>
+    </div>
+
+    <!-- Nội dung Tab CÔ DÂU -->
+    <div class="bank-tab-content active" id="tab-bride">
       <div class="bank-modal-name" data-bride>Nguyễn Thị Cúc Trâm</div>
       <div class="bank-modal-info">THÔNG TIN MỪNG CƯỚI</div>
       <div class="bank-modal-acc">MB BANK: 0335983739</div>
-      <img id="qrImg" class="bank-modal-qr" alt="Mã QR Chuyển khoản">
+      <img id="qrImgBride" class="bank-modal-qr" src="assets/qr-bride.png" alt="Mã QR Cô dâu">
     </div>
+
+    <!-- Nội dung Tab CHÚ RỂ -->
+    <div class="bank-tab-content" id="tab-groom">
+      <div class="bank-modal-name" data-groom>Lê Chung Dũng</div>
+      <div class="bank-modal-info">THÔNG TIN MỪNG CƯỚI</div>
+      <div class="bank-modal-acc">MOMO: 0389590718</div>
+      <img id="qrImgGroom" class="bank-modal-qr" src="assets/qr-groom.png" alt="Mã QR Chú rể">
+    </div>
+
   </div>
+</div>
+
 
   <section class="thanks section-paper">
     <div class="thanks-inner reveal">
@@ -901,33 +951,50 @@
   <script src="js/config.js"></script>
   <script src="js/app.js"></script>
 
-  <script id="bank-modal-script">
-    (function () {
-      const openBtn = document.getElementById('openBankModal');
-      const modal = document.getElementById('bankModal');
-      const closeBtn = document.getElementById('closeBankModal');
+<script id="bank-modal-script">
+  (function () {
+    const openBtn = document.getElementById('openBankModal');
+    const modal = document.getElementById('bankModal');
+    const closeBtn = document.getElementById('closeBankModal');
+    const tabBtns = document.querySelectorAll('.bank-tab-btn');
+    const tabContents = document.querySelectorAll('.bank-tab-content');
 
-      if (openBtn && modal) {
-        openBtn.addEventListener('click', function () {
-          modal.classList.add('active');
-        });
-      }
+    if (openBtn && modal) {
+      openBtn.addEventListener('click', function () {
+        modal.classList.add('active');
+      });
+    }
 
-      if (closeBtn && modal) {
-        closeBtn.addEventListener('click', function () {
+    if (closeBtn && modal) {
+      closeBtn.addEventListener('click', function () {
+        modal.classList.remove('active');
+      });
+    }
+
+    if (modal) {
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
           modal.classList.remove('active');
-        });
-      }
+        }
+      });
+    }
 
-      if (modal) {
-        modal.addEventListener('click', function (e) {
-          if (e.target === modal) {
-            modal.classList.remove('active');
-          }
-        });
-      }
-    })();
-  </script>
+    // Xử lý chuyển tab Cô dâu / Chú rể
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', function () {
+        const targetTab = this.getAttribute('data-tab');
+
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        this.classList.add('active');
+        const activeContent = document.getElementById('tab-' + targetTab);
+        if (activeContent) activeContent.classList.add('active');
+      });
+    });
+  })();
+</script>
+
 
   <script id="countdown-script">
     (function () {
