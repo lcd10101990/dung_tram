@@ -1623,19 +1623,17 @@ document.body.classList.add('card-opened');
     entries.forEach(entry => {
       requestAnimationFrame(() => {
         if (entry.isIntersecting) {
+          // Vào tầm mắt -> Thêm class để trượt
           entry.target.classList.add("active");
         } else {
-          // Bắt buộc phần tử phải đi ra ngoài hẳn (dựa trên vị trí thực tế của khung nhìn) mới gỡ active
-          const rect = entry.boundingClientRect;
-          if (rect.top > window.innerHeight || rect.bottom < 0) {
-            entry.target.classList.remove("active");
-          }
+          // Ra khỏi tầm mắt -> Xóa class ngay lập tức để sẵn sàng cho lần cuộn tới
+          entry.target.classList.remove("active");
         }
       });
     });
   }, {
-    threshold: 0.3, 
-    rootMargin: "-80px 0px -100px 0px" // Tạo khoảng đệm an toàn 30px ở 2 mép trên/dưới
+    threshold: 0.3,
+    rootMargin: "-50px 0px -80px 0px" // Khoảng lề hợp lý giúp nhận diện chính xác cả 2 chiều cuộn
   });
 
   reveals.forEach(el => observer.observe(el));
