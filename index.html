@@ -705,6 +705,20 @@
     transform: translateX(-50%);
   }
 }
+    /* Đặt 2 nút Menu và Nhạc nằm nổi lên phía trên thanh chữ trượt */
+    .menu-toggle,
+    .music-toggle,
+    .floating,
+    #menuToggle,
+    #musicToggle {
+      bottom: 55px !important;    /* Nâng vị trí 2 nút lên trên thanh trượt */
+      z-index: 9999999 !important; /* Đảm bảo nổi lên trên cùng */
+    }
+
+    /* Hạ z-index của marquee xuống để không đè lên nút */
+    .marquee-wrapper {
+      z-index: 999990 !important;
+    }
 
   </style>
 </head>
