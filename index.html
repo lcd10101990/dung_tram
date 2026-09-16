@@ -745,12 +745,31 @@ body.card-opened .floating {
   will-change: opacity, transform;
 }
 
-/* Khi lướt tới nơi -> Hiện rõ và trở về vị trí gốc */
-.reveal-left.active,
-.reveal-right.active {
-  opacity: 1;
-  transform: translateX(0);
+/* Trượt từ trên xuống */
+.reveal-top {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
 }
+
+/* Trượt từ dưới lên */
+.reveal-bottom {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+/* Khi cuộn tới nơi -> Trở về vị trí chuẩn */
+.reveal-left.active,
+.reveal-right.active,
+.reveal-top.active,
+.reveal-bottom.active {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
 
   </style>
 </head>
@@ -1584,7 +1603,7 @@ document.body.classList.add('card-opened');
   </div>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const reveals = document.querySelectorAll(".reveal-left, .reveal-right");
+    const reveals = document.querySelectorAll(".reveal-left, .reveal-right, .reveal-top, .reveal-bottom");
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
