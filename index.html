@@ -980,7 +980,7 @@
     })();
   </script>
 
-  <script id="force-luxury-fx">
+<script id="force-luxury-fx">
   (function () {
     const isMobile = window.innerWidth <= 700;
     const style = document.createElement('style');
@@ -990,21 +990,15 @@
       width: 100vw !important; height: 100vh !important;
       z-index: 999999 !important; pointer-events: none !important; overflow: hidden !important;
     }
-    .fx-p {
-      position: absolute; top: -30px; left: var(--x); width: var(--s); height: var(--s);
-      opacity: var(--o); animation: fxDropAnim var(--t) linear var(--d) infinite;
-      will-change: transform;
-    }
-    /* Tạo hình dáng cánh hoa hồng mền mại */
-    .fx-p::before {
-      content: ""; display: block; width: 100%; height: 100%;
-      border-radius: 80% 0 55% 50%; 
-      background: var(--bg-color, #e63946);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    .fx-rose {
+      position: absolute; top: -30px; left: var(--x);
+      font-size: var(--s); opacity: var(--o);
+      animation: fxDropAnim var(--t) linear var(--d) infinite;
+      will-change: transform; user-select: none;
     }
     @keyframes fxDropAnim {
       0% { transform: translate3d(0, -5vh, 0) rotate(0deg); }
-      100% { transform: translate3d(var(--dx), 105vh, 0) rotate(450deg); }
+      100% { transform: translate3d(var(--dx), 105vh, 0) rotate(360deg); }
     }
   `;
     document.head.appendChild(style);
@@ -1015,25 +1009,21 @@
 
       container = document.createElement('div');
       container.id = 'forceWeddingFX';
-      container.setAttribute('aria-hidden', 'true');
 
-      const count = isMobile ? 12 : 28;
+      const count = isMobile ? 10 : 22;
       const r = (a, b) => Math.random() * (b - a) + a;
-      
-      // Bảng màu cánh hoa hồng: Đỏ nhung, hồng đậm, hồng pastel, đỏ tươi
-      const roseColors = ['#d62828', '#e63946', '#f77f00', '#e05780', '#ffb5a7'];
+      const roses = ['🌹', '🌸', '🏵️']; // Các biểu tượng hoa hồng & cánh hoa
 
       for (let i = 0; i < count; i++) {
-        const p = document.createElement('i');
-        p.className = 'fx-p';
+        const p = document.createElement('span');
+        p.className = 'fx-rose';
+        p.textContent = roses[Math.floor(Math.random() * roses.length)];
         p.style.setProperty('--x', r(0, 95) + 'vw');
-        p.style.setProperty('--s', r(12, 18) + 'px');
-        p.style.setProperty('--o', r(0.65, 0.9));
-        p.style.setProperty('--t', r(7, 13) + 's');
+        p.style.setProperty('--s', r(14, 22) + 'px');
+        p.style.setProperty('--o', r(0.6, 0.85));
+        p.style.setProperty('--t', r(8, 14) + 's');
         p.style.setProperty('--d', r(-12, 0) + 's');
-        p.style.setProperty('--dx', r(-10, 10) + 'vw');
-        // Gán màu ngẫu nhiên cho từng cánh hoa
-        p.style.setProperty('--bg-color', roseColors[Math.floor(Math.random() * roseColors.length)]);
+        p.style.setProperty('--dx', r(-8, 8) + 'vw');
         container.appendChild(p);
       }
       document.body.appendChild(container);
