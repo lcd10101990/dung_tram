@@ -660,26 +660,27 @@
   display: block;
 }
 
-    .marquee-wrapper {
-/* --- CHỮ TRUỢT CỐ ĐỊNH Ở DƯỚI MÀN HÌNH --- */
+    /* --- FIX CHỮ TRUỢT CỐ ĐỊNH & CHUYỂN ĐỘNG --- */
 .marquee-wrapper {
-  position: fixed;        /* Cố định vị trí so với khung hình */
-  bottom: 0;              /* Dính chặt vào mép dưới màn hình */
-  left: 0;                /* Trải dài từ lề trái */
-  width: 100%;            /* Phủ kín toàn bộ chiều ngang */
-  z-index: 9999;          /* Đảm bảo luôn nổi lên trên cùng của tất cả element */
-  overflow: hidden;
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  z-index: 999999 !important;
+  overflow: hidden !important;
   background: #9f5f57;
   color: #ffffff;
   padding: 10px 0;
-  white-space: nowrap;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15); /* Đổ bóng nhẹ lên trên cho nổi bật */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+  pointer-events: auto;
 }
 
 .marquee-content {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marqueeScroll 20s linear infinite;
+  display: flex !important;
+  width: max-content !important;
+  white-space: nowrap !important;
+  will-change: transform;
+  animation: marqueeScroll 18s linear infinite !important;
 }
 
 .marquee-content span {
@@ -688,14 +689,18 @@
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding-right: 50px;
+  padding-right: 60px;
+  flex-shrink: 0;
 }
 
 @keyframes marqueeScroll {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
-
 
   </style>
 </head>
@@ -756,12 +761,6 @@
   </section>
 <!--+++-++++++--++++------note----------+++-++--->
 
-  <div class="marquee-wrapper">
-    <div class="marquee-content">
-      <span>✨ SAVE THE DATE • LÊ CHUNG DŨNG & NGUYỄN THỊ CÚC TRÂM • 20.09.2026 • RẤT HÂN HẠNH ĐƯỢC ĐÓN TIẾP QUÝ KHÁCH ✨</span>
-      <span>✨ SAVE THE DATE • LÊ CHUNG DŨNG & NGUYỄN THỊ CÚC TRÂM • 20.09.2026 • RẤT HÂN HẠNH ĐƯỢC ĐÓN TIẾP QUÝ KHÁCH ✨</span>
-    </div>
-  </div>
 
   <section class="wedding-countdown" id="countdown">
     <div class="countdown-kicker">SAVE THE DATE</div>
@@ -991,13 +990,6 @@
       <div class="thanks-date" data-date></div>
     </div>
   </section>
-
-  <div class="marquee-wrapper">
-    <div class="marquee-content">
-      <span>✨ SAVE THE DATE • LÊ CHUNG DŨNG & NGUYỄN THỊ CÚC TRÂM • 20.09.2026 • RẤT HÂN HẠNH ĐƯỢC ĐÓN TIẾP QUÝ KHÁCH ✨</span>
-      <span>✨ SAVE THE DATE • LÊ CHUNG DŨNG & NGUYỄN THỊ CÚC TRÂM • 20.09.2026 • RẤT HÂN HẠNH ĐƯỢC ĐÓN TIẾP QUÝ KHÁCH ✨</span>
-    </div>
-  </div>
   <footer>DŨNG &amp; TRÂM · 20.09.2026</footer>
 
   <script src="js/config.js"></script>
@@ -1533,6 +1525,17 @@
       });
     })();
   </script>
+
+  <div class="marquee-wrapper">
+    <div class="marquee-content">
+      <span> SAVE THE DATE • LÊ CHUNG DŨNG & NGUYỄN THỊ CÚC TRÂM • 20.09.2026 • RẤT HÂN HẠNH ĐƯỢC ĐÓN TIẾP QUÝ KHÁCH </span>
+      <span> SAVE THE DATE • LÊ CHUNG DŨNG & NGUYỄN THỊ CÚC TRÂM • 20.09.2026 • RẤT HÂN HẠNH ĐƯỢC ĐÓN TIẾP QUÝ KHÁCH </span>
+    </div>
+  </div>
+
+</body>
+</html>
+
 </body>
 
 </html>
