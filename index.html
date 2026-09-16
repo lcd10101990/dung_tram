@@ -730,25 +730,27 @@ body.card-opened .floating {
 }
 /* --- HIỆU ỨNG TRƯỢT HIỆN KHI CUỘN TRANG --- */
 
-/* Tối ưu hiệu ứng: Trượt xa hơn (60px) & chậm mềm mại hơn (2.0s) */
+/* Tối ưu chống rung giật (Flicker) khi lướt ở mép màn hình */
 .reveal-left,
 .reveal-right,
 .reveal-top,
 .reveal-bottom {
   opacity: 0;
-  transition: opacity 2.0s cubic-bezier(0.25, 1, 0.5, 1), 
-              transform 2.0s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  /* Dùng cubic-bezier mượt hơn và thêm backface-visibility để cố định khung */
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  will-change: opacity, transform;
 }
 
-/* Khoảng cách trượt mở rộng ra 60px để thấy rõ đường đi */
-.reveal-left   { transform: translate3d(-60px, 0, 0); }
-.reveal-right  { transform: translate3d(60px, 0, 0); }
-.reveal-top    { transform: translate3d(0, -60px, 0); }
-.reveal-bottom { transform: translate3d(0, 60px, 0); }
+/* Giảm khoảng cách dời từ 60px xuống 30px-40px để tránh bị chênh lệch vùng chạm Observer quá lớn */
+.reveal-left   { transform: translate3d(-35px, 0, 0); }
+.reveal-right  { transform: translate3d(35px, 0, 0); }
+.reveal-top    { transform: translate3d(0, -35px, 0); }
+.reveal-bottom { transform: translate3d(0, 35px, 0); }
 
-/* Khi cuộn tới nơi -> Trượt mượt về vị trí chuẩn */
+/* Khi active */
 .reveal-left.active,
 .reveal-right.active,
 .reveal-top.active,
@@ -1621,21 +1623,24 @@ document.body.classList.add('card-opened');
     entries.forEach(entry => {
       requestAnimationFrame(() => {
         if (entry.isIntersecting) {
-          // Vào tầm mắt -> Thêm class để trượt
           entry.target.classList.add("active");
         } else {
-          // Ra khỏi tầm mắt -> Xóa class ngay lập tức để sẵn sàng cho lần cuộn tới
-          entry.target.classList.remove("active");
+          // Bắt buộc phần tử phải đi ra ngoài hẳn (dựa trên vị trí thực tế của khung nhìn) mới gỡ active
+          const rect = entry.boundingClientRect;
+          if (rect.top > window.innerHeight || rect.bottom < 0) {
+            entry.target.classList.remove("active");
+          }
         }
       });
     });
   }, {
-    threshold: 0.3,
-    rootMargin: "-50px 0px -80px 0px" // Khoảng lề hợp lý giúp nhận diện chính xác cả 2 chiều cuộn
+    threshold: 0, // Nhận diện ngay khi mép phần tử va chạm
+    rootMargin: "-30px 0px -30px 0px" // Tạo khoảng đệm an toàn 30px ở 2 mép trên/dưới
   });
 
   reveals.forEach(el => observer.observe(el));
 });
+
 
 </script>
 </body>
