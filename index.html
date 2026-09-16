@@ -1603,21 +1603,26 @@ document.body.classList.add('card-opened');
   </div>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const reveals = document.querySelectorAll(".reveal-left, .reveal-right, .reveal-top, .reveal-bottom");
+  const reveals = document.querySelectorAll(".reveal-left, .reveal-right, .reveal-top, .reveal-bottom");
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        }
-      });
-    }, {
-      threshold: 0.35, // Khi thẻ xuất hiện 35% trên màn hình thì chạy hiệu ứng
-    rootMargin: "0px 0px -80px 0px" // Bắt buộc phần tử phải cuộn vượt lên khỏi đáy màn hình 80px mới trượt vào
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Khi cuộn tới nơi -> Thêm class active để chạy hiệu ứng
+        entry.target.classList.add("active");
+      } else {
+        // Khi cuộn ra khỏi màn hình -> Gỡ class active để sẵn sàng trượt lại
+        entry.target.classList.remove("active");
+      }
     });
-
-    reveals.forEach(el => observer.observe(el));
+  }, {
+    threshold: 0.25,
+    rootMargin: "0px 0px -50px 0px"
   });
+
+  reveals.forEach(el => observer.observe(el));
+});
+
 </script>
 
 </body>
