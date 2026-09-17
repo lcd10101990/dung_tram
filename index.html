@@ -705,7 +705,7 @@
     transform: translateX(-50%);
   }
 }
-    /* Mặc định ẩn 2 nút Menu và Nhạc ở màn cover */
+    
 #menuToggle,
 #musicToggle,
 .floating {
@@ -716,7 +716,7 @@
   transition: opacity 0.3s ease;
 }
 
-/* Chỉ hiện 2 nút khi thiệp đã được mở */
+
 body.card-opened #menuToggle,
 body.card-opened #musicToggle,
 body.card-opened .floating {
@@ -728,15 +728,12 @@ body.card-opened .floating {
 .marquee-wrapper {
   z-index: 999990 !important;
 }
-/* --- HIỆU ỨNG TRƯỢT HIỆN KHI CUỘN TRANG --- */
 
-/* Tối ưu chống rung giật (Flicker) khi lướt ở mép màn hình */
 .reveal-left,
 .reveal-right,
 .reveal-top,
 .reveal-bottom {
   opacity: 0;
-  /* Dùng cubic-bezier mượt hơn và thêm backface-visibility để cố định khung */
   transition: opacity 2.8s cubic-bezier(0.16, 1, 0.3, 1), 
               transform 2.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
   backface-visibility: hidden;
@@ -744,13 +741,11 @@ body.card-opened .floating {
   will-change: opacity, transform;
 }
 
-/* Giảm khoảng cách dời từ 60px xuống 30px-40px để tránh bị chênh lệch vùng chạm Observer quá lớn */
 .reveal-left   { transform: translate3d(-35px, 0, 0); }
 .reveal-right  { transform: translate3d(35px, 0, 0); }
 .reveal-top    { transform: translate3d(0, -35px, 0); }
 .reveal-bottom { transform: translate3d(0, 35px, 0); }
 
-/* Khi active */
 .reveal-left.active,
 .reveal-right.active,
 .reveal-top.active,
@@ -761,13 +756,13 @@ body.card-opened .floating {
 
 
 
-    /* Chặn tràn lề toàn trang (sửa lỗi che marquee khi cuộn) */
+    
     html, body {
       overflow-x: hidden !important;
       max-width: 100vw;
     }
 
-    /* Cố định vị trí thanh chữ trượt ở đáy */
+  
     .marquee-wrapper {
       position: fixed !important;
       bottom: 0 !important;
@@ -835,7 +830,7 @@ body.card-opened .floating {
       <a class="hero-scroll" href="#invite"><span>KÉO XUỐNG</span><b>⌄</b></a>
     </div>
   </section>
-<!--+++-++++++--++++------note----------+++-++--->
+
 
 
   <section class="wedding-countdown" id="countdown">
@@ -878,7 +873,7 @@ body.card-opened .floating {
       </div>
       <div class="tiny-heading reveal-bottom">TRÂN TRỌNG BÁO TIN</div>
       <h1>LỄ VU QUY<br><em>CỦA CON CHÚNG TÔI</em></h1>
-            <!-- Tên Cô dâu (trượt từ trái sang) và Chú rể (trượt từ phải sang) -->
+           
       <div class="couple-names">
         <span data-bride class="reveal-left"></span>
         <b>♡</b>
@@ -1038,13 +1033,13 @@ body.card-opened .floating {
   <div class="bank-modal-content">
     <span class="bank-modal-close" id="closeBankModal">&times;</span>
     
-    <!-- Thanh chuyển tab Cô Dâu / Chú Rể -->
+    
     <div class="bank-tabs">
       <button type="button" class="bank-tab-btn active" data-tab="groom">CHÚ RỂ</button>
       <button type="button" class="bank-tab-btn " data-tab="bride">CÔ DÂU</button>
     </div>
 
-    <!-- Nội dung Tab CHÚ RỂ -->
+   
     <div class="bank-tab-content active" id="tab-groom">
       <div class="bank-modal-name" data-groom>Lê Chung Dũng</div>
       <div class="bank-modal-info">THÔNG TIN MỪNG CƯỚI</div>
@@ -1052,7 +1047,6 @@ body.card-opened .floating {
       <img id="qrImgGroom" class="bank-modal-qr" src="assets/qr-groom.png" alt="Mã QR Chú rể">
     </div>
 
-<!-- Nội dung Tab CÔ DÂU -->
     <div class="bank-tab-content" id="tab-bride">
       <div class="bank-modal-name" data-bride>Nguyễn Thị Cúc Trâm</div>
       <div class="bank-modal-info">THÔNG TIN MỪNG CƯỚI</div>
@@ -1106,7 +1100,6 @@ body.card-opened .floating {
       });
     }
 
-    // Xử lý chuyển tab Cô dâu / Chú rể
     tabBtns.forEach(btn => {
       btn.addEventListener('click', function () {
         const targetTab = this.getAttribute('data-tab');
@@ -1623,17 +1616,17 @@ document.body.classList.add('card-opened');
     entries.forEach(entry => {
       requestAnimationFrame(() => {
         if (entry.isIntersecting) {
-          // Vào tầm mắt -> Thêm class để trượt
+          
           entry.target.classList.add("active");
         } else {
-          // Ra khỏi tầm mắt -> Xóa class ngay lập tức để sẵn sàng cho lần cuộn tới
+       
           entry.target.classList.remove("active");
         }
       });
     });
   }, {
     threshold: 0.3,
-    rootMargin: "-100px 0px -160px 0px" // Khoảng lề hợp lý giúp nhận diện chính xác cả 2 chiều cuộn
+    rootMargin: "-100px 0px -160px 0px" 
   });
 
   reveals.forEach(el => observer.observe(el));
