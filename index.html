@@ -7,27 +7,17 @@
   <meta name="description" content="Thiệp cưới Dũng & Trâm — 20.09.2026">
   <title>Dũng & Trâm — 20.09.2026</title>
   
-  <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Critical font - Load only essential weights and styles -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Quicksand:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- Deferred secondary font -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
-  
-  <!-- Main stylesheet - optimized -->
-  <link rel="stylesheet" href="css/style-optimized.css">
-  
-  <!-- Favicon -->
+  <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
   
-  <!-- Inline critical CSS - above the fold content -->
   <style>
-    html { scroll-behavior: auto; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; }
     body { margin: 0; background: #fff; color: #403b38; font-family: Montserrat, Arial, sans-serif; overflow-x: hidden; }
     img { max-width: 100%; height: auto; display: block; }
     .hero { height: 100svh; min-height: 650px; position: relative; overflow: hidden; background: #eee; }
@@ -37,14 +27,12 @@
 </head>
 
 <body>
-  <!-- Preloader with minimal markup -->
   <div id="preloader" class="preloader">
     <div id="preloaderTitle" style="font-family:'Dancing Script', cursive; font-size:48px; color:#9f5f57; margin-bottom:8px; line-height:1.2; opacity:0; transition:opacity 0.25s ease;">Chung Dũng &amp; Cúc Trâm</div>
     <div style="font-family:'Montserrat', sans-serif; font-size:12px; letter-spacing:0.25em; color:#8e756b; margin-bottom:32px; text-transform:uppercase;">Save The Date · 20.09.2026</div>
     <button id="btnOpenWeddingCard" style="background:#9f5f57; color:#fff; border:none; padding:16px 38px; border-radius:50px; font-family:'Montserrat', sans-serif; font-size:13px; font-weight:600; letter-spacing:0.15em; cursor:pointer; box-shadow:0 8px 25px rgba(159,95,87,0.35); transition:transform 0.2s ease;">✉️ MỞ THIỆP CƯỚI</button>
   </div>
 
-  <!-- Navigation buttons -->
   <button class="floating menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <button class="floating music-toggle" id="musicToggle" aria-label="Nhạc">♪</button>
   <nav class="drawer" id="drawer">
@@ -57,7 +45,6 @@
     <a href="#wishes">Lời chúc</a>
   </nav>
 
-  <!-- Hero Section -->
   <section class="hero" id="home">
     <img id="heroImg" class="hero-image" alt="Dũng & Trâm" fetchpriority="high">
     <div class="hero-wash"></div>
@@ -70,7 +57,6 @@
     </div>
   </section>
 
-  <!-- Countdown Section -->
   <section class="wedding-countdown" id="countdown">
     <div class="countdown-kicker reveal-top">SAVE THE DATE</div>
     <h2 class="reveal-bottom">NGÀY TRỌNG ĐẠI</h2>
@@ -98,7 +84,6 @@
     </div>
   </section>
 
-  <!-- Invitation Section -->
   <section class="invite section-paper" id="invite">
     <div class="paper-card reveal">
       <div class="ornament-top">❦</div>
@@ -131,7 +116,6 @@
     </div>
   </section>
 
-  <!-- Couple Section -->
   <section class="couple section" id="couple">
     <header class="section-heading reveal"><span>OUR STORY</span><h2>The Best Is Yet to Come</h2><i>⌁ ❀ ⌁</i></header>
     <div class="couple-pair">
@@ -154,7 +138,6 @@
     </div>
   </section>
 
-  <!-- Story Section -->
   <section class="story section-paper" id="story">
     <header class="section-heading reveal"><span>MEMORIES</span><h2>CÂU CHUYỆN TÌNH YÊU</h2><i>⌁ ❀ ⌁</i></header>
     <div class="story-grid">
@@ -177,13 +160,11 @@
     </div>
   </section>
 
-  <!-- Gallery Section -->
   <section class="gallery section" id="gallery">
     <header class="section-heading reveal"><span>OUR MEMORIES</span><h2>ALBUM ẢNH CƯỚI</h2><i>⌁ ❀ ⌁</i></header>
     <div class="gallery-grid" id="galleryGrid"></div>
   </section>
 
-  <!-- Events Section -->
   <section class="events section-paper" id="events">
     <header class="section-heading reveal"><span>THE BIG DAY</span><h2>SỰ KIỆN</h2><i>⌁ ❀ ⌁</i></header>
     <div class="event-wrap">
@@ -204,7 +185,6 @@
     </div>
   </section>
 
-  <!-- Wishes Section -->
   <section class="wishes section" id="wishes">
     <header class="section-heading reveal"><span>WITH LOVE</span><h2>GỬI LỜI CHÚC TỚI<br>CÔ DÂU &amp; CHÚ RỂ</h2><i>⌁ ❀ ⌁</i></header>
     <div class="wish-container">
@@ -226,7 +206,6 @@
     </div>
   </section>
 
-  <!-- Gift & Bank Modal -->
   <div style="max-width: 450px; margin: 40px auto 0;">
     <div class="gift-box-card reveal" id="openBankModal">
       <div class="gift-box-title">Hộp lì xì</div>
@@ -260,7 +239,6 @@
     </div>
   </div>
 
-  <!-- Thanks Section -->
   <section class="thanks section-paper">
     <div class="thanks-inner reveal">
       <div class="thanks-flower">⌁</div>
@@ -272,12 +250,10 @@
     </div>
   </section>
 
-  <footer>CHUNG DŨNG & CÚC TRÂM · 20.09.2026</footer>
+  <footer>CHUNG DŨNG &amp; CÚC TRÂM · 20.09.2026</footer>
 
-  <!-- Fireworks Canvas -->
   <canvas id="fireworksCanvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999999;"></canvas>
 
-  <!-- Marquee -->
   <div class="marquee-wrapper">
     <div class="marquee-content">
       <span>SAVE THE DATE ◆ LỄ CHUNG DŨNG ◆ NGUYỄN THỊ CÚC TRÂM ◆ 20.09.2026 ◆ Two Hearts, One Journey</span>
@@ -287,11 +263,9 @@
     </div>
   </div>
 
-  <!-- Script preload & defer -->
   <script src="js/config.js" defer></script>
-  <script src="js/app-optimized.js" defer></script>
+  <script src="js/app.js" defer></script>
 
-  <!-- Font loading optimization -->
   <script>
     if (document.fonts) {
       document.fonts.ready.then(function () {
