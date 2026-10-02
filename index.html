@@ -248,7 +248,7 @@
       font-size: clamp(20px, 2vw, 26px)
     }
 
-
+    
     .gift-box-card {
       background: #ffffff;
       border: 1px solid #e6d6ce;
@@ -380,7 +380,7 @@
       white-space: pre-line;
     }
 
-
+    
     .bank-modal {
       display: none;
       position: fixed;
@@ -622,217 +622,157 @@
       }
     }
 
-    .bank-tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #e6d6ce;
-      width: 100%;
-      justify-content: center;
-    }
+.bank-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e6d6ce;
+  width: 100%;
+  justify-content: center;
+}
 
-    .bank-tab-btn {
-      background: none;
-      border: none;
-      padding: 8px 20px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      color: #8e756b;
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      margin-bottom: -2px;
-      transition: all 0.3s ease;
-    }
+.bank-tab-btn {
+  background: none;
+  border: none;
+  padding: 8px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #8e756b;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.3s ease;
+}
 
-    .bank-tab-btn.active {
-      color: #9f5f57;
-      border-bottom-color: #9f5f57;
-    }
+.bank-tab-btn.active {
+  color: #9f5f57;
+  border-bottom-color: #9f5f57;
+}
 
-    .bank-tab-content {
-      display: none;
-      width: 100%;
-    }
+.bank-tab-content {
+  display: none;
+  width: 100%;
+}
 
-    .bank-tab-content.active {
-      display: block;
-    }
+.bank-tab-content.active {
+  display: block;
+}
 
     body {
-      overflow-x: hidden;
-      padding-bottom: 45px !important;
-    }
+  overflow-x: hidden;
+  padding-bottom: 45px !important; 
+}
 
-    .marquee-wrapper {
-      position: fixed !important;
-      bottom: 0 !important;
-      left: 0 !important;
-      width: 100vw !important;
-      z-index: 999999 !important;
-      overflow: hidden !important;
-      background: #9f5f57;
-      color: #ffffff;
-      padding: 10px 0;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
-      pointer-events: auto;
-    }
+.marquee-wrapper {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  z-index: 999999 !important;
+  overflow: hidden !important;
+  background: #9f5f57;
+  color: #ffffff;
+  padding: 10px 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+  pointer-events: auto;
+}
 
-    .marquee-content {
-      display: flex !important;
-      width: max-content !important;
-      white-space: nowrap !important;
-      will-change: transform;
-      animation: marqueeScroll 18s linear infinite !important;
-    }
+.marquee-content {
+  display: flex !important;
+  width: max-content !important;
+  white-space: nowrap !important;
+  will-change: transform;
+  animation: marqueeScroll 18s linear infinite !important;
+}
 
-    .marquee-content span {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding-right: 60px;
-      flex-shrink: 0;
-    }
+.marquee-content span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding-right: 60px;
+  flex-shrink: 0;
+}
 
-    @keyframes marqueeScroll {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    #menuToggle,
-    #musicToggle,
-    .floating {
-      opacity: 0 !important;
-      pointer-events: none !important;
-      bottom: 43px !important;
-      z-index: 9999999 !important;
-      transition: opacity 0.3s ease;
-    }
-
-
-    body.card-opened #menuToggle,
-    body.card-opened #musicToggle,
-    body.card-opened .floating {
-      opacity: 1 !important;
-      pointer-events: auto !important;
-    }
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+    
+#menuToggle,
+#musicToggle,
+.floating {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  bottom: 43px !important; 
+  z-index: 9999999 !important;
+  transition: opacity 0.3s ease;
+}
 
 
-    .marquee-wrapper {
-      z-index: 999990 !important;
-    }
+body.card-opened #menuToggle,
+body.card-opened #musicToggle,
+body.card-opened .floating {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
 
-    .reveal-left,
-    .reveal-right,
-    .reveal-top,
-    .reveal-bottom {
-      opacity: 0;
-      transition: opacity 2.8s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 2.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      will-change: opacity, transform;
-    }
 
-    .reveal-left {
-      transform: translate3d(-135px, 0, 0);
-    }
+.marquee-wrapper {
+  z-index: 999990 !important;
+}
 
-    .reveal-right {
-      transform: translate3d(135px, 0, 0);
-    }
+.reveal-left,
+.reveal-right,
+.reveal-top,
+.reveal-bottom {
+  opacity: 0;
+  transition: opacity 2.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 2.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: opacity, transform;
+}
 
-    .reveal-top {
-      transform: translate3d(0, -35px, 0);
-    }
+.reveal-left   { transform: translate3d(-35px, 0, 0); }
+.reveal-right  { transform: translate3d(35px, 0, 0); }
+.reveal-top    { transform: translate3d(0, -35px, 0); }
+.reveal-bottom { transform: translate3d(0, 35px, 0); }
 
-    .reveal-bottom {
-      transform: translate3d(0, 35px, 0);
-    }
-
-    .delay-1 {
-      transition-delay: 0.3s !important;
-    }
-
-    .delay-2 {
-      transition-delay: 0.6s !important;
-    }
-
-    .delay-3 {
-      transition-delay: 1.2s !important;
-    }
-
-    .reveal-left.active,
-    .reveal-right.active,
-    .reveal-top.active,
-    .reveal-bottom.active {
-      opacity: 1 !important;
-      transform: translate3d(0, 0, 0) !important;
-    }
+.reveal-left.active,
+.reveal-right.active,
+.reveal-top.active,
+.reveal-bottom.active {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
+}
 
 
 
-
-    html,
-    body {
+    
+    html, body {
       overflow-x: hidden !important;
       max-width: 100vw;
     }
 
-
-   
+  
     .marquee-wrapper {
       position: fixed !important;
       bottom: 0 !important;
       left: 0 !important;
       right: 0 !important;
-      width: 100% !important;
-      height: 40px !important;
-      display: flex !important;
-      align-items: center !important;
-      overflow: hidden !important;
       z-index: 999990 !important;
       transform: translateZ(0);
       -webkit-transform: translateZ(0);
-     
-    }
-      .marquee-content {
-      display: flex !important;
-      align-items: center !important;
-      width: max-content !important;
-      white-space: nowrap !important;
-      animation: marquee-infinite 20s linear infinite !important;
-      will-change: transform;
     }
 
-    .marquee-content span {
-      display: inline-flex !important;
-      align-items: center !important;
-      padding-right: 25px;
-      
-    }
-
-    @keyframes marquee-infinite {
-      0% {
-        transform: translate3d(0, 0, 0);
-      }
-
-      100% {
-        transform: translate3d(-50%, 0, 0);
-      }
-    }
-
-    .parents {
-      overflow: hidden !important;
-    }
   </style>
 </head>
 
@@ -842,7 +782,7 @@
     style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#faf7f4;z-index:9999999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;box-sizing:border-box;">
     <div id="preloaderTitle"
       style="font-family:'Dancing Script', 'Great Vibes', 'Brush Script MT', cursive; font-size:48px; color:#9f5f57; margin-bottom:8px; line-height:1.2; opacity:0; transition:opacity 0.25s ease;">
-      Dũng &amp; Trâm
+      Chung Dũng &amp; Cúc Trâm
     </div>
     <div
       style="font-family:'Montserrat', sans-serif; font-size:12px; letter-spacing:0.25em; color:#8e756b; margin-bottom:32px; text-transform:uppercase;">
@@ -872,7 +812,7 @@
     aria-label="Menu"><span></span><span></span><span></span></button>
   <button class="floating music-toggle" id="musicToggle" aria-label="Nhạc">♪</button>
   <nav class="drawer" id="drawer">
-    <a href="#home">Trang đầu</a><a href="#invite">Thiệp mời</a><a href="#couple">Chúng tôi cưới</a>
+    <a href="#home">Trang đầu</a><a href="#invite">Thiệp mời</a><a href="#couple">The Best Is Yet to Come</a>
     <a href="#story">Câu chuyện</a><a href="#gallery">Album</a><a href="#events">Sự kiện</a><a href="#wishes">Lời
       chúc</a>
   </nav>
@@ -881,13 +821,11 @@
     <img id="heroImg" class="hero-image" alt="">
     <div class="hero-wash"></div>
     <div class="hero-vignette"></div>
-    <div class="hero-copy reveal-top delay-3">
-      <div class="hero-save">SAVE THE DATE</div>
+    <div class="hero-copy">
+      <div class="hero-save">Love, Laughter, and Happily Ever After </div>
       <div class="hero-date" data-date></div>
       <div class="hero-script" data-short-names></div>
       <div class="hero-line"></div>
-      <div class="hero-sub">TRÂN TRỌNG KÍNH MỜI</div>
-      <a class="hero-scroll" href="#invite"><span>KÉO XUỐNG</span><b>⌄</b></a>
     </div>
   </section>
 
@@ -895,7 +833,7 @@
 
   <section class="wedding-countdown" id="countdown">
     <div class="countdown-kicker reveal-top">SAVE THE DATE</div>
-    <h2 class="reveal-bottom delay-1">ĐẾM NGƯỢC NGÀY TRỌNG ĐẠI</h2>
+    <h2 class="reveal-bottom">NGÀY TRỌNG ĐẠI</h2>
     <div class="countdown-events">
       <div class="countdown-event">
         <div class="countdown-label reveal-top">NGÀY VU QUY</div>
@@ -924,31 +862,27 @@
     <div class="paper-card reveal">
       <div class="ornament-top">❦</div>
       <div class="parents">
-        <div class="reveal-left">
-          <small>NHÀ TRAI</small>
-          <strong data-groom-parent></strong>
+        <div><small>NHÀ TRAI</small><strong data-groom-parent></strong>
           <p data-groom-address></p>
         </div>
-        <div class="reveal-right">
-          <small>NHÀ GÁI</small>
-          <strong data-bride-parent></strong>
+        <div><small>NHÀ GÁI</small><strong data-bride-parent></strong>
           <p data-bride-address></p>
         </div>
       </div>
       <div class="tiny-heading reveal-bottom">TRÂN TRỌNG BÁO TIN</div>
-      <h1 class="reveal-top delay-3">LỄ VU QUY<br><em>CỦA CON CHÚNG TÔI</em></h1>
-
+      <h1>LỄ VU QUY<br><em>CỦA CON CHÚNG TÔI</em></h1>
+           
       <div class="couple-names">
         <span data-bride class="reveal-left"></span>
-        <b class="reveal-top delay-1">♡</b>
+        <b>♡</b>
         <span data-groom class="reveal-right"></span>
       </div>
 
       <div class="roman reveal-bottom">TRƯỞNG NỮ &nbsp; ♡ &nbsp; TRƯỞNG NAM</div>
       <div class="rule reveal-top"></div>
 
-      <div class="ceremony-label reveal-bottom">HÔN LỄ ĐƯỢC CỬ HÀNH TẠI TƯ GIA NỮ</div>
-      <div class="date-lockup reveal-top"><span data-ceremony-time></span><b>14/09</b><span>2026</span></div>
+      <div class="ceremony-label">HÔN LỄ ĐƯỢC CỬ HÀNH TẠI TƯ GIA NỮ</div>
+      <div class="date-lockup"><span data-ceremony-time></span><b>14/09</b><span>2026</span></div>
       <div class="lunar0" data-lunar0></div>
       <div class="ornament-bottom">❦</div>
       <div class="rule"></div>
@@ -965,7 +899,7 @@
 
   <section class="couple section" id="couple">
     <header class="section-heading reveal"><span>OUR STORY</span>
-      <h2>CHÚNG TÔI CƯỚI</h2><i>⌁ ❀ ⌁</i>
+      <h2>The Best Is Yet to Come</h2><i>⌁ ❀ ⌁</i>
     </header>
     <div class="couple-pair">
       <article class="person reveal">
@@ -1094,90 +1028,91 @@
   </div>
 
   <div class="bank-modal" id="bankModal">
-    <div class="bank-modal-content">
-      <span class="bank-modal-close" id="closeBankModal">&times;</span>
-
-
-      <div class="bank-tabs">
-        <button type="button" class="bank-tab-btn active" data-tab="groom">CHÚ RỂ</button>
-        <button type="button" class="bank-tab-btn " data-tab="bride">CÔ DÂU</button>
-      </div>
-
-
-      <div class="bank-tab-content active" id="tab-groom">
-        <div class="bank-modal-name" data-groom>Lê Chung Dũng</div>
-        <div class="bank-modal-info">THÔNG TIN MỪNG CƯỚI</div>
-        <div class="bank-modal-acc">MOMO: 0389590718</div>
-        <img id="qrImgGroom" class="bank-modal-qr" src="assets/qr-groom.png" alt="Mã QR Chú rể">
-      </div>
-
-      <div class="bank-tab-content" id="tab-bride">
-        <div class="bank-modal-name" data-bride>Nguyễn Thị Cúc Trâm</div>
-        <div class="bank-modal-info">THÔNG TIN MỪNG CƯỚI</div>
-        <div class="bank-modal-acc">MB BANK: 0335983739</div>
-        <img id="qrImgBride" class="bank-modal-qr" src="assets/qr-bride.png" alt="Mã QR Cô dâu">
-      </div>
-
+  <div class="bank-modal-content">
+    <span class="bank-modal-close" id="closeBankModal">&times;</span>
+    
+    
+    <div class="bank-tabs">
+      <button type="button" class="bank-tab-btn active" data-tab="groom">CHÚ RỂ</button>
+      <button type="button" class="bank-tab-btn " data-tab="bride">CÔ DÂU</button>
     </div>
+
+   
+    <div class="bank-tab-content active" id="tab-groom">
+      <div class="bank-modal-name" data-groom>Lê Chung Dũng</div>
+      <div class="bank-modal-info">THÔNG TIN MỪNG CƯỚI</div>
+      <div class="bank-modal-acc">MOMO: 0389590718</div>
+      <img id="qrImgGroom" class="bank-modal-qr" src="assets/qr-groom.png" alt="Mã QR Chú rể">
+    </div>
+
+    <div class="bank-tab-content" id="tab-bride">
+      <div class="bank-modal-name" data-bride>Nguyễn Thị Cúc Trâm</div>
+      <div class="bank-modal-info">THÔNG TIN MỪNG CƯỚI</div>
+      <div class="bank-modal-acc">MB BANK: 0335983739</div>
+      <img id="qrImgBride" class="bank-modal-qr" src="assets/qr-bride.png" alt="Mã QR Cô dâu">
+    </div>
+    
   </div>
+</div>
 
-
+  
   <section class="thanks section-paper">
     <div class="thanks-inner reveal">
       <div class="thanks-flower">❀</div>
       <div class="thanks-script">Thank You!!!</div>
-      <p>Sự hiện diện của quý khách là niềm vinh dự và niềm vui lớn đối với gia đình chúng tôi.</p>
+      <p>Một lần nữa, Chung Dũng và Cúc Trâm xin trân trọng gửi lời cảm ơn sâu sắc nhất đến tất cả mọi người.</p>
+      <p>Chúc mọi người luôn thật nhiều sức khỏe, hạnh phúc và bình an! 💖.</p>
       <div class="thanks-names" data-short-names></div>
       <div class="thanks-date" data-date></div>
     </div>
   </section>
-  <footer>DŨNG &amp; TRÂM · 20.09.2026</footer>
+  <footer>CHUNG DŨNG &amp; CÚC TRÂM · 20.09.2026</footer>
 
   <script src="js/config.js"></script>
   <script src="js/app.js"></script>
 
-  <script id="bank-modal-script">
-    (function () {
-      const openBtn = document.getElementById('openBankModal');
-      const modal = document.getElementById('bankModal');
-      const closeBtn = document.getElementById('closeBankModal');
-      const tabBtns = document.querySelectorAll('.bank-tab-btn');
-      const tabContents = document.querySelectorAll('.bank-tab-content');
+<script id="bank-modal-script">
+  (function () {
+    const openBtn = document.getElementById('openBankModal');
+    const modal = document.getElementById('bankModal');
+    const closeBtn = document.getElementById('closeBankModal');
+    const tabBtns = document.querySelectorAll('.bank-tab-btn');
+    const tabContents = document.querySelectorAll('.bank-tab-content');
 
-      if (openBtn && modal) {
-        openBtn.addEventListener('click', function () {
-          modal.classList.add('active');
-        });
-      }
-
-      if (closeBtn && modal) {
-        closeBtn.addEventListener('click', function () {
-          modal.classList.remove('active');
-        });
-      }
-
-      if (modal) {
-        modal.addEventListener('click', function (e) {
-          if (e.target === modal) {
-            modal.classList.remove('active');
-          }
-        });
-      }
-
-      tabBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-          const targetTab = this.getAttribute('data-tab');
-
-          tabBtns.forEach(b => b.classList.remove('active'));
-          tabContents.forEach(c => c.classList.remove('active'));
-
-          this.classList.add('active');
-          const activeContent = document.getElementById('tab-' + targetTab);
-          if (activeContent) activeContent.classList.add('active');
-        });
+    if (openBtn && modal) {
+      openBtn.addEventListener('click', function () {
+        modal.classList.add('active');
       });
-    })();
-  </script>
+    }
+
+    if (closeBtn && modal) {
+      closeBtn.addEventListener('click', function () {
+        modal.classList.remove('active');
+      });
+    }
+
+    if (modal) {
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+    }
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', function () {
+        const targetTab = this.getAttribute('data-tab');
+
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        this.classList.add('active');
+        const activeContent = document.getElementById('tab-' + targetTab);
+        if (activeContent) activeContent.classList.add('active');
+      });
+    });
+  })();
+</script>
 
 
   <script id="countdown-script">
@@ -1230,11 +1165,11 @@
     })();
   </script>
 
-  <script id="force-luxury-fx">
-    (function () {
-      const isMobile = window.innerWidth <= 700;
-      const style = document.createElement('style');
-      style.textContent = `
+<script id="force-luxury-fx">
+  (function () {
+    const isMobile = window.innerWidth <= 700;
+    const style = document.createElement('style');
+    style.textContent = `
     #forceWeddingFX {
       position: fixed !important; top: 0 !important; left: 0 !important;
       width: 100vw !important; height: 100vh !important;
@@ -1251,41 +1186,41 @@
       100% { transform: translate3d(var(--dx), 105vh, 0) rotate(360deg); }
     }
   `;
-      document.head.appendChild(style);
+    document.head.appendChild(style);
 
-      function runFX() {
-        let container = document.getElementById('forceWeddingFX');
-        if (container) container.remove();
+    function runFX() {
+      let container = document.getElementById('forceWeddingFX');
+      if (container) container.remove();
 
-        container = document.createElement('div');
-        container.id = 'forceWeddingFX';
+      container = document.createElement('div');
+      container.id = 'forceWeddingFX';
 
-        const count = isMobile ? 10 : 22;
-        const r = (a, b) => Math.random() * (b - a) + a;
-        const roses = ['🌹', '🌸', '🏵️'];
+      const count = isMobile ? 10 : 22;
+      const r = (a, b) => Math.random() * (b - a) + a;
+      const roses = ['🌹', '🌸', '🏵️']; 
 
-        for (let i = 0; i < count; i++) {
-          const p = document.createElement('span');
-          p.className = 'fx-rose';
-          p.textContent = roses[Math.floor(Math.random() * roses.length)];
-          p.style.setProperty('--x', r(0, 95) + 'vw');
-          p.style.setProperty('--s', r(14, 22) + 'px');
-          p.style.setProperty('--o', r(0.6, 0.85));
-          p.style.setProperty('--t', r(8, 14) + 's');
-          p.style.setProperty('--d', r(-12, 0) + 's');
-          p.style.setProperty('--dx', r(-8, 8) + 'vw');
-          container.appendChild(p);
-        }
-        document.body.appendChild(container);
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('span');
+        p.className = 'fx-rose';
+        p.textContent = roses[Math.floor(Math.random() * roses.length)];
+        p.style.setProperty('--x', r(0, 95) + 'vw');
+        p.style.setProperty('--s', r(14, 22) + 'px');
+        p.style.setProperty('--o', r(0.6, 0.85));
+        p.style.setProperty('--t', r(8, 14) + 's');
+        p.style.setProperty('--d', r(-12, 0) + 's');
+        p.style.setProperty('--dx', r(-8, 8) + 'vw');
+        container.appendChild(p);
       }
+      document.body.appendChild(container);
+    }
 
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', runFX);
-      } else {
-        runFX();
-      }
-    })();
-  </script>
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', runFX);
+    } else {
+      runFX();
+    }
+  })();
+</script>
 
 
   <script id="auto-music-script">
@@ -1366,7 +1301,7 @@
         btnOpen.addEventListener('click', function (e) {
           e.stopPropagation();
           window.scrollTo(0, 0);
-          document.body.classList.add('card-opened');
+document.body.classList.add('card-opened');
           audio.play().then(() => {
             if (musicBtn) {
               musicBtn.classList.add('playing');
@@ -1668,43 +1603,37 @@
 
   <div class="marquee-wrapper">
     <div class="marquee-content">
-      <span>SAVE THE DATE • LÊ CHUNG DŨNG & NGUYỄN THỊ CÚC TRÂM • 20.09.2026 • RẤT HÂN HẠNH ĐƯỢC ĐÓN TIẾP QUÝ KHÁCH
-        •&nbsp;</span>
-      <span>SAVE THE DATE • LÊ CHUNG DŨNG & NGUYỄN THỊ CÚC TRÂM • 20.09.2026 • RẤT HÂN HẠNH ĐƯỢC ĐÓN TIẾP QUÝ KHÁCH
-        •&nbsp;</span>
-      <span>SAVE THE DATE • LÊ CHUNG DŨNG & NGUYỄN THỊ CÚC TRÂM • 20.09.2026 • RẤT HÂN HẠNH ĐƯỢC ĐÓN TIẾP QUÝ KHÁCH
-        •&nbsp;</span>
-      <span>SAVE THE DATE • LÊ CHUNG DŨNG & NGUYỄN THỊ CÚC TRÂM • 20.09.2026 • RẤT HÂN HẠNH ĐƯỢC ĐÓN TIẾP QUÝ KHÁCH
-        •&nbsp;</span>
+      <span> SAVE THE DATE • LÊ CHUNG DŨNG ❤️ NGUYỄN THỊ CÚC TRÂM • 20.09.2026 •Two Hearts, One Journey</span>
+      <span> SAVE THE DATE • LÊ CHUNG DŨNG ❤️ NGUYỄN THỊ CÚC TRÂM • 20.09.2026 •Two Hearts, One Journey</span>
+      <span> SAVE THE DATE • LÊ CHUNG DŨNG ❤️ NGUYỄN THỊ CÚC TRÂM • 20.09.2026 •Two Hearts, One Journey</span>
+      <span> SAVE THE DATE • LÊ CHUNG DŨNG ❤️ NGUYỄN THỊ CÚC TRÂM • 20.09.2026 •Two Hearts, One Journey</span>
     </div>
   </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const reveals = document.querySelectorAll(".reveal-left, .reveal-right, .reveal-top, .reveal-bottom");
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const reveals = document.querySelectorAll(".reveal-left, .reveal-right, .reveal-top, .reveal-bottom");
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          requestAnimationFrame(() => {
-            if (entry.isIntersecting) {
-
-              entry.target.classList.add("active");
-            } else {
-
-              entry.target.classList.remove("active");
-            }
-          });
-        });
-      }, {
-        threshold: 0.3,
-        rootMargin: "-100px 0px -160px 0px"
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      requestAnimationFrame(() => {
+        if (entry.isIntersecting) {
+          
+          entry.target.classList.add("active");
+        } else {
+       
+          entry.target.classList.remove("active");
+        }
       });
-
-      reveals.forEach(el => observer.observe(el));
     });
+  }, {
+    threshold: 0.3,
+    rootMargin: "-100px 0px -160px 0px" 
+  });
+
+  reveals.forEach(el => observer.observe(el));
+});
 
 
-  </script>
+</script>
 </body>
-
 </html>
