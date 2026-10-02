@@ -1,283 +1,551 @@
-<!doctype html>
-<html lang="vi">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#faf7f4">
-  <meta name="description" content="Thiệp cưới Dũng & Trâm — 20.09.2026">
-  <title>Dũng & Trâm — 20.09.2026</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Quicksand:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
-  
-  <style>
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body { margin: 0; background: #fff; color: #403b38; font-family: Montserrat, Arial, sans-serif; overflow-x: hidden; }
-    img { max-width: 100%; height: auto; display: block; }
-    .hero { height: 100svh; min-height: 650px; position: relative; overflow: hidden; background: #eee; }
-    .hero-image { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-    .preloader { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #faf7f4; z-index: 9999999; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; box-sizing: border-box; }
-  </style>
-</head>
+const W = window.WEDDING || {};
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => document.querySelectorAll(sel);
 
-<body>
-  <div id="preloader" class="preloader">
-    <div id="preloaderTitle" style="font-family:'Dancing Script', cursive; font-size:48px; color:#9f5f57; margin-bottom:8px; line-height:1.2; opacity:0; transition:opacity 0.25s ease;">Chung Dũng &amp; Cúc Trâm</div>
-    <div style="font-family:'Montserrat', sans-serif; font-size:12px; letter-spacing:0.25em; color:#8e756b; margin-bottom:32px; text-transform:uppercase;">Save The Date · 20.09.2026</div>
-    <button id="btnOpenWeddingCard" style="background:#9f5f57; color:#fff; border:none; padding:16px 38px; border-radius:50px; font-family:'Montserrat', sans-serif; font-size:13px; font-weight:600; letter-spacing:0.15em; cursor:pointer; box-shadow:0 8px 25px rgba(159,95,87,0.35); transition:transform 0.2s ease;">✉️ MỞ THIỆP CƯỚI</button>
-  </div>
+function fill(sel, value) {
+  $$(sel).forEach((node) => {
+    node.textContent = value ?? '';
+  });
+}
 
-  <button class="floating menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
-  <button class="floating music-toggle" id="musicToggle" aria-label="Nhạc">♪</button>
-  <nav class="drawer" id="drawer">
-    <a href="#home">Trang đầu</a>
-    <a href="#invite">Thiệp mời</a>
-    <a href="#couple">The Best Is Yet to Come</a>
-    <a href="#story">Câu chuyện</a>
-    <a href="#gallery">Album</a>
-    <a href="#events">Sự kiện</a>
-    <a href="#wishes">Lời chúc</a>
-  </nav>
+function fillHTML(sel, value) {
+  $$(sel).forEach((node) => {
+    node.innerHTML = value ?? '';
+  });
+}
 
-  <section class="hero" id="home">
-    <img id="heroImg" class="hero-image" alt="Dũng & Trâm" fetchpriority="high">
-    <div class="hero-wash"></div>
-    <div class="hero-vignette"></div>
-    <div class="hero-copy">
-      <div class="hero-save">Love, Laughter, and Happily Ever After</div>
-      <div class="hero-date" data-date></div>
-      <div class="hero-script" data-short-names></div>
-      <div class="hero-line"></div>
-    </div>
-  </section>
+function setAttr(sel, attr, value) {
+  const node = $(sel);
+  if (node && value) node.setAttribute(attr, value);
+}
 
-  <section class="wedding-countdown" id="countdown">
-    <div class="countdown-kicker reveal-top">SAVE THE DATE</div>
-    <h2 class="reveal-bottom">NGÀY TRỌNG ĐẠI</h2>
-    <div class="countdown-events">
-      <div class="countdown-event">
-        <div class="countdown-label reveal-top">NGÀY VU QUY</div>
-        <div class="countdown-date reveal-bottom">14 · 09 · 2026</div>
-        <div class="countdown-boxes">
-          <div class="countdown-box"><strong id="cd-bride-days">--</strong><span>Ngày</span></div>
-          <div class="countdown-box"><strong id="cd-bride-hours">--</strong><span>Giờ</span></div>
-          <div class="countdown-box"><strong id="cd-bride-minutes">--</strong><span>Phút</span></div>
-          <div class="countdown-box"><strong id="cd-bride-seconds">--</strong><span>Giây</span></div>
-        </div>
-      </div>
-      <div class="countdown-event">
-        <div class="countdown-label reveal-top">NGÀY THÀNH HÔN</div>
-        <div class="countdown-date reveal-bottom">20 · 09 · 2026</div>
-        <div class="countdown-boxes">
-          <div class="countdown-box"><strong id="cd-groom-days">--</strong><span>Ngày</span></div>
-          <div class="countdown-box"><strong id="cd-groom-hours">--</strong><span>Giờ</span></div>
-          <div class="countdown-box"><strong id="cd-groom-minutes">--</strong><span>Phút</span></div>
-          <div class="countdown-box"><strong id="cd-groom-seconds">--</strong><span>Giây</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+function parseDate(value) {
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
 
-  <section class="invite section-paper" id="invite">
-    <div class="paper-card reveal">
-      <div class="ornament-top">❦</div>
-      <div class="parents">
-        <div><small>NHÀ TRAI</small><strong data-groom-parent></strong><p data-groom-address></p></div>
-        <div><small>NHÀ GÁI</small><strong data-bride-parent></strong><p data-bride-address></p></div>
-      </div>
-      <div class="tiny-heading reveal-bottom">TRÂN TRỌNG BÁO TIN</div>
-      <h1>LỄ VU QUY<br><em>CỦA CON CHÚNG TÔI</em></h1>
-      <div class="couple-names">
-        <span data-bride class="reveal-left"></span>
-        <b>♡</b>
-        <span data-groom class="reveal-right"></span>
-      </div>
-      <div class="roman reveal-bottom">TRƯỞNG NỮ &nbsp; ♡ &nbsp; TRƯỞNG NAM</div>
-      <div class="rule reveal-top"></div>
-      <div class="ceremony-label">HÔN LỄ ĐƯỢC CỬ HÀNH TẠI TƯ GIA NỮ</div>
-      <div class="date-lockup"><span data-ceremony-time></span><b>14/09</b><span>2026</span></div>
-      <div class="lunar0" data-lunar0></div>
-      <div class="ornament-bottom">❦</div>
-      <div class="rule"></div>
-      <h1>LỄ THÀNH HÔN<br><em>CỦA CON CHÚNG TÔI</em></h1>
-      <div class="couple-names"><span data-groom></span><b>♡</b><span data-bride></span></div>
-      <div class="roman">TRƯỞNG NAM &nbsp; ♡ &nbsp; TRƯỞNG NỮ</div>
-      <div class="rule"></div>
-      <div class="ceremony-label">HÔN LỄ ĐƯỢC CỬ HÀNH TẠI TƯ GIA NAM</div>
-      <div class="date-lockup"><span data-ceremony-time></span><b>20/09</b><span>2026</span></div>
-      <div class="lunar" data-lunar></div>
-      <div class="ornament-bottom">❦</div>
-    </div>
-  </section>
+function updateCountDown(targetId, targetDate) {
+  const el = document.getElementById(targetId);
+  if (!el) return;
 
-  <section class="couple section" id="couple">
-    <header class="section-heading reveal"><span>OUR STORY</span><h2>The Best Is Yet to Come</h2><i>⌁ ❀ ⌁</i></header>
-    <div class="couple-pair">
-      <article class="person reveal">
-        <div class="polaroid"><img id="groomImg" alt="Chú rể" loading="lazy" decoding="async"></div>
-        <div class="person-role">CHÚ RỂ</div>
-        <h3 data-groom></h3>
-        <p>Người đàn ông may mắn khi gặp được người con gái mà mình muốn cùng đi hết quãng đường còn lại.</p>
-      </article>
-      <article class="person reveal">
-        <div class="polaroid tilt-right"><img id="brideImg" alt="Cô dâu" loading="lazy" decoding="async"></div>
-        <div class="person-role">CÔ DÂU</div>
-        <h3 data-bride></h3>
-        <p>Cảm ơn anh đã đến, ở lại và cùng em viết tiếp câu chuyện mang tên gia đình.</p>
-      </article>
-    </div>
-    <div class="family-strip reveal">
-      <div><span>CHA MẸ NHÀ TRAI</span><b data-groom-parent></b><small>An Khê · Gia Lai</small></div>
-      <div><span>CHA MẸ NHÀ GÁI</span><b data-bride-parent></b><small>Bình An · Gia Lai</small></div>
-    </div>
-  </section>
+  const now = new Date();
+  const diff = Math.max(0, targetDate.getTime() - now.getTime());
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
 
-  <section class="story section-paper" id="story">
-    <header class="section-heading reveal"><span>MEMORIES</span><h2>CÂU CHUYỆN TÌNH YÊU</h2><i>⌁ ❀ ⌁</i></header>
-    <div class="story-grid">
-      <article class="story-item reveal">
-        <div class="story-photo"><img id="story1" alt="Lần đầu gặp gỡ" loading="lazy" decoding="async"></div>
-        <div class="story-copy"><span>01</span><h3>LẦN ĐẦU GẶP GỠ</h3><p>Một cuộc gặp tưởng như bình thường lại trở thành điểm bắt đầu cho một hành trình rất đặc biệt.</p></div>
-      </article>
-      <article class="story-item reverse reveal">
-        <div class="story-photo"><img id="story2" alt="Hẹn hò" loading="lazy" decoding="async"></div>
-        <div class="story-copy"><span>02</span><h3>HẸN HÒ</h3><p>Từ những câu chuyện nhỏ, chúng tôi dần nhận ra mình muốn có nhau trong những ngày phía trước.</p></div>
-      </article>
-      <article class="story-item reveal">
-        <div class="story-photo"><img id="story3" alt="Ngày ta yêu nhau" loading="lazy" decoding="async"></div>
-        <div class="story-copy"><span>03</span><h3>NGÀY TA YÊU NHAU</h3><p>Không cần một khoảnh khắc quá lớn lao. Chỉ cần cả hai cùng tin rằng sau này vẫn sẽ chọn nắm tay nhau.</p></div>
-      </article>
-      <article class="story-item reverse reveal">
-        <div class="story-photo"><img id="story4" alt="Về chung một nhà" loading="lazy" decoding="async"></div>
-        <div class="story-copy"><span>04</span><h3>VỀ CHUNG MỘT NHÀ</h3><p>20.09.2026 — một dấu mốc để bắt đầu chương mới, bình dị nhưng thật đẹp.</p></div>
-      </article>
-    </div>
-  </section>
+  const daysEl = document.getElementById(targetId.replace('groom', 'groom').replace('bride', 'bride'));
+  //@ts-ignore
+  if (targetId.includes('bride')) {
+    document.getElementById('cd-bride-days').textContent = String(days).padStart(2, '0');
+    document.getElementById('cd-bride-hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('cd-bride-minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('cd-bride-seconds').textContent = String(seconds).padStart(2, '0');
+    return;
+  }
 
-  <section class="gallery section" id="gallery">
-    <header class="section-heading reveal"><span>OUR MEMORIES</span><h2>ALBUM ẢNH CƯỚI</h2><i>⌁ ❀ ⌁</i></header>
-    <div class="gallery-grid" id="galleryGrid"></div>
-  </section>
+  document.getElementById('cd-groom-days').textContent = String(days).padStart(2, '0');
+  document.getElementById('cd-groom-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('cd-groom-minutes').textContent = String(minutes).padStart(2, '0');
+  document.getElementById('cd-groom-seconds').textContent = String(seconds).padStart(2, '0');
+}
 
-  <section class="events section-paper" id="events">
-    <header class="section-heading reveal"><span>THE BIG DAY</span><h2>SỰ KIỆN</h2><i>⌁ ❀ ⌁</i></header>
-    <div class="event-wrap">
-      <div class="event-art reveal">
-        <div class="art-ring">WEDDING<br><em>DAY</em></div>
-        <div class="art-leaf">❧</div>
-      </div>
-      <div class="event-list">
-        <article class="event-card reveal"><span>TIỆC CƯỚI NHÀ GÁI</span><h3>Nhà hàng tiệc cưới<br>THANH CHƯƠNG</h3>
-          <div class="event-time"><b>🕥10:30</b><small data-bride-party-date></small></div>
-          <p data-bride-party-address></p><a id="brideMap" target="_blank" rel="noopener">🌏XEM BẢN ĐỒ ↗</a>
-        </article>
-        <article class="event-card reveal"><span>TIỆC CƯỚI NHÀ TRAI</span><h3>TƯ GIA NAM</h3>
-          <div class="event-time"><b>🕥10:30</b><small data-groom-party-date></small></div>
-          <p data-groom-party-address></p><a id="groomMap" target="_blank" rel="noopener">🌏XEM BẢN ĐỒ ↗</a>
-        </article>
-      </div>
-    </div>
-  </section>
+function initCountdown() {
+  const brideDate = parseDate('2026-09-14T10:30:00+07:00');
+  const weddingDate = parseDate(W.dateISO || '2026-09-20T10:30:00+07:00');
 
-  <section class="wishes section" id="wishes">
-    <header class="section-heading reveal"><span>WITH LOVE</span><h2>GỬI LỜI CHÚC TỚI<br>CÔ DÂU &amp; CHÚ RỂ</h2><i>⌁ ❀ ⌁</i></header>
-    <div class="wish-container">
-      <div>
-        <form class="wish-form reveal" id="wishForm">
-          <input type="text" name="name" required maxlength="80" autocomplete="name" placeholder="Tên của bạn">
-          <textarea name="message" required maxlength="1000" rows="4" placeholder="Lời chúc dành cho Dũng & Trâm..."></textarea>
-          <input class="wish-honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button type="submit" id="wishSubmit">GỬI LỜI CHÚC</button>
-          <div class="wish-status" id="wishStatus" role="status" aria-live="polite"></div>
-        </form>
-      </div>
-      <div class="wish-list-box reveal">
-        <div class="wish-list-title">Lời chúc dành cho Dũng & Trâm ✨</div>
-        <div id="wishListBox">
-          <div style="text-align:center; color:#8e756b; font-family:'Montserrat', sans-serif; font-size:13px; padding:20px;">Đang tải danh sách lời chúc...</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div style="max-width: 450px; margin: 40px auto 0;">
-    <div class="gift-box-card reveal" id="openBankModal">
-      <div class="gift-box-title">Hộp lì xì</div>
-      <div class="gift-icon-wrap">
-        <div class="gift-arrow">⤴️</div>
-        <div class="gift-envelope">🎁</div>
-      </div>
-      <button type="button" class="gift-box-btn">GỬI MÓN QUÀNG</button>
-    </div>
-  </div>
-
-  <div class="bank-modal" id="bankModal">
-    <div class="bank-modal-content">
-      <span class="bank-modal-close" id="closeBankModal">&times;</span>
-      <div class="bank-tabs">
-        <button type="button" class="bank-tab-btn active" data-tab="groom">CHÚ RỂ</button>
-        <button type="button" class="bank-tab-btn" data-tab="bride">CÔ DÂU</button>
-      </div>
-      <div class="bank-tab-content active" id="tab-groom">
-        <div class="bank-modal-name" data-groom>Lê Chung Dũng</div>
-        <div class="bank-modal-info">THÔNG TIN NGÂN HÀNG</div>
-        <div class="bank-modal-acc">MOMO: 0389590718</div>
-        <img id="qrImgGroom" class="bank-modal-qr" src="assets/qr-groom.png" alt="Mã QR Chú rể">
-      </div>
-      <div class="bank-tab-content" id="tab-bride">
-        <div class="bank-modal-name" data-bride>Nguyễn Thị Cúc Trâm</div>
-        <div class="bank-modal-info">THÔNG TIN NGÂN HÀNG</div>
-        <div class="bank-modal-acc">MB BANK: 0335983739</div>
-        <img id="qrImgBride" class="bank-modal-qr" src="assets/qr-bride.png" alt="Mã QR Cô dâu">
-      </div>
-    </div>
-  </div>
-
-  <section class="thanks section-paper">
-    <div class="thanks-inner reveal">
-      <div class="thanks-flower">⌁</div>
-      <div class="thanks-script">Thank You!!!</div>
-      <p>Mệt hay mừng, Chung Dũng và Cúc Trâm xin trân trọng cảm ơn sự hiện diện, chúc phúc, và hỗ trợ của tất cả mọi người trong ngày hạnh phúc nhất của chúng tôi.</p>
-      <p>Chúc mừng ngày hôn lễ của chúng tôi, hãy cùng chúng tôi viết tiếp câu chuyện tình yêu! 💕</p>
-      <div class="thanks-names" data-short-names></div>
-      <div class="thanks-date" data-date></div>
-    </div>
-  </section>
-
-  <footer>CHUNG DŨNG &amp; CÚC TRÂM · 20.09.2026</footer>
-
-  <canvas id="fireworksCanvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999999;"></canvas>
-
-  <div class="marquee-wrapper">
-    <div class="marquee-content">
-      <span>SAVE THE DATE ◆ LỄ CHUNG DŨNG ◆ NGUYỄN THỊ CÚC TRÂM ◆ 20.09.2026 ◆ Two Hearts, One Journey</span>
-      <span>SAVE THE DATE ◆ LỄ CHUNG DŨNG ◆ NGUYỄN THỊ CÚC TRÂM ◆ 20.09.2026 ◆ Two Hearts, One Journey</span>
-      <span>SAVE THE DATE ◆ LỄ CHUNG DŨNG ◆ NGUYỄN THỊ CÚC TRÂM ◆ 20.09.2026 ◆ Two Hearts, One Journey</span>
-      <span>SAVE THE DATE ◆ LỄ CHUNG DŨNG ◆ NGUYỄN THỊ CÚC TRÂM ◆ 20.09.2026 ◆ Two Hearts, One Journey</span>
-    </div>
-  </div>
-
-  <script src="js/config.js" defer></script>
-  <script src="js/app.js" defer></script>
-
-  <script>
-    if (document.fonts) {
-      document.fonts.ready.then(function () {
-        const title = document.getElementById('preloaderTitle');
-        if (title) title.style.opacity = '1';
-      });
-    } else {
-      window.addEventListener('load', function () {
-        const title = document.getElementById('preloaderTitle');
-        if (title) title.style.opacity = '1';
-      });
+  const tick = () => {
+    if (brideDate) {
+      const now = new Date();
+      const diff = Math.max(0, brideDate.getTime() - now.getTime());
+      document.getElementById('cd-bride-days').textContent = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+      document.getElementById('cd-bride-hours').textContent = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+      document.getElementById('cd-bride-minutes').textContent = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+      document.getElementById('cd-bride-seconds').textContent = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
     }
-  </script>
-</body>
-</html>
+
+    if (weddingDate) {
+      const now = new Date();
+      const diff = Math.max(0, weddingDate.getTime() - now.getTime());
+      document.getElementById('cd-groom-days').textContent = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+      document.getElementById('cd-groom-hours').textContent = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+      document.getElementById('cd-groom-minutes').textContent = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+      document.getElementById('cd-groom-seconds').textContent = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+    }
+  };
+
+  tick();
+  setInterval(tick, 1000);
+}
+
+function setupRevealOnScroll() {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  $$('.reveal').forEach((node) => observer.observe(node));
+}
+
+function setupGallery() {
+  const grid = $('#galleryGrid');
+  if (!grid || !Array.isArray(W.images?.gallery)) return;
+
+  W.images.gallery.forEach((src, i) => {
+    const figure = document.createElement('figure');
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = `Ảnh cưới ${i + 1}`;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    figure.appendChild(img);
+    grid.appendChild(figure);
+  });
+}
+
+function setupNavigation() {
+  const drawer = $('#drawer');
+  const menuToggle = $('#menuToggle');
+  const navLinks = $$('.drawer a');
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      if (drawer) drawer.classList.toggle('open');
+    });
+  }
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => drawer?.classList.remove('open'));
+  });
+}
+
+function setupMusic() {
+  const musicToggle = $('#musicToggle');
+  if (!musicToggle) return;
+
+  const audio = new Audio('music/wedding.mp3');
+  audio.loop = true;
+  audio.volume = 0.35;
+
+  musicToggle.addEventListener('click', async () => {
+    try {
+      if (audio.paused) {
+        await audio.play();
+        musicToggle.classList.add('playing');
+        musicToggle.textContent = '♫';
+      } else {
+        audio.pause();
+        musicToggle.classList.remove('playing');
+        musicToggle.textContent = '♫';
+      }
+    } catch (error) {
+      console.warn('Audio not available:', error);
+    }
+  });
+}
+
+function setupPreloader() {
+  const preloader = $('#preloader');
+  const openButton = $('#btnOpenWeddingCard');
+
+  if (!preloader || !openButton) return;
+
+  openButton.addEventListener('click', () => {
+    preloader.classList.add('hidden');
+  });
+
+  window.addEventListener('load', () => {
+    setTimeout(() => preloader.classList.add('hidden'), 500);
+  });
+}
+
+function setupWishForm() {
+  const form = $('#wishForm');
+  const submitButton = $('#wishSubmit');
+  const status = $('#wishStatus');
+
+  if (!form || !status) return;
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const name = form.elements.name.value.trim();
+    const message = form.elements.message.value.trim();
+    const website = form.elements.website.value.trim();
+
+    if (!name || !message) {
+      status.textContent = 'Vui lòng nhập tên và lời chúc.';
+      status.classList.add('error');
+      return;
+    }
+
+    if (website) {
+      status.textContent = 'Yêu cầu không hợp lệ.';
+      status.classList.add('error');
+      return;
+    }
+
+    if (submitButton) submitButton.disabled = true;
+    status.textContent = 'Đang gửi lời chúc...';
+    status.classList.remove('error', 'success');
+
+    try {
+      if (!W.wishEndpoint) {
+        throw new Error('No endpoint');
+      }
+
+      const body = new URLSearchParams();
+      body.set('name', name);
+      body.set('message', message);
+      body.set('website', '');
+
+      await fetch(W.wishEndpoint, {
+        method: 'POST',
+        body,
+        mode: 'no-cors',
+        redirect: 'follow'
+      });
+
+      status.textContent = `💌 Cảm ơn ${name}! Lời chúc đã được gửi.`;
+      status.classList.add('success');
+      form.reset();
+    } catch (error) {
+      console.error(error);
+      status.textContent = 'Không gửi được lúc này. Vui lòng thử lại sau.';
+      status.classList.add('error');
+    } finally {
+      if (submitButton) submitButton.disabled = false;
+    }
+  });
+}
+
+function setupWishList() {
+  const box = $('#wishListBox');
+  if (!box) return;
+
+  const samples = [
+    { name: 'Mẹ', text: 'Chúc hai bạn hạnh phúc, luôn yêu thương nhau và sống thật vui vẻ bên nhau.' },
+    { name: 'Bạn thân', text: 'Chúc cho một cuộc sống mới luôn đầy ắp tiếng cười, bình an và yêu thương.' },
+    { name: 'Gia đình', text: 'Mong hai bạn sớm có một ngôi nhà ấm áp, trọn vẹn hạnh phúc.' }
+  ];
+
+  box.innerHTML = samples
+    .map((item) => `
+      <div class="wish-item">
+        <strong>${item.name}</strong>
+        <p>${item.text}</p>
+      </div>
+    `)
+    .join('');
+}
+
+function populateData() {
+  fill('[data-groom]', W.groom);
+  fill('[data-bride]', W.bride);
+  fill('[data-short-names]', W.shortNames);
+  fill('[data-date]', W.dateText);
+  fill('[data-groom-parent]', W.groomParent);
+  fill('[data-bride-parent]', W.brideParent);
+  fill('[data-lunar0]', W.lunar0);
+  fill('[data-lunar]', W.lunar);
+  fill('[data-ceremony-time]', W.ceremonyTime);
+  fillHTML('[data-groom-address]', W.groomAddress);
+  fillHTML('[data-bride-address]', W.brideAddress);
+  fillHTML('[data-groom-party-address]', W.groomPartyAddress);
+  fillHTML('[data-bride-party-address]', W.bridePartyAddress);
+  fillHTML('[data-bride-party-date]', `${W.bridePartyWeekday}<br>${W.bridePartyDate}`);
+  fillHTML('[data-groom-party-date]', `${W.groomPartyWeekday}<br>${W.groomPartyDate}`);
+
+  $('#heroImg') && $('#heroImg').setAttribute('src', W.images?.cover || 'assets/01-cover.jpg');
+  $('#groomImg') && $('#groomImg').setAttribute('src', W.images?.groom || 'assets/04-groom.jpg');
+  $('#brideImg') && $('#brideImg').setAttribute('src', W.images?.brideCard || 'assets/05-bride-card.jpg');
+
+  ['story1', 'story2', 'story3', 'story4'].forEach((id, index) => {
+    const node = document.getElementById(id);
+    if (node) node.setAttribute('src', W.images?.story?.[index] || 'assets/06-story-01.jpg');
+  });
+
+  if (W.maps?.bride) document.getElementById('brideMap')?.setAttribute('href', W.maps.bride);
+  if (W.maps?.groom) document.getElementById('groomMap')?.setAttribute('href', W.maps.groom);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  populateData();
+  setupGallery();
+  setupRevealOnScroll();
+  setupNavigation();
+  setupPreloader();
+  setupWishForm();
+  setupWishList();
+  initCountdown();
+  setupMusic();
+});
+
+window.addEventListener('beforeunload', () => {
+  document.body.classList.add('loading');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+after this
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
