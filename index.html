@@ -758,7 +758,6 @@
       transform: translate3d(0, 35px, 0);
     }
 
-    /* Các mức độ trễ tùy chọn */
     .delay-1 {
       transition-delay: 0.3s !important;
     }
@@ -789,7 +788,7 @@
     }
 
 
-    /* Khung bao ngoài - Căn giữa trục dọc tuyệt đối */
+   
     .marquee-wrapper {
       position: fixed !important;
       bottom: 0 !important;
@@ -799,16 +798,13 @@
       height: 40px !important;
       display: flex !important;
       align-items: center !important;
-      /* Căn chữ chính giữa theo chiều cao */
       overflow: hidden !important;
       z-index: 999990 !important;
       transform: translateZ(0);
       -webkit-transform: translateZ(0);
-      /* KHÔNG đặt background ở đây để giữ nguyên màu nền cũ từ file HTML */
+     
     }
-
-    /* Dải chứa nội dung di chuyển */
-    .marquee-content {
+      .marquee-content {
       display: flex !important;
       align-items: center !important;
       width: max-content !important;
@@ -817,16 +813,13 @@
       will-change: transform;
     }
 
-    /* Thẻ span - Giữ nguyên màu sắc & Style cũ */
     .marquee-content span {
       display: inline-flex !important;
       align-items: center !important;
       padding-right: 25px;
-      /* Khoảng cách nối đuôi giữa các câu */
-      /* KHÔNG đặt color hay font-size ở đây để nhận toàn bộ màu sắc & font cũ */
+      
     }
 
-    /* Animation trượt mượt vô tận */
     @keyframes marquee-infinite {
       0% {
         transform: translate3d(0, 0, 0);
@@ -837,7 +830,6 @@
       }
     }
 
-    /* Chống vỡ khung/tràn lề ngang khi Nhà Trai & Nhà Gái trượt từ 2 bên vào */
     .parents {
       overflow: hidden !important;
     }
